@@ -1,3 +1,7 @@
+use cl_parser::Config;
+use std::env;
 fn main() {
-    println!("Hello, world!");
+    
+    let config = Config::build(env::args());
+
 }
