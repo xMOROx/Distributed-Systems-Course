@@ -2,7 +2,7 @@
 Repository for Distributed Systems course at AGH UST 
 
 ## Labs 
-- [Lab 1](https://github.com/xMOROx/Distributed-Systems-Course/tree/main/socket_server)
+- [Lab 1](https://github.com/xMOROx/Distributed-Systems-Course/tree/main/server_socket)
 - [Lab 2]()
 - [Lab 3]()
 - [Lab 4]()
