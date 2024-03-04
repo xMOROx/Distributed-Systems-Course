@@ -1,0 +1,11 @@
+[package]
+name = "server"
+version = "0.1.0"
+edition = "2021"
+authors = ["xMOxROx 57092803+xMOROx@users.noreply.github.com"]
+license = "MIT"
+
+[dependencies]
+cl_parser = {path = "../core/cl_parser", version = "0.1.0"}
+threads = {path = "../core/threads", version = "0.1.0"}
+

@@ -1,0 +1,7 @@
+[workspace]
+
+members = [
+    "server",
+    "core/threads",
+    "core/cl_parser",
+]
