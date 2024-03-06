@@ -1,0 +1,10 @@
+[package]
+name = "client"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+cl_parser = {path = "../core/cl_parser", version = "0.1.0"}
+threads = {path = "../core/threads", version = "0.1.0"}
+
+
