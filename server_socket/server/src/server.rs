@@ -1,15 +1,7 @@
-use std::net::{
-    TcpListener,
-    TcpStream,
-    Ipv4Addr,
-    SocketAddr,
-    SocketAddrV4,
-    Shutdown
-};
-use std::{thread, time};
+use std::io::{self, Read, Write};
+use std::net::{Ipv4Addr, Shutdown, SocketAddr, SocketAddrV4, TcpListener, TcpStream};
+use std::sync::mpsc::{self, Receiver, Sender};
 use std::sync::{Arc, Mutex};
-use std::marker::Sized;
-use std::io::{ self, Read, Write };
 
 use cl_parser::Config;
 use threads::ThreadPool;
@@ -17,59 +9,53 @@ use threads::ThreadPool;
 use crate::client::Client;
 
 pub struct Server {
-    pub listener: Arc<TcpListener>,
-    pub clients: Arc<Mutex<Vec<Arc<Mutex<Client>>>>>,
+    pub listener: TcpListener,
     pub pool: ThreadPool,
+    pub clients_count: usize,
+    pub clients_sender: Arc<Mutex<Vec<Sender<String>>>>,
 }
 
 impl Server {
     pub fn new(config: Config) -> Self {
         let listener = TcpListener::bind(config.build_socket()).unwrap();
 
-        println!("Creating server on address {} and port {}", config.ip_address, config.port);
+        println!(
+            "Creating server on address {} and port {}",
+            config.ip_address, config.port
+        );
 
         Server {
-            listener: Arc::new(listener),
-            clients: Arc::new(Mutex::new(vec![])),
+            listener,
             pool: ThreadPool::build(config.number_of_threads),
+            clients_count: 0,
+            clients_sender: Arc::new(Mutex::new(Vec::new())),
         }
     }
-    
+
     pub fn listen(&mut self) {
-        let temp_clients = Arc::clone(&self.clients);
-        let mut id:usize = 0;
+        let mut id: usize = 0;
+
         for stream in self.listener.incoming() {
             match stream {
-                Ok(s) =>  {
-                    println!("{:?}",s.peer_addr());
-
-                    let mut thread_clients = temp_clients.lock().unwrap();
-                    let client = Client::new(s, id);
-                    let client = Arc::new(Mutex::new(client));
-
-                    thread_clients.push(client.clone());
-
-                    let pass_client:Vec<_> = thread_clients
-                        .iter()
-                        .map(|c| Arc::clone(&c))
-                        .collect();
+                Ok(s) => {
+                    println!("{:?}", s.peer_addr());
+                    let mut client = Client::new(s, id);
+                    self.clients_count += 1;
+                    let clients_sender = Arc::clone(&self.clients_sender);
 
                     self.pool.execute(move || {
-                        loop {
-                            let sender = pass_client.get(id).unwrap().lock().unwrap();
-                            println!("{sender:#?}");
-                            thread::sleep(std::time::Duration::from_millis(300));
-                        }
+                        let (tx, rx) = mpsc::channel::<String>();
+                        let clone_senders = Arc::clone(&clients_sender);
+                        clone_senders.lock().unwrap().push(tx.clone());
+                        client.handle_client(rx, clone_senders).unwrap();
                     });
+
                     id += 1;
                 }
                 Err(_) => {
                     eprintln!("Error while parsing incoming stream");
                 }
-            } 
-
-            
+            }
         }
     }
-    
 }
