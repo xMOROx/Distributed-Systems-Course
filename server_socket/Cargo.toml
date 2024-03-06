@@ -2,6 +2,7 @@
 
 members = [
     "server",
+    "client",
     "core/threads",
     "core/cl_parser",
 ]

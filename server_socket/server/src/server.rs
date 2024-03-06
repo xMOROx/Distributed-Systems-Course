@@ -1,7 +1,7 @@
-use std::io::{self, Read, Write};
-use std::net::{Ipv4Addr, Shutdown, SocketAddr, SocketAddrV4, TcpListener, TcpStream};
-use std::sync::mpsc::{self, Receiver, Sender};
+use std::net::{TcpListener, TcpStream};
+use std::sync::mpsc::{self, Sender};
 use std::sync::{Arc, Mutex};
+use std::thread;
 
 use cl_parser::Config;
 use threads::ThreadPool;
@@ -12,7 +12,7 @@ pub struct Server {
     pub listener: TcpListener,
     pub pool: ThreadPool,
     pub clients_count: usize,
-    pub clients_sender: Arc<Mutex<Vec<Sender<String>>>>,
+    pub clients_sender: Arc<Mutex<Vec<Arc<Mutex<TcpStream>>>>>,
 }
 
 impl Server {
@@ -42,12 +42,14 @@ impl Server {
                     let mut client = Client::new(s, id);
                     self.clients_count += 1;
                     let clients_sender = Arc::clone(&self.clients_sender);
+                    let client_stream = Arc::new(Mutex::new(client.stream.try_clone().unwrap()));
 
                     self.pool.execute(move || {
-                        let (tx, rx) = mpsc::channel::<String>();
-                        let clone_senders = Arc::clone(&clients_sender);
-                        clone_senders.lock().unwrap().push(tx.clone());
-                        client.handle_client(rx, clone_senders).unwrap();
+                        clients_sender
+                            .lock()
+                            .unwrap()
+                            .push(Arc::clone(&client_stream));
+                        client.handle_client(clients_sender);
                     });
 
                     id += 1;

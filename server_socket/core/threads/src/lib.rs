@@ -1,4 +1,6 @@
 use std::{
+    io::{Read, Write},
+    net::{Shutdown, TcpStream},
     sync::{mpsc, Arc, Mutex},
     thread,
 };
@@ -16,31 +18,31 @@ struct Worker {
 }
 
 impl ThreadPool {
-    pub fn build(number_of_threads:usize) -> Self {
-       Self::check_non_zero_value(number_of_threads);
+    pub fn build(number_of_threads: usize) -> Self {
+        Self::check_non_zero_value(number_of_threads);
 
-       let (sender, receiver) = mpsc::channel();
+        let (sender, receiver) = mpsc::channel();
 
-       let receiver = Arc::new(Mutex::new(receiver));
+        let receiver = Arc::new(Mutex::new(receiver));
 
-       let mut workers = Vec::with_capacity(number_of_threads);
+        let mut workers = Vec::with_capacity(number_of_threads);
 
-       for id in 0..number_of_threads {
-           workers.push(Worker::new(id, Arc::clone(&receiver)));
-       }
+        for id in 0..number_of_threads {
+            workers.push(Worker::new(id, Arc::clone(&receiver)));
+        }
 
-       ThreadPool {
-           workers,
-           sender:Some(sender),
-       }
+        ThreadPool {
+            workers,
+            sender: Some(sender),
+        }
     }
 
-    fn check_non_zero_value(arg:usize) {
+    fn check_non_zero_value(arg: usize) {
         if arg == 0 {
             panic!("Argument cannot be zero");
         }
     }
-    
+
     pub fn execute<F>(&self, f: F)
     where
         F: FnOnce() + Send + 'static,
@@ -48,6 +50,20 @@ impl ThreadPool {
         let job = Box::new(f);
 
         self.sender.as_ref().unwrap().send(job).unwrap();
+    }
+}
+
+impl Drop for ThreadPool {
+    fn drop(&mut self) {
+        drop(self.sender.take());
+
+        for worker in &mut self.workers {
+            println!("Shutting down worker {}", worker.id);
+
+            if let Some(thread) = worker.thread.take() {
+                thread.join().unwrap();
+            }
+        }
     }
 }
 
