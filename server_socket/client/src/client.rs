@@ -1,6 +1,6 @@
-use std::io::{self, Read, Write};
+use std::io::{Read, Write};
 use std::net::TcpStream;
-use std::sync::mpsc::{self, Receiver, Sender};
+use std::sync::mpsc::{self, Sender};
 
 use cl_parser::Config;
 use threads::ThreadPool;
@@ -33,7 +33,9 @@ impl Client {
                         break;
                     }
                     let message = String::from_utf8_lossy(&buffer[..n]).to_string();
-                    println!("Message from: {}", message);
+                    if (message.trim().len() > 0) {
+                        println!("Message from: {}", message);
+                    }
                 }
                 Err(e) => {
                     eprintln!("Error while reading message: {}", e);

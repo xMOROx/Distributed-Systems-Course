@@ -1,16 +1,8 @@
 use cl_parser::Config;
 use client::client::Client;
-use core::time;
-use std::io::Write;
 use std::{
     env,
-    io::{self, Read},
-    net::TcpStream,
-    sync::{
-        mpsc::{self, Sender},
-        Arc, Mutex,
-    },
-    thread,
+    io::{self, Write},
 };
 
 fn main() {
@@ -23,7 +15,10 @@ fn main() {
 
     loop {
         let mut buffer = String::new();
+        print!("> ");
+        io::stdout().flush().unwrap();
+
         io::stdin().read_line(&mut buffer).unwrap();
-        tx.send(buffer).unwrap();
+        tx.send(buffer.trim().to_string()).unwrap();
     }
 }
