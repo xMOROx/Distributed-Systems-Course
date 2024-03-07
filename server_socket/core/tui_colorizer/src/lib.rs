@@ -9,6 +9,7 @@ pub enum TuiColor {
     Black,
     Clear,
     Bold,
+    Purple,
 }
 
 impl TuiColor {
@@ -24,6 +25,7 @@ impl TuiColor {
             TuiColor::Black => "\x1b[30m" as &str,
             TuiColor::Clear => "\x1b[0m" as &str,
             TuiColor::Bold => "\x1b[1m" as &str,
+            TuiColor::Purple => "\x1b[35m" as &str,
         }
     }
 

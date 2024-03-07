@@ -4,6 +4,7 @@ use std::sync::mpsc::{self, Sender};
 
 use cl_parser::Config;
 use threads::ThreadPool;
+use tui_colorizer::TuiColor;
 
 const BUFFER_SIZE: usize = 1024;
 
@@ -33,8 +34,10 @@ impl Client {
                         break;
                     }
                     let message = String::from_utf8_lossy(&buffer[..n]).to_string();
-                    if (message.trim().len() > 0) {
+                    if !Client::check_if_message_contains_only_zeros(&message) {
                         println!("Message from: {}", message);
+                        print!("{}", TuiColor::Red.paint("> "));
+                        std::io::stdout().flush().unwrap();
                     }
                 }
                 Err(e) => {
@@ -57,5 +60,9 @@ impl Client {
         });
 
         tx
+    }
+
+    fn check_if_message_contains_only_zeros(message: &str) -> bool {
+        message.as_bytes().iter().all(|&x| x == 0)
     }
 }

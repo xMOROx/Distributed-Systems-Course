@@ -4,6 +4,7 @@ use std::{
     env,
     io::{self, Write},
 };
+use tui_colorizer::TuiColor;
 
 fn main() {
     let config = Config::build(env::args());
@@ -15,7 +16,7 @@ fn main() {
 
     loop {
         let mut buffer = String::new();
-        print!("> ");
+        print!("{}", TuiColor::Red.paint("> "));
         io::stdout().flush().unwrap();
 
         io::stdin().read_line(&mut buffer).unwrap();

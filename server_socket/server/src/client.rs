@@ -44,7 +44,15 @@ impl Client {
                 Ok(message) => {
                     let payload = Client::compose_payload(&message, self.id);
 
+                    println!(
+                        "{}",
+                        TuiColor::Purple.paint("*************************************")
+                    );
                     println!("Message from client<{}>: {}", self.id, message);
+                    println!(
+                        "{}",
+                        TuiColor::Purple.paint("*************************************")
+                    );
 
                     client_streams
                         .lock()
