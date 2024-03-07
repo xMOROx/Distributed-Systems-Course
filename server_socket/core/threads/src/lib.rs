@@ -1,6 +1,4 @@
 use std::{
-    io::{Read, Write},
-    net::{Shutdown, TcpStream},
     sync::{mpsc, Arc, Mutex},
     thread,
 };
@@ -74,12 +72,9 @@ impl Worker {
 
             match message {
                 Ok(job) => {
-                    println!("Worker {id} got a job; executing.");
-
                     job();
                 }
                 Err(_) => {
-                    println!("Worker {id} disconnected; shutting down.");
                     break;
                 }
             }
