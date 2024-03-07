@@ -5,4 +5,5 @@ members = [
     "client",
     "core/threads",
     "core/cl_parser",
+    "core/tui_colorizer"
 ]

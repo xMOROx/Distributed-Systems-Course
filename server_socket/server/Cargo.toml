@@ -8,4 +8,6 @@ license = "MIT"
 [dependencies]
 cl_parser = {path = "../core/cl_parser", version = "0.1.0"}
 threads = {path = "../core/threads", version = "0.1.0"}
+tui_colorizer = {path = "../core/tui_colorizer", version = "0.1.0"}
+
 

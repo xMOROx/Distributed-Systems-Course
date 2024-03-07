@@ -1,18 +1,16 @@
-use std::net::{TcpListener, TcpStream};
-use std::sync::mpsc::{self, Sender};
+use crate::{client::Client, ClientStreams};
+
+use std::net::TcpListener;
 use std::sync::{Arc, Mutex};
-use std::thread;
 
 use cl_parser::Config;
 use threads::ThreadPool;
-
-use crate::client::Client;
+use tui_colorizer::TuiColor;
 
 pub struct Server {
     pub listener: TcpListener,
     pub pool: ThreadPool,
-    pub clients_count: usize,
-    pub clients_sender: Arc<Mutex<Vec<Arc<Mutex<TcpStream>>>>>,
+    pub clients_streams: ClientStreams,
 }
 
 impl Server {
@@ -21,14 +19,14 @@ impl Server {
 
         println!(
             "Creating server on address {} and port {}",
-            config.ip_address, config.port
+            TuiColor::Green.bold_paint(config.ip_address.as_str()),
+            TuiColor::Green.bold_paint(config.port.to_string().as_str())
         );
 
         Server {
             listener,
             pool: ThreadPool::build(config.number_of_threads),
-            clients_count: 0,
-            clients_sender: Arc::new(Mutex::new(Vec::new())),
+            clients_streams: Arc::new(Mutex::new(Vec::new())),
         }
     }
 
@@ -40,16 +38,15 @@ impl Server {
                 Ok(s) => {
                     println!("{:?}", s.peer_addr());
                     let mut client = Client::new(s, id);
-                    self.clients_count += 1;
-                    let clients_sender = Arc::clone(&self.clients_sender);
-                    let client_stream = Arc::new(Mutex::new(client.stream.try_clone().unwrap()));
+                    let clients_streams: ClientStreams = Arc::clone(&self.clients_streams);
+                    let client_stream = Arc::new(Mutex::new(client.clone()));
 
                     self.pool.execute(move || {
-                        clients_sender
+                        clients_streams
                             .lock()
                             .unwrap()
                             .push(Arc::clone(&client_stream));
-                        client.handle_client(clients_sender);
+                        client.handle_client(clients_streams);
                     });
 
                     id += 1;
