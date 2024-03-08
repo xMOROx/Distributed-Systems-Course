@@ -35,34 +35,40 @@ impl Client {
         }
     }
 
+    pub fn formated_received_message(message: &str, id: usize, protocol: Option<&str>) -> () {
+        let protocol = match protocol {
+            Some(p) => p,
+            None => "TCP",
+        };
+        println!(
+            "{}{}{}{}",
+            TuiColor::Purple.paint("=-=-=-=-=-=-==>> "),
+            TuiColor::Yellow.bold_paint(format!("[{}]", protocol).as_str()),
+            TuiColor::Blue.bold_paint(format!("Client<{}>", id).as_str()),
+            TuiColor::Purple.paint(" <<==--=-=-=-=-=-")
+        );
+        println!("{}", message);
+        println!(
+            "{}{}{}{}",
+            TuiColor::Purple.paint("=-=-=-=-=-=-==>> "),
+            TuiColor::Yellow.bold_paint(format!("[{}]", protocol).as_str()),
+            TuiColor::Blue.bold_paint(format!("Client<{}>", id).as_str()),
+            TuiColor::Purple.paint(" <<==--=-=-=-=-=-")
+        );
+        println!("");
+    }
+
     fn handle_tcp_without_error_handling(
         &mut self,
         client_streams: ClientStreams,
     ) -> Result<(), Box<dyn Error>> {
         loop {
-            match Client::receive_message_from_client(&mut self.stream) {
+            match Client::receive_tcp_message_from_client(&mut self.stream) {
                 Ok(message) => {
                     let payload = Client::compose_payload(&message, self.id);
 
-                    println!(
-                        "{}",
-                        TuiColor::Purple.paint("*************************************")
-                    );
-                    println!("Message from client<{}>: {}", self.id, message);
-                    println!(
-                        "{}",
-                        TuiColor::Purple.paint("*************************************")
-                    );
-
-                    client_streams
-                        .lock()
-                        .unwrap()
-                        .iter()
-                        .filter(|client| client.lock().unwrap().id != self.id)
-                        .for_each(|client| {
-                            let mut client = client.lock().unwrap();
-                            Client::send_message_to_client(&mut client, &payload).unwrap();
-                        });
+                    Self::formated_received_message(&message, self.id, None);
+                    Self::resend_message_to_client(&client_streams, &payload, self.id)?;
                 }
                 Err(_) => {
                     eprintln!("Error while reading from stream");
@@ -74,26 +80,48 @@ impl Client {
         Ok(())
     }
 
-    fn send_message_to_client(client: &mut Client, message: &str) -> Result<(), Box<dyn Error>> {
-        client.stream.write_all(message.as_bytes())?;
-        println!(
-            "{}",
-            TuiColor::Green.paint("=====================================")
-        );
-        println!(
-            "Sent to {}",
-            TuiColor::Cyan.bold_paint(format!("client<{}>", client.id).as_str())
-        );
-        println!("Message: {}", message.trim());
-        println!(
-            "{}",
-            TuiColor::Green.paint("=====================================")
-        );
+    fn resend_message_to_client(
+        client_streams: &ClientStreams,
+        message: &str,
+        id: usize,
+    ) -> Result<(), Box<dyn Error>> {
+        client_streams
+            .lock()
+            .unwrap()
+            .iter()
+            .filter(|client| client.lock().unwrap().id != id)
+            .for_each(|client| {
+                let mut client = client.lock().unwrap();
+                Client::send_tcp_formated_message_to_client(&mut client, message).unwrap();
+            });
 
         Ok(())
     }
 
-    fn receive_message_from_client(mut client: &TcpStream) -> Result<String, Box<dyn Error>> {
+    fn send_tcp_formated_message_to_client(
+        client: &mut Client,
+        message: &str,
+    ) -> Result<(), Box<dyn Error>> {
+        client.stream.write_all(message.as_bytes())?;
+        println!(
+            "{}{}{}",
+            TuiColor::Green.paint("==============| "),
+            TuiColor::Cyan.bold_paint(format!("client<{}>", client.id).as_str()),
+            TuiColor::Green.paint(" |==============")
+        );
+        println!("{}", message.trim());
+        println!(
+            "{}{}{}",
+            TuiColor::Green.paint("==============| "),
+            TuiColor::Cyan.bold_paint(format!("client<{}>", client.id).as_str()),
+            TuiColor::Green.paint(" |==============")
+        );
+        println!("");
+
+        Ok(())
+    }
+
+    fn receive_tcp_message_from_client(mut client: &TcpStream) -> Result<String, Box<dyn Error>> {
         let mut buffer = [0; SIZE_OF_BUFFER];
         client.read(&mut buffer)?;
         let message = String::from_utf8_lossy(&buffer).to_string();
