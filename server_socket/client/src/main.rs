@@ -8,7 +8,7 @@ use tui_colorizer::TuiColor;
 
 fn main() {
     let config = Config::build(env::args());
-    let client = Client::new(config);
+    let client = Client::new(config.clone());
 
     client.read_from_server();
 
@@ -18,7 +18,6 @@ fn main() {
         let mut buffer = String::new();
         print!("{}", TuiColor::Red.paint("> "));
         io::stdout().flush().unwrap();
-
         io::stdin().read_line(&mut buffer).unwrap();
         tx.send(buffer.trim().to_string()).unwrap();
     }
