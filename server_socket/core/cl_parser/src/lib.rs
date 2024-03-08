@@ -2,7 +2,7 @@ use std::process;
 
 const DEFAULT_NUM_OF_THREADS: usize = 5;
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct Config {
     pub number_of_threads: usize,
     pub ip_address: String,
@@ -29,6 +29,14 @@ impl Config {
     }
     pub fn build_socket(&self) -> String {
         format!("{}:{}", self.ip_address, self.port)
+    }
+
+    pub fn build_udp_socket(&self) -> String {
+        format!("{}:{}", self.ip_address, self.port)
+    }
+
+    pub fn build_broadcast_socket(&self) -> String {
+        format!("255.255.255.255:{}", self.port)
     }
 }
 

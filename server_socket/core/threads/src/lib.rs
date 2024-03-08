@@ -7,12 +7,17 @@ type Job = Box<dyn FnOnce() + Send + 'static>;
 
 pub struct ThreadPool {
     workers: Vec<Worker>,
-    sender: Option<mpsc::Sender<Job>>,
+    sender: Option<mpsc::Sender<Message>>,
 }
 
 struct Worker {
     id: usize,
     thread: Option<thread::JoinHandle<()>>,
+}
+
+enum Message {
+    NewJob(Job),
+    Terminate,
 }
 
 impl ThreadPool {
@@ -45,9 +50,19 @@ impl ThreadPool {
     where
         F: FnOnce() + Send + 'static,
     {
-        let job = Box::new(f);
+        let job = Message::NewJob(Box::new(f));
 
         self.sender.as_ref().unwrap().send(job).unwrap();
+    }
+
+    pub fn terminate(&self) {
+        for _ in &self.workers {
+            self.sender
+                .as_ref()
+                .unwrap()
+                .send(Message::Terminate)
+                .unwrap();
+        }
     }
 }
 
@@ -66,15 +81,16 @@ impl Drop for ThreadPool {
 }
 
 impl Worker {
-    fn new(id: usize, receiver: Arc<Mutex<mpsc::Receiver<Job>>>) -> Worker {
+    fn new(id: usize, receiver: Arc<Mutex<mpsc::Receiver<Message>>>) -> Worker {
         let thread = thread::spawn(move || loop {
-            let message = receiver.lock().unwrap().recv();
+            let message = receiver.lock().unwrap().recv().unwrap();
 
             match message {
-                Ok(job) => {
+                Message::NewJob(job) => {
                     job();
                 }
-                Err(_) => {
+
+                Message::Terminate => {
                     break;
                 }
             }
