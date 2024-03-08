@@ -24,8 +24,8 @@ impl Client {
         }
     }
 
-    pub fn handle_client(&mut self, client_streams: ClientStreams) {
-        match self.handle_client_without_error_handling(client_streams) {
+    pub fn handle_tcp(&mut self, client_streams: ClientStreams) {
+        match self.handle_tcp_without_error_handling(client_streams) {
             Ok(_) => {
                 println!("Client<{}> disconnected", self.id);
             }
@@ -35,7 +35,7 @@ impl Client {
         }
     }
 
-    fn handle_client_without_error_handling(
+    fn handle_tcp_without_error_handling(
         &mut self,
         client_streams: ClientStreams,
     ) -> Result<(), Box<dyn Error>> {
