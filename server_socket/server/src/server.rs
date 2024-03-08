@@ -13,7 +13,7 @@ pub struct Server {
     tcp_listener: TcpListener,
     udp_socket: Arc<UdpSocket>,
     clients_tcp_streams: ClientStreams,
-    clients_addresses: ClientAddresses,
+    clients_data: ClientAddresses,
 }
 
 impl Server {
@@ -26,7 +26,7 @@ impl Server {
             tcp_listener: Self::init_tcp_listener(address),
             udp_socket: Arc::new(Self::init_udp_socket(address)),
             clients_tcp_streams: Arc::new(Mutex::new(Vec::new())),
-            clients_addresses: Arc::new(Mutex::new(Vec::new())),
+            clients_data: Arc::new(Mutex::new(Vec::new())),
         }
     }
 
@@ -65,28 +65,21 @@ impl Server {
 
     fn run_udp_listener(&self) {
         let udp_socket = Arc::clone(&self.udp_socket);
-        let clients_addresses = Arc::clone(&self.clients_addresses);
+        let clients_data = Arc::clone(&self.clients_data);
 
         self.pool.execute(move || loop {
             let mut buffer = [0; 1024];
             match udp_socket.recv_from(&mut buffer) {
                 Ok((n, addr)) => {
                     let message = String::from_utf8_lossy(&buffer[..n]).to_string();
-                    // TODO: Use hashmap to find faster
-                    let id = clients_addresses
-                        .lock()
-                        .unwrap()
-                        .iter()
-                        .find(|client| client.address.as_str() == &addr.to_string())
-                        .unwrap()
-                        .id;
+                    let id = Self::find_id_by_address(&addr.to_string(), &clients_data);
 
                     Client::formated_received_message(&message, id, Some("UDP"));
 
                     Self::send_through_to_other_udp_clients(
                         &udp_socket,
                         &buffer,
-                        &clients_addresses,
+                        &clients_data,
                         &addr,
                     );
                 }
@@ -97,13 +90,23 @@ impl Server {
         });
     }
 
+    fn find_id_by_address(address: &str, clients_data: &ClientAddresses) -> usize {
+        clients_data
+            .lock()
+            .unwrap()
+            .iter()
+            .find(|client| client.address.as_str() == address)
+            .unwrap()
+            .id
+    }
+
     fn send_through_to_other_udp_clients(
         udp_socket: &UdpSocket,
         buffer: &[u8],
-        clients_addresses: &ClientAddresses,
+        clients_data: &ClientAddresses,
         addr: &SocketAddr,
     ) {
-        for client in clients_addresses.lock().unwrap().iter() {
+        for client in clients_data.lock().unwrap().iter() {
             if client.address.as_str() != &addr.to_string() {
                 udp_socket
                     .send_to(&buffer, client.address.as_str())
@@ -121,7 +124,7 @@ impl Server {
                     let client_address = Self::get_client_address_from_stream(&s);
 
                     Self::print_new_client(&client_address);
-                    self.clients_addresses
+                    self.clients_data
                         .lock()
                         .unwrap()
                         .push(ClientData::new(id, client_address));

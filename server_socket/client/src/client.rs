@@ -1,7 +1,8 @@
-use std::io::{Read, Write};
+use std::io::{self, Read, Write};
 use std::net::{SocketAddr, TcpStream, ToSocketAddrs, UdpSocket};
 use std::sync::mpsc::{self, Sender};
 
+use crate::ASCII_ART;
 use cl_parser::Config;
 use socket2::{Domain, Socket, Type};
 use threads::ThreadPool;
@@ -39,25 +40,58 @@ impl Client {
     }
 
     pub fn read_from_server(&self) {
-        let mut buffer = [0; BUFFER_SIZE];
-        let mut stream = self.read_stream.try_clone().unwrap();
+        self.init_udp_reading_from_server();
+        self.init_tcp_reading_from_server();
+    }
+
+    pub fn write_to_server(&self) -> Sender<String> {
+        let mut stream = self.write_stream.try_clone().unwrap();
+        let (tx, rx) = mpsc::channel::<String>();
         let udp_listener = self.udp_listener.try_clone().unwrap();
 
         self.pool.execute(move || loop {
-            match udp_listener.recv_from(&mut buffer) {
-                Ok((n, addr)) => {
-                    let message = String::from_utf8_lossy(&buffer[..n]).to_string();
-                    println!(
-                        "Received message from: {} with content: {}",
-                        TuiColor::Green.bold_paint(addr.to_string().as_str()),
-                        TuiColor::Green.bold_paint(message.as_str())
-                    );
+            let message = rx.recv().unwrap();
+
+            if message.starts_with("U") {
+                if let Err(e) = udp_listener.send(ASCII_ART.as_bytes()) {
+                    eprintln!("Error while sending message: {}", e);
                 }
-                Err(e) => {
-                    eprintln!("Error while receiving message from UDP socket: {}", e);
+            } else {
+                if let Err(e) = stream.write_all(message.as_bytes()) {
+                    eprintln!("Error while sending message: {}", e);
                 }
             }
         });
+
+        tx
+    }
+
+    pub fn formated_received_message(message: &str, protocol: Option<&str>) -> () {
+        let protocol = match protocol {
+            Some(p) => p,
+            None => "TCP",
+        };
+        println!(
+            "{}{}{}",
+            TuiColor::Purple.paint("=-=-=-=-=-=-==>> "),
+            TuiColor::Yellow.bold_paint(format!("[{}]", protocol).as_str()),
+            TuiColor::Purple.paint(" <<==--=-=-=-=-=-")
+        );
+        println!("{}", message);
+        println!(
+            "{}{}{}",
+            TuiColor::Purple.paint("=-=-=-=-=-=-==>> "),
+            TuiColor::Yellow.bold_paint(format!("[{}]", protocol).as_str()),
+            TuiColor::Purple.paint(" <<==--=-=-=-=-=-")
+        );
+
+        print!("{}", TuiColor::Red.paint("> "));
+        io::stdout().flush().unwrap();
+    }
+
+    fn init_tcp_reading_from_server(&self) {
+        let mut buffer = [0; BUFFER_SIZE];
+        let mut stream = self.read_stream.try_clone().unwrap();
 
         self.pool.execute(move || loop {
             match stream.read(&mut buffer) {
@@ -67,9 +101,7 @@ impl Client {
                     }
                     let message = String::from_utf8_lossy(&buffer[..n]).to_string();
                     if !Client::check_if_message_contains_only_zeros(&message) {
-                        println!("Message from: {}", message);
-                        print!("{}", TuiColor::Red.paint("> "));
-                        std::io::stdout().flush().unwrap();
+                        Client::formated_received_message(&message, None);
 
                         if message.eq("exit") {
                             break;
@@ -84,27 +116,21 @@ impl Client {
         });
     }
 
-    pub fn write_to_server(&self) -> Sender<String> {
-        let mut stream = self.write_stream.try_clone().unwrap();
-        let (tx, rx) = mpsc::channel::<String>();
+    fn init_udp_reading_from_server(&self) {
+        let mut buffer = [0; BUFFER_SIZE];
         let udp_listener = self.udp_listener.try_clone().unwrap();
 
         self.pool.execute(move || loop {
-            let message = rx.recv().unwrap();
-
-            if message.starts_with("U: ") {
-                let message = message.replace("U: ", "");
-                if let Err(e) = udp_listener.send(message.as_bytes()) {
-                    eprintln!("Error while sending message: {}", e);
+            match udp_listener.recv_from(&mut buffer) {
+                Ok((n, _)) => {
+                    let message = String::from_utf8_lossy(&buffer[..n]).to_string();
+                    Client::formated_received_message(&message, Some("UDP"));
                 }
-            } else {
-                if let Err(e) = stream.write_all(message.as_bytes()) {
-                    eprintln!("Error while sending message: {}", e);
+                Err(e) => {
+                    eprintln!("Error while receiving message from UDP socket: {}", e);
                 }
             }
         });
-
-        tx
     }
 
     fn check_if_message_contains_only_zeros(message: &str) -> bool {

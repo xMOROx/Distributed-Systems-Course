@@ -17,8 +17,10 @@ fn main() {
     loop {
         let mut buffer = String::new();
         print!("{}", TuiColor::Red.paint("> "));
+
         io::stdout().flush().unwrap();
         io::stdin().read_line(&mut buffer).unwrap();
+
         tx.send(buffer.trim().to_string()).unwrap();
     }
 }
