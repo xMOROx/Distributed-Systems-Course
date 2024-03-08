@@ -7,6 +7,8 @@ license = "MIT"
 
 [dependencies]
 cl_parser = {path = "../core/cl_parser", version = "0.1.0"}
+ctrlc = "3.4.2"
+socket2 = { version = "0.3.4", features = ["reuseport"] }
 threads = {path = "../core/threads", version = "0.1.0"}
 tui_colorizer = {path = "../core/tui_colorizer", version = "0.1.0"}
 
