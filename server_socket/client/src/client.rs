@@ -271,13 +271,23 @@ impl Client {
             sender: sender.into(),
         })
     }
-
+    #[cfg(target_os = "linux")]
     fn new_udp_socket(bind_address: SocketAddr) -> Result<Socket, Box<dyn Error>> {
         let socket = Socket::new(Domain::ipv4(), Type::dgram(), Some(Protocol::udp()))?;
         socket.set_reuse_port(true)?;
         socket.set_reuse_address(true)?;
         socket.bind(&bind_address.into())?;
 
+        Ok(socket)
+    }
+
+    #[cfg(target_os = "windows")]
+    fn new_udp_socket(bind_address: SocketAddr) -> Result<Socket, Box<dyn Error>> {
+        let socket = Socket::new(Domain::ipv4(), Type::dgram(), Some(Protocol::udp()))?;
+        let addr = SocketAddr::new(Ipv4Addr::new(0, 0, 0, 0).into(), bind_address.port());
+        socket.set_reuse_address(true)?;
+
+        socket.bind(&socket2::SockAddr::from(addr))?;
         Ok(socket)
     }
 }

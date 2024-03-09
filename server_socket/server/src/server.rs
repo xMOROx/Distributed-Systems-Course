@@ -162,6 +162,27 @@ impl Server {
         }
     }
 
+    #[cfg(target_os = "windows")]
+    fn init_tcp_listener(address: SocketAddr) -> Result<TcpListener, Box<dyn Error>> {
+        let tcp_listener = Socket::new(Domain::ipv4(), Type::stream(), None)?;
+        tcp_listener.set_reuse_address(true)?;
+        tcp_listener.bind(&address.into())?;
+        tcp_listener.listen(1024)?;
+
+        Ok(tcp_listener.into())
+    }
+
+    #[cfg(target_os = "windows")]
+    fn init_udp_socket(address: SocketAddr) -> Result<UdpSocket, Box<dyn Error>> {
+        let udp_socket = Socket::new(Domain::ipv4(), Type::dgram(), None)?;
+        udp_socket.set_reuse_address(true)?;
+        udp_socket.set_broadcast(true)?;
+        udp_socket.bind(&address.into())?;
+
+        Ok(udp_socket.into())
+    }
+
+    #[cfg(target_os = "linux")]
     fn init_tcp_listener(address: SocketAddr) -> Result<TcpListener, Box<dyn Error>> {
         let tcp_listener = Socket::new(Domain::ipv4(), Type::stream(), None)?;
         tcp_listener.set_reuse_port(true)?;
@@ -172,6 +193,7 @@ impl Server {
         Ok(tcp_listener.into())
     }
 
+    #[cfg(target_os = "linux")]
     fn init_udp_socket(address: SocketAddr) -> Result<UdpSocket, Box<dyn Error>> {
         let udp_socket = Socket::new(Domain::ipv4(), Type::dgram(), None)?;
         udp_socket.set_reuse_port(true)?;
