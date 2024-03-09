@@ -4,7 +4,7 @@ use std::env;
 
 fn main() {
     let config = Config::build(env::args());
-    let mut server: Server = Server::new(config);
+    let mut server: Server = Server::build(config);
 
     server.listen();
 }
