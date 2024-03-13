@@ -1,60 +1,159 @@
 <!DOCTYPE html>
-<html lang="en"  xmlns:th="https://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Results</title>
+    <title>Brewery API</title>
+
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css}"/>
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
         }
-        .container {
-            width: 50%;
-            margin: 50px auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+
+        section {
+            margin-bottom: 30px;
         }
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-        p {
-            text-align: center;
-            color: #555;
-        }
-        .weather-data {
-            margin-top: 20px;
-        }
-        .data-row {
-            display: flex;
-            justify-content: space-between;
+
+        h3 {
+            font-size: 1.5rem;
             margin-bottom: 10px;
         }
-        .data-label {
+
+        hr {
+            margin-top: 5px;
+            margin-bottom: 20px;
+            border: 0;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        dl.row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        dd.col-sm-3,
+        dt.col-sm-3 {
+            flex: 0 0 30%;
+            max-width: 30%;
             font-weight: bold;
         }
+
+        dd.col-sm-9 {
+            flex: 0 0 70%;
+            max-width: 70%;
+            margin-bottom: 10px;
+        }
+
+        .btn-back {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-back:hover {
+            background-color: #0056b3;
+        }
+
     </style>
 </head>
 <body>
-<div class="container">
-    <h1>Weather Results</h1>
-    <div class="weather-data">
-        <div class="data-row">
-            <span class="data-label">Average Temperature:</span>
-            <span class="data-value" th:text="${request.city}"> °C</span>
+
+<section class="container py-3">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between pt-4 pb-2 mb-0"
+            style="border-top: 3px solid #343a40;">
+        <div class="text-end">
+            <a type="button" class="btn btn-back" href="index.html">Back</a>
         </div>
-        <div class="data-row">
-            <span class="data-label">Highest Temperature:</span>
-        </div>
-        <div class="data-row">
-            <span class="data-label">Lowest Temperature:</span>
-        </div>
+    </header>
+</section>
+
+<section class="container py-3">
+    <div class="container pb-3">
+        <h3>While drinking beer you can try...</h3>
+        <hr>
+        <dl class="row">
+            <dd class="col-sm-3">Description</dd>
+            <dt class="col-sm-9" th:text="${activity.getActivity()}"></dt>
+
+            <dd class="col-sm-3">Activity type</dd>
+            <dd class="col-sm-9" th:text="${activity.getType()} == null ? '-' : ${activity.getType()}"></dd>
+
+            <dd class="col-sm-3">Participants</dd>
+            <dd class="col-sm-9"
+                th:text="${activity.getParticipants()} == null ? '-' : ${activity.getParticipants()}"></dd>
+
+            <dd class="col-sm-3">Price</dd>
+            <dd class="col-sm-9" th:text="${activity.getPrice()} == null ? '-' : ${activity.getPrice()}"></dd>
+
+            <dd class="col-sm-3">Website</dd>
+            <dd class="col-sm-9" th:text="${activity.getLink()}"></dd>
+        </dl>
     </div>
-</div>
+</section>
+
+<section class="container py-3">
+    <div class="container pb-3">
+        <h3>The most frequent words in brewery names</h3>
+        <p>The most frequent words in names of breweries appropriate for your request are...</p>
+        <hr>
+        <dd th:if="${words.isEmpty()}">There are no outstanding words</dd>
+        <tbody th:each="word, iterStat : ${words}">
+        <dl class="row">
+            <dd class="col-sm-3" th:text="${word.getWord().toUpperCase()}"></dd>
+            <dd class="col-sm-9" th:text="${word.getFrequency()}"></dd>
+        </dl>
+
+    </div>
+</section>
+
+<section class="container py-3">
+    <div class="container pb-3">
+        <h3>Breweries appropriate for your request:</h3>
+        <tbody th:each="brewery, iterStat : ${breweries}">
+        <hr>
+        <dl class="row">
+            <dd class="col-sm-3">Name</dd>
+            <dd class="col-sm-9" th:text="${brewery.getName()}"></dd>
+
+            <dd class="col-sm-3">Brewery type</dd>
+            <dd class="col-sm-9"
+                th:text="${brewery.getBrewery_type()} == null ? '-' : ${brewery.getBrewery_type()}"></dd>
+
+            <dd class="col-sm-3">Street</dd>
+            <dd class="col-sm-9" th:text="${brewery.getStreet()} == null ? '-' : ${brewery.getStreet()}"></dd>
+
+            <dd class="col-sm-3">City</dd>
+            <dd class="col-sm-9" th:text="${brewery.getCity()} == null ? '-' : ${brewery.getCity()}"></dd>
+
+            <dd class="col-sm-3">State</dd>
+            <dd class="col-sm-9" th:text="${brewery.getState()} == null ? '-' : ${brewery.getState()}"></dd>
+
+            <dd class="col-sm-3">Postal code</dd>
+            <dd class="col-sm-9"
+                th:text="${brewery.getPostal_code()} == null ? '-' : ${brewery.getPostal_code()}"></dd>
+
+            <dd class="col-sm-3">Country</dd>
+            <dd class="col-sm-9" th:text="${brewery.getCountry()} == null ? '-' : ${brewery.getCountry()}"></dd>
+
+            <dd class="col-sm-3">Website</dd>
+            <dd class="col-sm-9"
+                th:text="${brewery.getWebsite_url()} == null ? '-' : ${brewery.getWebsite_url()}"></dd>
+
+        </dl>
+    </div>
+</section>
+
+<script th:src="@{/webjars/jquery/3.0.0/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/1.12.9-1/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js}"></script>
+
 </body>
 </html>

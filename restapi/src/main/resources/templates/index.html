@@ -1,79 +1,117 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Data</title>
+    <title>Brewery API</title>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
         }
-        .container {
-            width: 50%;
-            margin: 50px auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
+        header {
+            background-color: #343a40;
+            color: #fff;
+            padding: 20px 0;
             text-align: center;
-            color: #333;
+            margin-bottom: 30px;
         }
         form {
-            text-align: center;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 30px;
         }
         label {
-            display: block;
-            margin-bottom: 10px;
-            color: #555;
+            font-weight: bold;
         }
+        select,
         input[type="text"] {
             width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
+            padding: 12px;
             border-radius: 5px;
+            border: 1px solid #ced4da;
             box-sizing: border-box;
+            font-size: 16px;
         }
-        input[type="date"] {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-        }
-        input[type="submit"] {
-            background-color: #4CAF50;
-            color: white;
-            padding: 14px 20px;
-            margin: 8px 0;
+        button[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
             border: none;
-            border-radius: 4px;
+            border-radius: 5px;
+            padding: 12px 20px;
             cursor: pointer;
-            width: 100%;
+            transition: background-color 0.3s;
+            font-size: 16px;
         }
-        input[type="submit"]:hover {
-            background-color: #45a049;
+        button[type="submit"]:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
+<header>
+    <h1>Brewery API</h1>
+</header>
+
 <div class="container">
-    <h1>Weather Data</h1>
-    <form  action="#" th:action="@{/api/v1/}" th:object="${RequestDao}" method="post">
-        <label for="city">City:</label>
-        <input th:field="*{city}" type="text" id="city" name="city" placeholder="Enter city name" required>
-        <label for="start_date">From:</label>
-        <input th:field="*{startDate}" type="date" id="start_date" name="start_date" required>
-        <label for="end_date">To:</label>
-        <input th:field="*{endDate}" type="date" id="end_date" name="end_date" required>
-        <input type="submit" value="Get Weather Data">
+    <form th:action="@{/api/v1/request}" method="post">
+        <div class="form-group">
+            <label for="city">City:</label>
+            <input type="text" class="form-control" id="city" th:name="city" placeholder="Enter city">
+        </div>
+        <div class="form-group">
+            <label for="type">Type:</label>
+            <select id="type" class="form-control" th:name="type">
+                <option value=""></option>
+                <option value="micro">Micro</option>
+                <option value="nano">Nano</option>
+                <option value="regional">Regional</option>
+                <option value="brewpub">Brewpub</option>
+                <option value="large">Large</option>
+                <option value="planning">Planning</option>
+                <option value="bar">Bar</option>
+                <option value="contract">Contract</option>
+                <option value="proprietor">Proprietor</option>
+                <option value="closed">Closed</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="state">State:</label>
+            <input type="text" class="form-control" id="state" th:name="state" placeholder="Enter state">
+        </div>
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" th:name="name" placeholder="Enter name">
+        </div>
+        <div class="form-group">
+            <label for="activity">What do you want to drink beer for?</label>
+            <select id="activity" class="form-control" th:name="activity">
+                <option value="relaxation">Relaxation</option>
+                <option value="recreational">Recreational</option>
+                <option value="education">Education</option>
+                <option value="social">Social</option>
+                <option value="cooking">Cooking</option>
+                <option value="diy">Diy</option>
+                <option value="charity">Charity</option>
+                <option value="music">Music</option>
+                <option value="busywork">Busywork</option>
+            </select>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
     </form>
 </div>
+
+<script th:src="@{/webjars/jquery/3.0.0/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/1.12.9-1/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js}"></script>
 </body>
 </html>
