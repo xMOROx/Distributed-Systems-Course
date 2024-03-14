@@ -17,7 +17,7 @@ import pl.edu.agh.restapi.DTO.StatsDTO;
 public class WebController {
 
 
-    @RequestMapping(value = "/")
+    @RequestMapping(value = "")
     public String defaultPage() {
         return "index";
     }
