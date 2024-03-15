@@ -10,6 +10,7 @@ import org.springframework.web.client.RestTemplate;
 import pl.edu.agh.restapi.DAO.ActivityDAO;
 import pl.edu.agh.restapi.DAO.BreweryDAO;
 import pl.edu.agh.restapi.DTO.StatsDTO;
+import pl.edu.agh.restapi.exceptions.ActivityNotProvidedException;
 
 
 @Controller
@@ -35,6 +36,12 @@ public class WebController {
                              @RequestParam(value = "name") String name,
                              @RequestParam(value = "activity") String activityType,
                              Model model) {
+
+        city = city.trim();
+        type = type.trim();
+        state = state.trim();
+        name = name.trim();
+        activityType = activityType.trim();
 
         BreweryDAO[] breweries = requestBreweries(city, type, state, name);
         ActivityDAO activity = requestActivity(activityType);
@@ -83,13 +90,17 @@ public class WebController {
         return restTemplate.getForObject(uri, BreweryDAO[].class);
     }
 
-    private ActivityDAO requestActivity(String activityType) {
+    private ActivityDAO requestActivity(String activityType) throws ActivityNotProvidedException {
         RestTemplate restTemplate = new RestTemplate();
 
         String activityUri = String.format("https://www.boredapi.com/api/activity?type=%s", activityType);
         ActivityDAO activity = restTemplate.getForObject(activityUri, ActivityDAO.class);
-
         assert activity != null;
+        if (activity.getActivity() == null) {
+            throw new ActivityNotProvidedException("Activity `" + activityType + "` not found");
+        }
+
+
         if (activity.getLink() == null || activity.getLink().isEmpty()) {
             activity.setLink("-");
         }

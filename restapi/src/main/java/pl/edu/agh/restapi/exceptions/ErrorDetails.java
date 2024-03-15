@@ -1,4 +1,4 @@
-package pl.edu.agh.restapi;
+package pl.edu.agh.restapi.exceptions;
 
 import org.springframework.http.HttpStatusCode;
 
