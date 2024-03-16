@@ -1,0 +1,1314 @@
+{
+	"info": {
+		"_postman_id": "20a4270b-869f-43a3-b835-14769ee5a5d2",
+		"name": "Open Brewery",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26698392",
+		"_collection_link": "https://lunar-water-149580.postman.co/workspace/Restapi~42aaaad9-f7f8-4f48-97b4-7b49c049c02d/collection/26698392-20a4270b-869f-43a3-b835-14769ee5a5d2?action=share&source=collection_link&creator=26698392"
+	},
+	"item": [
+		{
+			"name": "All",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.openbrewerydb.org/breweries",
+					"protocol": "https",
+					"host": [
+						"api",
+						"openbrewerydb",
+						"org"
+					],
+					"path": [
+						"breweries"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.openbrewerydb.org/breweries",
+							"protocol": "https",
+							"host": [
+								"api",
+								"openbrewerydb",
+								"org"
+							],
+							"path": [
+								"breweries"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 15 Mar 2024 09:44:54 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"group\":\"heroku-nel\",\"max_age\":3600,\"endpoints\":[{\"url\":\"https://nel.heroku.com/reports?ts=1710160535&sid=67ff5de4-ad2b-4112-9289-cf96be89efed&s=BYr4PXewFcviF5fI7lgLA0GSRNzpjB%2FxWHsdnyUx64w%3D\"}]}"
+						},
+						{
+							"key": "Reporting-Endpoints",
+							"value": "heroku-nel=https://nel.heroku.com/reports?ts=1710160535&sid=67ff5de4-ad2b-4112-9289-cf96be89efed&s=BYr4PXewFcviF5fI7lgLA0GSRNzpjB%2FxWHsdnyUx64w%3D"
+						},
+						{
+							"key": "Nel",
+							"value": "{\"report_to\":\"heroku-nel\",\"max_age\":3600,\"success_fraction\":0.005,\"failure_fraction\":0.05,\"response_headers\":[\"Via\"]}"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Xss-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "strict-origin-when-cross-origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin, Accept-Encoding"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "public, max-age=86400"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"3a5e77fc3ed779182b2c302d2e0c564a\""
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "c9be763c-ea5c-4642-af95-c6f901d15463"
+						},
+						{
+							"key": "X-Runtime",
+							"value": "0.012557"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=63072000; includeSubDomains"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "REVALIDATED"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "864b9147dd853494-WAW"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"5128df48-79fc-4f0f-8b52-d06be54d0cec\",\n        \"name\": \"(405) Brewing Co\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"1716 Topeka St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Norman\",\n        \"state_province\": \"Oklahoma\",\n        \"postal_code\": \"73069-8224\",\n        \"country\": \"United States\",\n        \"longitude\": \"-97.46818222\",\n        \"latitude\": \"35.25738891\",\n        \"phone\": \"4058160490\",\n        \"website_url\": \"http://www.405brewing.com\",\n        \"state\": \"Oklahoma\",\n        \"street\": \"1716 Topeka St\"\n    },\n    {\n        \"id\": \"9c5a66c8-cc13-416f-a5d9-0a769c87d318\",\n        \"name\": \"(512) Brewing Co\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"407 Radam Ln Ste F200\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Austin\",\n        \"state_province\": \"Texas\",\n        \"postal_code\": \"78745-1197\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": \"5129211545\",\n        \"website_url\": \"http://www.512brewing.com\",\n        \"state\": \"Texas\",\n        \"street\": \"407 Radam Ln Ste F200\"\n    },\n    {\n        \"id\": \"34e8c68b-6146-453f-a4b9-1f6cd99a5ada\",\n        \"name\": \"1 of Us Brewing Company\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"8100 Washington Ave\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Mount Pleasant\",\n        \"state_province\": \"Wisconsin\",\n        \"postal_code\": \"53406-3920\",\n        \"country\": \"United States\",\n        \"longitude\": \"-87.88336350209435\",\n        \"latitude\": \"42.72010826899558\",\n        \"phone\": \"2624847553\",\n        \"website_url\": \"https://www.1ofusbrewing.com\",\n        \"state\": \"Wisconsin\",\n        \"street\": \"8100 Washington Ave\"\n    },\n    {\n        \"id\": \"ef970757-fe42-416f-931d-722451f1f59c\",\n        \"name\": \"10 Barrel Brewing Co\",\n        \"brewery_type\": \"large\",\n        \"address_1\": \"1501 E St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"San Diego\",\n        \"state_province\": \"California\",\n        \"postal_code\": \"92101-6618\",\n        \"country\": \"United States\",\n        \"longitude\": \"-117.129593\",\n        \"latitude\": \"32.714813\",\n        \"phone\": \"6195782311\",\n        \"website_url\": \"http://10barrel.com\",\n        \"state\": \"California\",\n        \"street\": \"1501 E St\"\n    },\n    {\n        \"id\": \"6d14b220-8926-4521-8d19-b98a2d6ec3db\",\n        \"name\": \"10 Barrel Brewing Co\",\n        \"brewery_type\": \"large\",\n        \"address_1\": \"62970 18th St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Bend\",\n        \"state_province\": \"Oregon\",\n        \"postal_code\": \"97701-9847\",\n        \"country\": \"United States\",\n        \"longitude\": \"-121.281706\",\n        \"latitude\": \"44.08683531\",\n        \"phone\": \"5415851007\",\n        \"website_url\": \"http://www.10barrel.com\",\n        \"state\": \"Oregon\",\n        \"street\": \"62970 18th St\"\n    },\n    {\n        \"id\": \"e2e78bd8-80ff-4a61-a65c-3bfbd9d76ce2\",\n        \"name\": \"10 Barrel Brewing Co\",\n        \"brewery_type\": \"large\",\n        \"address_1\": \"1135 NW Galveston Ave Ste B\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Bend\",\n        \"state_province\": \"Oregon\",\n        \"postal_code\": \"97703-2465\",\n        \"country\": \"United States\",\n        \"longitude\": \"-121.3288021\",\n        \"latitude\": \"44.0575649\",\n        \"phone\": \"5415851007\",\n        \"website_url\": null,\n        \"state\": \"Oregon\",\n        \"street\": \"1135 NW Galveston Ave Ste B\"\n    },\n    {\n        \"id\": \"e432899b-7f58-455f-9c7b-9a6e2130a1e0\",\n        \"name\": \"10 Barrel Brewing Co\",\n        \"brewery_type\": \"large\",\n        \"address_1\": \"1411 NW Flanders St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Portland\",\n        \"state_province\": \"Oregon\",\n        \"postal_code\": \"97209-2620\",\n        \"country\": \"United States\",\n        \"longitude\": \"-122.6855056\",\n        \"latitude\": \"45.5259786\",\n        \"phone\": \"5032241700\",\n        \"website_url\": \"http://www.10barrel.com\",\n        \"state\": \"Oregon\",\n        \"street\": \"1411 NW Flanders St\"\n    },\n    {\n        \"id\": \"9f1852da-c312-42da-9a31-097bac81c4c0\",\n        \"name\": \"10 Barrel Brewing Co - Bend Pub\",\n        \"brewery_type\": \"large\",\n        \"address_1\": \"62950 NE 18th St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Bend\",\n        \"state_province\": \"Oregon\",\n        \"postal_code\": \"97701\",\n        \"country\": \"United States\",\n        \"longitude\": \"-121.2809536\",\n        \"latitude\": \"44.0912109\",\n        \"phone\": \"5415851007\",\n        \"website_url\": null,\n        \"state\": \"Oregon\",\n        \"street\": \"62950 NE 18th St\"\n    },\n    {\n        \"id\": \"ea4f30c0-bce6-416b-8904-fab4055a7362\",\n        \"name\": \"10 Barrel Brewing Co - Boise\",\n        \"brewery_type\": \"large\",\n        \"address_1\": \"826 W Bannock St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Boise\",\n        \"state_province\": \"Idaho\",\n        \"postal_code\": \"83702-5857\",\n        \"country\": \"United States\",\n        \"longitude\": \"-116.202929\",\n        \"latitude\": \"43.618516\",\n        \"phone\": \"2083445870\",\n        \"website_url\": \"http://www.10barrel.com\",\n        \"state\": \"Idaho\",\n        \"street\": \"826 W Bannock St\"\n    },\n    {\n        \"id\": \"1988eb86-f0a2-4674-ba04-02454efa0d31\",\n        \"name\": \"10 Barrel Brewing Co - Denver\",\n        \"brewery_type\": \"large\",\n        \"address_1\": \"2620 Walnut St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Denver\",\n        \"state_province\": \"Colorado\",\n        \"postal_code\": \"80205-2231\",\n        \"country\": \"United States\",\n        \"longitude\": \"-104.9853655\",\n        \"latitude\": \"39.7592508\",\n        \"phone\": \"7205738992\",\n        \"website_url\": null,\n        \"state\": \"Colorado\",\n        \"street\": \"2620 Walnut St\"\n    },\n    {\n        \"id\": \"1ecc330f-6275-42a5-b14e-00adbed62752\",\n        \"name\": \"10 Torr Distilling and Brewing\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"490 Mill St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Reno\",\n        \"state_province\": \"Nevada\",\n        \"postal_code\": \"89502\",\n        \"country\": \"United States\",\n        \"longitude\": \"-119.7732015\",\n        \"latitude\": \"39.5171702\",\n        \"phone\": \"7755307014\",\n        \"website_url\": \"http://www.10torr.com\",\n        \"state\": \"Nevada\",\n        \"street\": \"490 Mill St\"\n    },\n    {\n        \"id\": \"7531dbd8-afc9-4b5b-95bc-7ece7f2c0bf3\",\n        \"name\": \"10-56 Brewing Company\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"400 Brown Cir\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Knox\",\n        \"state_province\": \"Indiana\",\n        \"postal_code\": \"46534\",\n        \"country\": \"United States\",\n        \"longitude\": \"-86.627954\",\n        \"latitude\": \"41.289715\",\n        \"phone\": \"6308165790\",\n        \"website_url\": null,\n        \"state\": \"Indiana\",\n        \"street\": \"400 Brown Cir\"\n    },\n    {\n        \"id\": \"03118499-a3d0-4c22-860d-4529509ae095\",\n        \"name\": \"101 Brewery\",\n        \"brewery_type\": \"brewpub\",\n        \"address_1\": \"294793 US Highway 101\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Quilcene\",\n        \"state_province\": \"Washington\",\n        \"postal_code\": \"98376-9000\",\n        \"country\": \"United States\",\n        \"longitude\": \"-122.8755823\",\n        \"latitude\": \"47.82347577\",\n        \"phone\": \"3607656485\",\n        \"website_url\": \"http://www.101brewery.com\",\n        \"state\": \"Washington\",\n        \"street\": \"294793 US Highway 101\"\n    },\n    {\n        \"id\": \"5ae467af-66dc-4d7f-8839-44228f89b596\",\n        \"name\": \"101 North Brewing Company\",\n        \"brewery_type\": \"closed\",\n        \"address_1\": \"1304 Scott St Ste D\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Petaluma\",\n        \"state_province\": \"California\",\n        \"postal_code\": \"94954-7100\",\n        \"country\": \"United States\",\n        \"longitude\": \"-122.665055\",\n        \"latitude\": \"38.27029381\",\n        \"phone\": \"7077534934\",\n        \"website_url\": \"http://www.101northbeer.com\",\n        \"state\": \"California\",\n        \"street\": \"1304 Scott St Ste D\"\n    },\n    {\n        \"id\": \"4ffda196-dd59-44a5-9eeb-5f7fd4b58f5a\",\n        \"name\": \"105 West Brewing Co\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"1043 Park St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Castle Rock\",\n        \"state_province\": \"Colorado\",\n        \"postal_code\": \"80109-1585\",\n        \"country\": \"United States\",\n        \"longitude\": \"-104.8667206\",\n        \"latitude\": \"39.38269495\",\n        \"phone\": \"3033257321\",\n        \"website_url\": \"http://www.105westbrewing.com\",\n        \"state\": \"Colorado\",\n        \"street\": \"1043 Park St\"\n    },\n    {\n        \"id\": \"42aa37d5-8384-4ffe-8c81-7c982eff0384\",\n        \"name\": \"10K Brewing\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"2005 2nd Ave\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Anoka\",\n        \"state_province\": \"Minnesota\",\n        \"postal_code\": \"55303-2243\",\n        \"country\": \"United States\",\n        \"longitude\": \"-93.38952559\",\n        \"latitude\": \"45.19812039\",\n        \"phone\": \"7633924753\",\n        \"website_url\": \"http://10KBrew.com\",\n        \"state\": \"Minnesota\",\n        \"street\": \"2005 2nd Ave\"\n    },\n    {\n        \"id\": \"232e8f62-9afc-45f5-b4bc-582c26b5c43b\",\n        \"name\": \"10th District Brewing Company\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"491 Washington St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Abington\",\n        \"state_province\": \"Massachusetts\",\n        \"postal_code\": \"02351-2419\",\n        \"country\": \"United States\",\n        \"longitude\": \"-70.94594149\",\n        \"latitude\": \"42.10591754\",\n        \"phone\": \"7813071554\",\n        \"website_url\": \"http://www.10thdistrictbrewing.com\",\n        \"state\": \"Massachusetts\",\n        \"street\": \"491 Washington St\"\n    },\n    {\n        \"id\": \"08f78223-24f8-4b71-b381-ea19a5bd82df\",\n        \"name\": \"11 Below Brewing Company\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"6820 Bourgeois Rd\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Houston\",\n        \"state_province\": \"Texas\",\n        \"postal_code\": \"77066-3107\",\n        \"country\": \"United States\",\n        \"longitude\": \"-95.5186591\",\n        \"latitude\": \"29.9515464\",\n        \"phone\": \"2814442337\",\n        \"website_url\": \"http://www.11belowbrewing.com\",\n        \"state\": \"Texas\",\n        \"street\": \"6820 Bourgeois Rd\"\n    },\n    {\n        \"id\": \"58293321-14ae-49d7-9a7b-08436c9e63a6\",\n        \"name\": \"1188 Brewing Co\",\n        \"brewery_type\": \"brewpub\",\n        \"address_1\": \"141 E Main St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"John Day\",\n        \"state_province\": \"Oregon\",\n        \"postal_code\": \"97845-1210\",\n        \"country\": \"United States\",\n        \"longitude\": \"-118.9218754\",\n        \"latitude\": \"44.4146563\",\n        \"phone\": \"5415751188\",\n        \"website_url\": \"http://www.1188brewing.com\",\n        \"state\": \"Oregon\",\n        \"street\": \"141 E Main St\"\n    },\n    {\n        \"id\": \"e5f3e72a-fee2-4813-82cf-f2e53b439ae6\",\n        \"name\": \"12 Acres Brewing Company\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"Unnamed Street\",\n        \"address_2\": \"Clonmore\",\n        \"address_3\": null,\n        \"city\": \"Killeshin\",\n        \"state_province\": \"Laois\",\n        \"postal_code\": \"R93 X3X8\",\n        \"country\": \"Ireland\",\n        \"longitude\": \"-6.979343891\",\n        \"latitude\": \"52.84930763\",\n        \"phone\": \"353599107299\",\n        \"website_url\": \"https://12acresbrewing.ie/\",\n        \"state\": \"Laois\",\n        \"street\": \"Unnamed Street\"\n    },\n    {\n        \"id\": \"d81ff708-b5d2-478f-af6a-6d40f5beb9ac\",\n        \"name\": \"12 Gates Brewing Company\",\n        \"brewery_type\": \"brewpub\",\n        \"address_1\": \"80 Earhart Dr Ste 20\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Williamsville\",\n        \"state_province\": \"New York\",\n        \"postal_code\": \"14221-7804\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": \"7169066600\",\n        \"website_url\": \"http://www.12gatesbrewing.com\",\n        \"state\": \"New York\",\n        \"street\": \"80 Earhart Dr Ste 20\"\n    },\n    {\n        \"id\": \"fb94830f-6196-4f59-9189-c9060b778085\",\n        \"name\": \"12 West Brewing Company\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"3000 E Ray Rd Bldg 6\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Gilbert\",\n        \"state_province\": \"Arizona\",\n        \"postal_code\": \"85296-7832\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": \"6023395014\",\n        \"website_url\": \"http://www.12westbrewing.com\",\n        \"state\": \"Arizona\",\n        \"street\": \"3000 E Ray Rd Bldg 6\"\n    },\n    {\n        \"id\": \"0faa0fb2-fffa-416d-9eab-46f67477c8ef\",\n        \"name\": \"12 West Brewing Company - Production Facility\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": null,\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Mesa\",\n        \"state_province\": \"Arizona\",\n        \"postal_code\": \"85207\",\n        \"country\": \"United States\",\n        \"longitude\": \"-111.5860662\",\n        \"latitude\": \"33.436188\",\n        \"phone\": null,\n        \"website_url\": null,\n        \"state\": \"Arizona\",\n        \"street\": null\n    },\n    {\n        \"id\": \"e54c2f02-acd6-4172-861d-fcfa54c8701a\",\n        \"name\": \"122 West Brewing Co\",\n        \"brewery_type\": \"closed\",\n        \"address_1\": \"2416 Meridian St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Bellingham\",\n        \"state_province\": \"Washington\",\n        \"postal_code\": \"98225-2405\",\n        \"country\": \"United States\",\n        \"longitude\": \"-122.485982\",\n        \"latitude\": \"48.7621709\",\n        \"phone\": \"3603063285\",\n        \"website_url\": \"https://www.122westbrew.com/\",\n        \"state\": \"Washington\",\n        \"street\": \"2416 Meridian St\"\n    },\n    {\n        \"id\": \"d5cb896d-3e99-4e19-9693-5e06ce987e53\",\n        \"name\": \"127 Brewing\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"3090 Shirley Dr\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Jackson\",\n        \"state_province\": \"Michigan\",\n        \"postal_code\": \"49201-7010\",\n        \"country\": \"United States\",\n        \"longitude\": \"-84.43116792\",\n        \"latitude\": \"42.28667212\",\n        \"phone\": \"5172581346\",\n        \"website_url\": null,\n        \"state\": \"Michigan\",\n        \"street\": \"3090 Shirley Dr\"\n    },\n    {\n        \"id\": \"06e9fffb-e820-45c9-b107-b52b51013e8f\",\n        \"name\": \"12Degree Brewing\",\n        \"brewery_type\": \"brewpub\",\n        \"address_1\": \"820 Main St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Louisville\",\n        \"state_province\": \"Colorado\",\n        \"postal_code\": \"80027-1865\",\n        \"country\": \"United States\",\n        \"longitude\": \"-105.1319826\",\n        \"latitude\": \"39.9782443\",\n        \"phone\": \"3035791004\",\n        \"website_url\": \"http://www.12degree.com\",\n        \"state\": \"Colorado\",\n        \"street\": \"820 Main St\"\n    },\n    {\n        \"id\": \"50521ef7-f543-4c5d-98b1-0d0ee1a2be01\",\n        \"name\": \"12welve Eyes Brewing\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"141 E 4th St Ste LL2\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Saint Paul\",\n        \"state_province\": \"Minnesota\",\n        \"postal_code\": \"55101-1639\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": \"6514938106\",\n        \"website_url\": \"http://www.12welveEyes.com\",\n        \"state\": \"Minnesota\",\n        \"street\": \"141 E 4th St Ste LL2\"\n    },\n    {\n        \"id\": \"950180bd-29c9-46b3-ad0c-e6f09799ec7f\",\n        \"name\": \"13 Below Brewery\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"7391 Forbes Rd\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Cincinnati\",\n        \"state_province\": \"Ohio\",\n        \"postal_code\": \"45233-1013\",\n        \"country\": \"United States\",\n        \"longitude\": \"-84.70634815\",\n        \"latitude\": \"39.12639764\",\n        \"phone\": \"5139750613\",\n        \"website_url\": \"http://www.13belowbrewery.com\",\n        \"state\": \"Ohio\",\n        \"street\": \"7391 Forbes Rd\"\n    },\n    {\n        \"id\": \"45119c56-345b-4adc-b481-c5cf7bfe98c4\",\n        \"name\": \"13 Stripes Brewery\",\n        \"brewery_type\": \"brewpub\",\n        \"address_1\": \"250 Mill St, Suite PW3101\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Taylors\",\n        \"state_province\": \"South Carolina\",\n        \"postal_code\": \"29687\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": \"8643491430\",\n        \"website_url\": \"http://www.13StripesBrewery.com\",\n        \"state\": \"South Carolina\",\n        \"street\": \"250 Mill St, Suite PW3101\"\n    },\n    {\n        \"id\": \"936c3d7e-5d54-4459-b72c-117cdda059b4\",\n        \"name\": \"13 Virtues Brewing Co\",\n        \"brewery_type\": \"brewpub\",\n        \"address_1\": \"6410 SE Milwaukie Ave\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Portland\",\n        \"state_province\": \"Oregon\",\n        \"postal_code\": \"97202-5518\",\n        \"country\": \"United States\",\n        \"longitude\": \"-122.6487531\",\n        \"latitude\": \"45.4762536\",\n        \"phone\": \"5032393831\",\n        \"website_url\": \"http://www.13virtuesbrewing.com\",\n        \"state\": \"Oregon\",\n        \"street\": \"6410 SE Milwaukie Ave\"\n    },\n    {\n        \"id\": \"5c53b314-ebab-4e3e-89be-e4139d9318ae\",\n        \"name\": \"1323 R & D\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"1323 Capital Blvd 1323 R and D\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Raleigh\",\n        \"state_province\": \"North Carolina\",\n        \"postal_code\": \"27603-1117\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": \"9199775654\",\n        \"website_url\": \"http://www.1323rnd.com\",\n        \"state\": \"North Carolina\",\n        \"street\": \"1323 Capital Blvd 1323 R and D\"\n    },\n    {\n        \"id\": \"4788221a-a03b-458c-9084-4cadd69ade6d\",\n        \"name\": \"14 Cannons Brewing Company\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"31125 Via Colinas Ste 907\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Westlake Village\",\n        \"state_province\": \"California\",\n        \"postal_code\": \"91362-3974\",\n        \"country\": \"United States\",\n        \"longitude\": \"-118.802397\",\n        \"latitude\": \"34.15334\",\n        \"phone\": \"8186996165\",\n        \"website_url\": \"http://14cannons.com\",\n        \"state\": \"California\",\n        \"street\": \"31125 Via Colinas Ste 907\"\n    },\n    {\n        \"id\": \"b7b68d22-5045-4501-b9bf-ec94946eaffc\",\n        \"name\": \"14 Lakes Brewery\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": null,\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Crosslake\",\n        \"state_province\": \"Minnesota\",\n        \"postal_code\": \"56442\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": \"2186924129\",\n        \"website_url\": null,\n        \"state\": \"Minnesota\",\n        \"street\": null\n    },\n    {\n        \"id\": \"4b677b60-fef1-42e2-90ef-dadc1bd7fb06\",\n        \"name\": \"14er Brewing Company\",\n        \"brewery_type\": \"proprietor\",\n        \"address_1\": \"2801 Walnut St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Denver\",\n        \"state_province\": \"Colorado\",\n        \"postal_code\": \"80205-2235\",\n        \"country\": \"United States\",\n        \"longitude\": \"-104.9839636\",\n        \"latitude\": \"39.7614112\",\n        \"phone\": \"7207731437\",\n        \"website_url\": \"http://www.14erBrewing.com\",\n        \"state\": \"Colorado\",\n        \"street\": \"2801 Walnut St\"\n    },\n    {\n        \"id\": \"6c53984f-fac1-4ea7-9c44-44e25897c71a\",\n        \"name\": \"14th Star Brewing\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"133 N Main St Ste 7\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Saint Albans\",\n        \"state_province\": \"Vermont\",\n        \"postal_code\": \"05478-1735\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": \"8025285988\",\n        \"website_url\": \"http://www.14thstarbrewing.com\",\n        \"state\": \"Vermont\",\n        \"street\": \"133 N Main St Ste 7\"\n    },\n    {\n        \"id\": \"85192a9c-58a4-48c3-bd9d-496d09d22aa3\",\n        \"name\": \"16 Lots Brewing\",\n        \"brewery_type\": \"brewpub\",\n        \"address_1\": \"753 Reading Rd\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Mason\",\n        \"state_province\": \"Ohio\",\n        \"postal_code\": \"45040-1303\",\n        \"country\": \"United States\",\n        \"longitude\": \"-84.3183801\",\n        \"latitude\": \"39.3545967\",\n        \"phone\": \"5134863672\",\n        \"website_url\": \"http://www.16lots.com\",\n        \"state\": \"Ohio\",\n        \"street\": \"753 Reading Rd\"\n    },\n    {\n        \"id\": \"284b44f8-6ccb-4cd6-8d06-f2ad882a47c3\",\n        \"name\": \"16 Mile Brewing Co\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"413 S Bedford St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Georgetown\",\n        \"state_province\": \"Delaware\",\n        \"postal_code\": \"19947-1849\",\n        \"country\": \"United States\",\n        \"longitude\": \"-75.37816436\",\n        \"latitude\": \"38.6788938\",\n        \"phone\": \"3022538816\",\n        \"website_url\": \"http://www.16milebrewery.com\",\n        \"state\": \"Delaware\",\n        \"street\": \"413 S Bedford St\"\n    },\n    {\n        \"id\": \"ee6d39c6-092f-4623-8099-5b8643f70dbe\",\n        \"name\": \"16 Stone Brewpub\",\n        \"brewery_type\": \"brewpub\",\n        \"address_1\": \"9542 Main St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Holland Patent\",\n        \"state_province\": \"New York\",\n        \"postal_code\": \"13354\",\n        \"country\": \"United States\",\n        \"longitude\": \"-75.2565195\",\n        \"latitude\": \"43.24211175\",\n        \"phone\": \"3158658500\",\n        \"website_url\": \"http://www.16stonebrewpub.com\",\n        \"state\": \"New York\",\n        \"street\": \"9542 Main St\"\n    },\n    {\n        \"id\": \"d35b40b0-a3ff-4878-a6ee-9caa2149b521\",\n        \"name\": \"1623 Brewing CO, llc\",\n        \"brewery_type\": \"contract\",\n        \"address_1\": \"1146 colonel Joshua Ct\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Westminister\",\n        \"state_province\": \"Maryland\",\n        \"postal_code\": \"21157\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": null,\n        \"website_url\": null,\n        \"state\": \"Maryland\",\n        \"street\": \"1146 colonel Joshua Ct\"\n    },\n    {\n        \"id\": \"84bd3b3c-bd2d-4e07-bc31-b43a8c8ebf4c\",\n        \"name\": \"1717 Brewing Co\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"322 E Court Ave\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Des Moines\",\n        \"state_province\": \"Iowa\",\n        \"postal_code\": \"50309-2015\",\n        \"country\": \"United States\",\n        \"longitude\": \"-93.6120353\",\n        \"latitude\": \"41.5872267\",\n        \"phone\": \"5152437868\",\n        \"website_url\": \"http://1717brewing.com\",\n        \"state\": \"Iowa\",\n        \"street\": \"322 E Court Ave\"\n    },\n    {\n        \"id\": \"f41a0c47-ba9b-4547-bfed-fcbefe0fc74b\",\n        \"name\": \"1718 Ocracoke Brewing\",\n        \"brewery_type\": \"brewpub\",\n        \"address_1\": \"1129 Irvin Garrish Hwy\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Ocracoke\",\n        \"state_province\": \"North Carolina\",\n        \"postal_code\": \"27960\",\n        \"country\": \"United States\",\n        \"longitude\": \"-75.97176063\",\n        \"latitude\": \"35.10715368\",\n        \"phone\": \"2529282337\",\n        \"website_url\": \"http://www.ocracokebrewing.com\",\n        \"state\": \"North Carolina\",\n        \"street\": \"1129 Irvin Garrish Hwy\"\n    },\n    {\n        \"id\": \"84d621c4-81a5-44e6-aca7-1566c2e67cc0\",\n        \"name\": \"1781 Brewing Company\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"11109 Plank Rd\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Spotsylvania\",\n        \"state_province\": \"Virginia\",\n        \"postal_code\": \"22553-4258\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": \"5408412598\",\n        \"website_url\": null,\n        \"state\": \"Virginia\",\n        \"street\": \"11109 Plank Rd\"\n    },\n    {\n        \"id\": \"896f26a1-d80e-4790-9287-026a86c1799d\",\n        \"name\": \"180 and Tapped\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"2010 A State Ave\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Coraopolis\",\n        \"state_province\": \"Pennsylvania\",\n        \"postal_code\": \"15108\",\n        \"country\": \"United States\",\n        \"longitude\": \"-80.15020356\",\n        \"latitude\": \"40.50984957\",\n        \"phone\": \"4127375273\",\n        \"website_url\": \"http://www.180andtapped.com\",\n        \"state\": \"Pennsylvania\",\n        \"street\": \"2010 A State Ave\"\n    },\n    {\n        \"id\": \"46839a79-b7bf-4733-b91b-ce116d062a57\",\n        \"name\": \"1817 Brewery\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"100 B South Olive St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"okolona\",\n        \"state_province\": \"Mississippi\",\n        \"postal_code\": \"38860\",\n        \"country\": \"United States\",\n        \"longitude\": \"-88.750264\",\n        \"latitude\": \"34.001703\",\n        \"phone\": \"6623055907\",\n        \"website_url\": null,\n        \"state\": \"Mississippi\",\n        \"street\": \"100 B South Olive St\"\n    },\n    {\n        \"id\": \"1a1b2165-73ed-40aa-b89b-56794d140f22\",\n        \"name\": \"1840 Brewing Company\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"342 E Ward St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Milwaukee\",\n        \"state_province\": \"Wisconsin\",\n        \"postal_code\": \"53207-1348\",\n        \"country\": \"United States\",\n        \"longitude\": \"-87.90606942\",\n        \"latitude\": \"43.00436242\",\n        \"phone\": \"4142364056\",\n        \"website_url\": \"http://www.1840brewing.com\",\n        \"state\": \"Wisconsin\",\n        \"street\": \"342 E Ward St\"\n    },\n    {\n        \"id\": \"fe6b9893-b93e-43d5-a9f6-3e0c89a3f13c\",\n        \"name\": \"1850 Brewing Company\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": null,\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Mariposa\",\n        \"state_province\": \"California\",\n        \"postal_code\": \"95338\",\n        \"country\": \"United States\",\n        \"longitude\": \"-119.9036592\",\n        \"latitude\": \"37.570148\",\n        \"phone\": null,\n        \"website_url\": \"http://www.1850restaurant.com\",\n        \"state\": \"California\",\n        \"street\": null\n    },\n    {\n        \"id\": \"b51f3cdf-60ff-4ae1-94a7-76906c7d62eb\",\n        \"name\": \"18th Street Brewery\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"5725 Miller Ave\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Gary\",\n        \"state_province\": \"Indiana\",\n        \"postal_code\": \"46403-2871\",\n        \"country\": \"United States\",\n        \"longitude\": \"-87.26887786\",\n        \"latitude\": \"41.59928343\",\n        \"phone\": null,\n        \"website_url\": \"http://www.18thstreetbrewery.com\",\n        \"state\": \"Indiana\",\n        \"street\": \"5725 Miller Ave\"\n    },\n    {\n        \"id\": \"add7f978-942e-4d56-b209-c80837a51d69\",\n        \"name\": \"18th Street Brewery\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"5417 Oakley Ave\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Hammond\",\n        \"state_province\": \"Indiana\",\n        \"postal_code\": \"46320-1817\",\n        \"country\": \"United States\",\n        \"longitude\": \"-87.517422\",\n        \"latitude\": \"41.61556796\",\n        \"phone\": null,\n        \"website_url\": null,\n        \"state\": \"Indiana\",\n        \"street\": \"5417 Oakley Ave\"\n    },\n    {\n        \"id\": \"dbde8235-2b55-4d8b-8b1c-438155abe104\",\n        \"name\": \"1905 Brewing Company\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"1301 S Chestnut St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Assumption\",\n        \"state_province\": \"Illinois\",\n        \"postal_code\": \"62510-8504\",\n        \"country\": \"United States\",\n        \"longitude\": \"-89.0503635\",\n        \"latitude\": \"39.5172564\",\n        \"phone\": \"2172549374\",\n        \"website_url\": \"http://1905BrewingCompany.com\",\n        \"state\": \"Illinois\",\n        \"street\": \"1301 S Chestnut St\"\n    },\n    {\n        \"id\": \"4f4b5b34-d572-4dff-a18f-47e507c073e6\",\n        \"name\": \"1912 Brewing\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"2045 N Forbes Blvd Ste 105\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Tucson\",\n        \"state_province\": \"Arizona\",\n        \"postal_code\": \"85745-1444\",\n        \"country\": \"United States\",\n        \"longitude\": \"-110.9927505\",\n        \"latitude\": \"32.24673727\",\n        \"phone\": \"5202564851\",\n        \"website_url\": \"http://www.1912brewing.com\",\n        \"state\": \"Arizona\",\n        \"street\": \"2045 N Forbes Blvd Ste 105\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "by city",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.openbrewerydb.org/breweries?by_city=Cracow",
+					"protocol": "https",
+					"host": [
+						"api",
+						"openbrewerydb",
+						"org"
+					],
+					"path": [
+						"breweries"
+					],
+					"query": [
+						{
+							"key": "by_city",
+							"value": "Cracow"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.openbrewerydb.org/breweries?by_city=new_york",
+							"protocol": "https",
+							"host": [
+								"api",
+								"openbrewerydb",
+								"org"
+							],
+							"path": [
+								"breweries"
+							],
+							"query": [
+								{
+									"key": "by_city",
+									"value": "new_york"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 15 Mar 2024 09:45:35 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"group\":\"heroku-nel\",\"max_age\":3600,\"endpoints\":[{\"url\":\"https://nel.heroku.com/reports?ts=1710495935&sid=67ff5de4-ad2b-4112-9289-cf96be89efed&s=1ORnNzcX%2BcgBYQyaSQhN70wYRxj47%2Ff4XzksR%2Few8w8%3D\"}]}"
+						},
+						{
+							"key": "Reporting-Endpoints",
+							"value": "heroku-nel=https://nel.heroku.com/reports?ts=1710495935&sid=67ff5de4-ad2b-4112-9289-cf96be89efed&s=1ORnNzcX%2BcgBYQyaSQhN70wYRxj47%2Ff4XzksR%2Few8w8%3D"
+						},
+						{
+							"key": "Nel",
+							"value": "{\"report_to\":\"heroku-nel\",\"max_age\":3600,\"success_fraction\":0.005,\"failure_fraction\":0.05,\"response_headers\":[\"Via\"]}"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Xss-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "strict-origin-when-cross-origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin, Accept-Encoding"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "public, max-age=86400"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"32abdf933af034b437718ff88cea4c2f\""
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "ee54d388-8aad-43bd-9c72-28af5700e6b5"
+						},
+						{
+							"key": "X-Runtime",
+							"value": "0.012715"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=63072000; includeSubDomains"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "MISS"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "864b924c79d73494-WAW"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"810e0e7c-293a-4e3e-a557-13691d30d399\",\n        \"name\": \"Alphabet City Brewing Co\",\n        \"brewery_type\": \"contract\",\n        \"address_1\": \"96 Avenue C Frnt 4\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"New York\",\n        \"state_province\": \"New York\",\n        \"postal_code\": \"10009-7055\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": \"9143566809\",\n        \"website_url\": \"http://www.acbnyc.com\",\n        \"state\": \"New York\",\n        \"street\": \"96 Avenue C Frnt 4\"\n    },\n    {\n        \"id\": \"03df12a0-f2ff-4c37-b862-e6df31123b74\",\n        \"name\": \"B9 Beverages Inc\",\n        \"brewery_type\": \"contract\",\n        \"address_1\": \"404 5th Ave # 7.055\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"New York\",\n        \"state_province\": \"New York\",\n        \"postal_code\": \"10018-2797\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": null,\n        \"website_url\": null,\n        \"state\": \"New York\",\n        \"street\": \"404 5th Ave # 7.055\"\n    },\n    {\n        \"id\": \"aec527a2-0534-4252-86e0-56c621fc835d\",\n        \"name\": \"Birreria @ Eataly\",\n        \"brewery_type\": \"brewpub\",\n        \"address_1\": \"200 5th Ave Fl 14\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"New York\",\n        \"state_province\": \"New York\",\n        \"postal_code\": \"10010-3302\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": \"2125390204\",\n        \"website_url\": \"http://www.eatalyny.com\",\n        \"state\": \"New York\",\n        \"street\": \"200 5th Ave Fl 14\"\n    },\n    {\n        \"id\": \"c3a06a86-327d-43f5-8305-bef7578db4e9\",\n        \"name\": \"Death Avenue\",\n        \"brewery_type\": \"brewpub\",\n        \"address_1\": \"315 10th Ave B/W 28th & 29th St.\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"New York\",\n        \"state_province\": \"New York\",\n        \"postal_code\": \"10001-1416\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": \"2126958080\",\n        \"website_url\": \"http://www.deathave.com\",\n        \"state\": \"New York\",\n        \"street\": \"315 10th Ave B/W 28th & 29th St.\"\n    },\n    {\n        \"id\": \"e4e51dc8-6d71-4ccd-85e4-4cad72d1b5df\",\n        \"name\": \"Empire City Beer Company\",\n        \"brewery_type\": \"planning\",\n        \"address_1\": null,\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"New York\",\n        \"state_province\": \"New York\",\n        \"postal_code\": \"10012\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": \"9178040571\",\n        \"website_url\": \"http://www.hitemhard.com\",\n        \"state\": \"New York\",\n        \"street\": null\n    },\n    {\n        \"id\": \"95e2aecb-8c67-415f-aad7-02f1148871f6\",\n        \"name\": \"Harlem Blue Beer\",\n        \"brewery_type\": \"proprietor\",\n        \"address_1\": \"2214 Frederick Douglass Blvd Ste 267\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"New York\",\n        \"state_province\": \"New York\",\n        \"postal_code\": \"10026-1123\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": null,\n        \"website_url\": \"http://www.harlemblue.com\",\n        \"state\": \"New York\",\n        \"street\": \"2214 Frederick Douglass Blvd Ste 267\"\n    },\n    {\n        \"id\": \"02f59192-c794-4d3b-b3a3-6d96bb2bb7b2\",\n        \"name\": \"Harlem Brewing Co\",\n        \"brewery_type\": \"contract\",\n        \"address_1\": \"2 W 123rd St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"New York\",\n        \"state_province\": \"New York\",\n        \"postal_code\": \"10027-5623\",\n        \"country\": \"United States\",\n        \"longitude\": \"-73.94532799\",\n        \"latitude\": \"40.8058068\",\n        \"phone\": \"8885596735\",\n        \"website_url\": \"http://www.harlembrewingcompany.com\",\n        \"state\": \"New York\",\n        \"street\": \"2 W 123rd St\"\n    },\n    {\n        \"id\": \"59b15388-72c7-4a2d-895a-7382c5b2d125\",\n        \"name\": \"Heartland Brewery\",\n        \"brewery_type\": \"contract\",\n        \"address_1\": \"35 Union Sq W Frnt 1\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"New York\",\n        \"state_province\": \"New York\",\n        \"postal_code\": \"10003-3200\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": \"2126453400\",\n        \"website_url\": \"http://www.heartlandbrewery.com\",\n        \"state\": \"New York\",\n        \"street\": \"35 Union Sq W Frnt 1\"\n    },\n    {\n        \"id\": \"8d1600f2-6526-4bdb-8992-bb0fdb286005\",\n        \"name\": \"Radiant Pig Craft Beers\",\n        \"brewery_type\": \"contract\",\n        \"address_1\": \"122 W 27th St Fl 10\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"New York\",\n        \"state_province\": \"New York\",\n        \"postal_code\": \"10001-6227\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": null,\n        \"website_url\": null,\n        \"state\": \"New York\",\n        \"street\": \"122 W 27th St Fl 10\"\n    },\n    {\n        \"id\": \"4cc38bef-f05b-42ce-8323-ca7458415621\",\n        \"name\": \"Ruckus Brewing Co\",\n        \"brewery_type\": \"contract\",\n        \"address_1\": \"261 W 35th St Ste 1002\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"New York\",\n        \"state_province\": \"New York\",\n        \"postal_code\": \"10001-1902\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": \"6467105098\",\n        \"website_url\": \"http://www.ruckusbrewing.com\",\n        \"state\": \"New York\",\n        \"street\": \"261 W 35th St Ste 1002\"\n    },\n    {\n        \"id\": \"451c1c4a-fd8d-4cda-a43d-7cc527c8ff37\",\n        \"name\": \"The Owls Brew\",\n        \"brewery_type\": \"large\",\n        \"address_1\": \"135 W 29th St Rm 602\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"New York\",\n        \"state_province\": \"New York\",\n        \"postal_code\": \"10001-5175\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": \"2125640218\",\n        \"website_url\": \"http://www.theowlsbrew.com\",\n        \"state\": \"New York\",\n        \"street\": \"135 W 29th St Rm 602\"\n    },\n    {\n        \"id\": \"e63045b8-37a7-41c9-b5e3-6fbb87d2f388\",\n        \"name\": \"Third Rail Beer\",\n        \"brewery_type\": \"contract\",\n        \"address_1\": \"928 Broadway Ste 902\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"New York\",\n        \"state_province\": \"New York\",\n        \"postal_code\": \"10010-8139\",\n        \"country\": \"United States\",\n        \"longitude\": \"-73.9893474\",\n        \"latitude\": \"40.7400479\",\n        \"phone\": null,\n        \"website_url\": \"http://www.thirdrailbeer.com\",\n        \"state\": \"New York\",\n        \"street\": \"928 Broadway Ste 902\"\n    },\n    {\n        \"id\": \"f8dc2368-d963-4d93-9a24-208a6d07c87f\",\n        \"name\": \"Toast Ale\",\n        \"brewery_type\": \"contract\",\n        \"address_1\": \"601 W 26th St Ste 325-291\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"New York\",\n        \"state_province\": \"New York\",\n        \"postal_code\": \"10001-1101\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": \"9162023851\",\n        \"website_url\": \"http://www.toastale.com/us\",\n        \"state\": \"New York\",\n        \"street\": \"601 W 26th St Ste 325-291\"\n    }\n]"
+				},
+				{
+					"name": "Empty - city not exists",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.openbrewerydb.org/breweries?by_city=Cracow",
+							"protocol": "https",
+							"host": [
+								"api",
+								"openbrewerydb",
+								"org"
+							],
+							"path": [
+								"breweries"
+							],
+							"query": [
+								{
+									"key": "by_city",
+									"value": "Cracow"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 15 Mar 2024 09:46:16 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"group\":\"heroku-nel\",\"max_age\":3600,\"endpoints\":[{\"url\":\"https://nel.heroku.com/reports?ts=1710240997&sid=67ff5de4-ad2b-4112-9289-cf96be89efed&s=uj8l62if9MyycWS5xGCPBOaPlJvd12HrEeurnT3zf0g%3D\"}]}"
+						},
+						{
+							"key": "Reporting-Endpoints",
+							"value": "heroku-nel=https://nel.heroku.com/reports?ts=1710240997&sid=67ff5de4-ad2b-4112-9289-cf96be89efed&s=uj8l62if9MyycWS5xGCPBOaPlJvd12HrEeurnT3zf0g%3D"
+						},
+						{
+							"key": "Nel",
+							"value": "{\"report_to\":\"heroku-nel\",\"max_age\":3600,\"success_fraction\":0.005,\"failure_fraction\":0.05,\"response_headers\":[\"Via\"]}"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Xss-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "strict-origin-when-cross-origin"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "public, max-age=86400"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"4f53cda18c2baa0c0354bb5f9a3ecbe5\""
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "a67cc0c2-5292-4366-9910-75da6e528d62"
+						},
+						{
+							"key": "X-Runtime",
+							"value": "0.015239"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=63072000; includeSubDomains"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin, Accept-Encoding"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "HIT"
+						},
+						{
+							"key": "Age",
+							"value": "85453"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "864b934c19783494-WAW"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "[]"
+				}
+			]
+		},
+		{
+			"name": "by type",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.openbrewerydb.org/breweries?by_type=micro",
+					"protocol": "https",
+					"host": [
+						"api",
+						"openbrewerydb",
+						"org"
+					],
+					"path": [
+						"breweries"
+					],
+					"query": [
+						{
+							"key": "by_type",
+							"value": "micro"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.openbrewerydb.org/breweries?by_type=micro",
+							"protocol": "https",
+							"host": [
+								"api",
+								"openbrewerydb",
+								"org"
+							],
+							"path": [
+								"breweries"
+							],
+							"query": [
+								{
+									"key": "by_type",
+									"value": "micro"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 15 Mar 2024 09:48:20 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"group\":\"heroku-nel\",\"max_age\":3600,\"endpoints\":[{\"url\":\"https://nel.heroku.com/reports?ts=1710496099&sid=67ff5de4-ad2b-4112-9289-cf96be89efed&s=WPDg%2BBzSjL%2FTF4v8%2F2rWHIdPetGA%2FyjaEJ3SoQe57Zo%3D\"}]}"
+						},
+						{
+							"key": "Reporting-Endpoints",
+							"value": "heroku-nel=https://nel.heroku.com/reports?ts=1710496099&sid=67ff5de4-ad2b-4112-9289-cf96be89efed&s=WPDg%2BBzSjL%2FTF4v8%2F2rWHIdPetGA%2FyjaEJ3SoQe57Zo%3D"
+						},
+						{
+							"key": "Nel",
+							"value": "{\"report_to\":\"heroku-nel\",\"max_age\":3600,\"success_fraction\":0.005,\"failure_fraction\":0.05,\"response_headers\":[\"Via\"]}"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Xss-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "strict-origin-when-cross-origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin, Accept-Encoding"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "public, max-age=86400"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"7d762d430e124a1784e9e7fa1c687335\""
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "a0dee5d4-b778-41cb-8d86-0f5fffab7400"
+						},
+						{
+							"key": "X-Runtime",
+							"value": "0.012886"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=63072000; includeSubDomains"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "MISS"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "864b964e593b3494-WAW"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"5128df48-79fc-4f0f-8b52-d06be54d0cec\",\n        \"name\": \"(405) Brewing Co\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"1716 Topeka St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Norman\",\n        \"state_province\": \"Oklahoma\",\n        \"postal_code\": \"73069-8224\",\n        \"country\": \"United States\",\n        \"longitude\": \"-97.46818222\",\n        \"latitude\": \"35.25738891\",\n        \"phone\": \"4058160490\",\n        \"website_url\": \"http://www.405brewing.com\",\n        \"state\": \"Oklahoma\",\n        \"street\": \"1716 Topeka St\"\n    },\n    {\n        \"id\": \"9c5a66c8-cc13-416f-a5d9-0a769c87d318\",\n        \"name\": \"(512) Brewing Co\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"407 Radam Ln Ste F200\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Austin\",\n        \"state_province\": \"Texas\",\n        \"postal_code\": \"78745-1197\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": \"5129211545\",\n        \"website_url\": \"http://www.512brewing.com\",\n        \"state\": \"Texas\",\n        \"street\": \"407 Radam Ln Ste F200\"\n    },\n    {\n        \"id\": \"34e8c68b-6146-453f-a4b9-1f6cd99a5ada\",\n        \"name\": \"1 of Us Brewing Company\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"8100 Washington Ave\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Mount Pleasant\",\n        \"state_province\": \"Wisconsin\",\n        \"postal_code\": \"53406-3920\",\n        \"country\": \"United States\",\n        \"longitude\": \"-87.88336350209435\",\n        \"latitude\": \"42.72010826899558\",\n        \"phone\": \"2624847553\",\n        \"website_url\": \"https://www.1ofusbrewing.com\",\n        \"state\": \"Wisconsin\",\n        \"street\": \"8100 Washington Ave\"\n    },\n    {\n        \"id\": \"1ecc330f-6275-42a5-b14e-00adbed62752\",\n        \"name\": \"10 Torr Distilling and Brewing\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"490 Mill St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Reno\",\n        \"state_province\": \"Nevada\",\n        \"postal_code\": \"89502\",\n        \"country\": \"United States\",\n        \"longitude\": \"-119.7732015\",\n        \"latitude\": \"39.5171702\",\n        \"phone\": \"7755307014\",\n        \"website_url\": \"http://www.10torr.com\",\n        \"state\": \"Nevada\",\n        \"street\": \"490 Mill St\"\n    },\n    {\n        \"id\": \"7531dbd8-afc9-4b5b-95bc-7ece7f2c0bf3\",\n        \"name\": \"10-56 Brewing Company\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"400 Brown Cir\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Knox\",\n        \"state_province\": \"Indiana\",\n        \"postal_code\": \"46534\",\n        \"country\": \"United States\",\n        \"longitude\": \"-86.627954\",\n        \"latitude\": \"41.289715\",\n        \"phone\": \"6308165790\",\n        \"website_url\": null,\n        \"state\": \"Indiana\",\n        \"street\": \"400 Brown Cir\"\n    },\n    {\n        \"id\": \"4ffda196-dd59-44a5-9eeb-5f7fd4b58f5a\",\n        \"name\": \"105 West Brewing Co\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"1043 Park St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Castle Rock\",\n        \"state_province\": \"Colorado\",\n        \"postal_code\": \"80109-1585\",\n        \"country\": \"United States\",\n        \"longitude\": \"-104.8667206\",\n        \"latitude\": \"39.38269495\",\n        \"phone\": \"3033257321\",\n        \"website_url\": \"http://www.105westbrewing.com\",\n        \"state\": \"Colorado\",\n        \"street\": \"1043 Park St\"\n    },\n    {\n        \"id\": \"42aa37d5-8384-4ffe-8c81-7c982eff0384\",\n        \"name\": \"10K Brewing\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"2005 2nd Ave\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Anoka\",\n        \"state_province\": \"Minnesota\",\n        \"postal_code\": \"55303-2243\",\n        \"country\": \"United States\",\n        \"longitude\": \"-93.38952559\",\n        \"latitude\": \"45.19812039\",\n        \"phone\": \"7633924753\",\n        \"website_url\": \"http://10KBrew.com\",\n        \"state\": \"Minnesota\",\n        \"street\": \"2005 2nd Ave\"\n    },\n    {\n        \"id\": \"232e8f62-9afc-45f5-b4bc-582c26b5c43b\",\n        \"name\": \"10th District Brewing Company\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"491 Washington St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Abington\",\n        \"state_province\": \"Massachusetts\",\n        \"postal_code\": \"02351-2419\",\n        \"country\": \"United States\",\n        \"longitude\": \"-70.94594149\",\n        \"latitude\": \"42.10591754\",\n        \"phone\": \"7813071554\",\n        \"website_url\": \"http://www.10thdistrictbrewing.com\",\n        \"state\": \"Massachusetts\",\n        \"street\": \"491 Washington St\"\n    },\n    {\n        \"id\": \"08f78223-24f8-4b71-b381-ea19a5bd82df\",\n        \"name\": \"11 Below Brewing Company\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"6820 Bourgeois Rd\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Houston\",\n        \"state_province\": \"Texas\",\n        \"postal_code\": \"77066-3107\",\n        \"country\": \"United States\",\n        \"longitude\": \"-95.5186591\",\n        \"latitude\": \"29.9515464\",\n        \"phone\": \"2814442337\",\n        \"website_url\": \"http://www.11belowbrewing.com\",\n        \"state\": \"Texas\",\n        \"street\": \"6820 Bourgeois Rd\"\n    },\n    {\n        \"id\": \"e5f3e72a-fee2-4813-82cf-f2e53b439ae6\",\n        \"name\": \"12 Acres Brewing Company\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"Unnamed Street\",\n        \"address_2\": \"Clonmore\",\n        \"address_3\": null,\n        \"city\": \"Killeshin\",\n        \"state_province\": \"Laois\",\n        \"postal_code\": \"R93 X3X8\",\n        \"country\": \"Ireland\",\n        \"longitude\": \"-6.979343891\",\n        \"latitude\": \"52.84930763\",\n        \"phone\": \"353599107299\",\n        \"website_url\": \"https://12acresbrewing.ie/\",\n        \"state\": \"Laois\",\n        \"street\": \"Unnamed Street\"\n    },\n    {\n        \"id\": \"fb94830f-6196-4f59-9189-c9060b778085\",\n        \"name\": \"12 West Brewing Company\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"3000 E Ray Rd Bldg 6\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Gilbert\",\n        \"state_province\": \"Arizona\",\n        \"postal_code\": \"85296-7832\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": \"6023395014\",\n        \"website_url\": \"http://www.12westbrewing.com\",\n        \"state\": \"Arizona\",\n        \"street\": \"3000 E Ray Rd Bldg 6\"\n    },\n    {\n        \"id\": \"0faa0fb2-fffa-416d-9eab-46f67477c8ef\",\n        \"name\": \"12 West Brewing Company - Production Facility\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": null,\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Mesa\",\n        \"state_province\": \"Arizona\",\n        \"postal_code\": \"85207\",\n        \"country\": \"United States\",\n        \"longitude\": \"-111.5860662\",\n        \"latitude\": \"33.436188\",\n        \"phone\": null,\n        \"website_url\": null,\n        \"state\": \"Arizona\",\n        \"street\": null\n    },\n    {\n        \"id\": \"d5cb896d-3e99-4e19-9693-5e06ce987e53\",\n        \"name\": \"127 Brewing\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"3090 Shirley Dr\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Jackson\",\n        \"state_province\": \"Michigan\",\n        \"postal_code\": \"49201-7010\",\n        \"country\": \"United States\",\n        \"longitude\": \"-84.43116792\",\n        \"latitude\": \"42.28667212\",\n        \"phone\": \"5172581346\",\n        \"website_url\": null,\n        \"state\": \"Michigan\",\n        \"street\": \"3090 Shirley Dr\"\n    },\n    {\n        \"id\": \"50521ef7-f543-4c5d-98b1-0d0ee1a2be01\",\n        \"name\": \"12welve Eyes Brewing\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"141 E 4th St Ste LL2\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Saint Paul\",\n        \"state_province\": \"Minnesota\",\n        \"postal_code\": \"55101-1639\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": \"6514938106\",\n        \"website_url\": \"http://www.12welveEyes.com\",\n        \"state\": \"Minnesota\",\n        \"street\": \"141 E 4th St Ste LL2\"\n    },\n    {\n        \"id\": \"950180bd-29c9-46b3-ad0c-e6f09799ec7f\",\n        \"name\": \"13 Below Brewery\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"7391 Forbes Rd\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Cincinnati\",\n        \"state_province\": \"Ohio\",\n        \"postal_code\": \"45233-1013\",\n        \"country\": \"United States\",\n        \"longitude\": \"-84.70634815\",\n        \"latitude\": \"39.12639764\",\n        \"phone\": \"5139750613\",\n        \"website_url\": \"http://www.13belowbrewery.com\",\n        \"state\": \"Ohio\",\n        \"street\": \"7391 Forbes Rd\"\n    },\n    {\n        \"id\": \"5c53b314-ebab-4e3e-89be-e4139d9318ae\",\n        \"name\": \"1323 R & D\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"1323 Capital Blvd 1323 R and D\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Raleigh\",\n        \"state_province\": \"North Carolina\",\n        \"postal_code\": \"27603-1117\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": \"9199775654\",\n        \"website_url\": \"http://www.1323rnd.com\",\n        \"state\": \"North Carolina\",\n        \"street\": \"1323 Capital Blvd 1323 R and D\"\n    },\n    {\n        \"id\": \"4788221a-a03b-458c-9084-4cadd69ade6d\",\n        \"name\": \"14 Cannons Brewing Company\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"31125 Via Colinas Ste 907\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Westlake Village\",\n        \"state_province\": \"California\",\n        \"postal_code\": \"91362-3974\",\n        \"country\": \"United States\",\n        \"longitude\": \"-118.802397\",\n        \"latitude\": \"34.15334\",\n        \"phone\": \"8186996165\",\n        \"website_url\": \"http://14cannons.com\",\n        \"state\": \"California\",\n        \"street\": \"31125 Via Colinas Ste 907\"\n    },\n    {\n        \"id\": \"b7b68d22-5045-4501-b9bf-ec94946eaffc\",\n        \"name\": \"14 Lakes Brewery\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": null,\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Crosslake\",\n        \"state_province\": \"Minnesota\",\n        \"postal_code\": \"56442\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": \"2186924129\",\n        \"website_url\": null,\n        \"state\": \"Minnesota\",\n        \"street\": null\n    },\n    {\n        \"id\": \"6c53984f-fac1-4ea7-9c44-44e25897c71a\",\n        \"name\": \"14th Star Brewing\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"133 N Main St Ste 7\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Saint Albans\",\n        \"state_province\": \"Vermont\",\n        \"postal_code\": \"05478-1735\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": \"8025285988\",\n        \"website_url\": \"http://www.14thstarbrewing.com\",\n        \"state\": \"Vermont\",\n        \"street\": \"133 N Main St Ste 7\"\n    },\n    {\n        \"id\": \"284b44f8-6ccb-4cd6-8d06-f2ad882a47c3\",\n        \"name\": \"16 Mile Brewing Co\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"413 S Bedford St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Georgetown\",\n        \"state_province\": \"Delaware\",\n        \"postal_code\": \"19947-1849\",\n        \"country\": \"United States\",\n        \"longitude\": \"-75.37816436\",\n        \"latitude\": \"38.6788938\",\n        \"phone\": \"3022538816\",\n        \"website_url\": \"http://www.16milebrewery.com\",\n        \"state\": \"Delaware\",\n        \"street\": \"413 S Bedford St\"\n    },\n    {\n        \"id\": \"84bd3b3c-bd2d-4e07-bc31-b43a8c8ebf4c\",\n        \"name\": \"1717 Brewing Co\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"322 E Court Ave\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Des Moines\",\n        \"state_province\": \"Iowa\",\n        \"postal_code\": \"50309-2015\",\n        \"country\": \"United States\",\n        \"longitude\": \"-93.6120353\",\n        \"latitude\": \"41.5872267\",\n        \"phone\": \"5152437868\",\n        \"website_url\": \"http://1717brewing.com\",\n        \"state\": \"Iowa\",\n        \"street\": \"322 E Court Ave\"\n    },\n    {\n        \"id\": \"84d621c4-81a5-44e6-aca7-1566c2e67cc0\",\n        \"name\": \"1781 Brewing Company\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"11109 Plank Rd\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Spotsylvania\",\n        \"state_province\": \"Virginia\",\n        \"postal_code\": \"22553-4258\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": \"5408412598\",\n        \"website_url\": null,\n        \"state\": \"Virginia\",\n        \"street\": \"11109 Plank Rd\"\n    },\n    {\n        \"id\": \"896f26a1-d80e-4790-9287-026a86c1799d\",\n        \"name\": \"180 and Tapped\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"2010 A State Ave\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Coraopolis\",\n        \"state_province\": \"Pennsylvania\",\n        \"postal_code\": \"15108\",\n        \"country\": \"United States\",\n        \"longitude\": \"-80.15020356\",\n        \"latitude\": \"40.50984957\",\n        \"phone\": \"4127375273\",\n        \"website_url\": \"http://www.180andtapped.com\",\n        \"state\": \"Pennsylvania\",\n        \"street\": \"2010 A State Ave\"\n    },\n    {\n        \"id\": \"46839a79-b7bf-4733-b91b-ce116d062a57\",\n        \"name\": \"1817 Brewery\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"100 B South Olive St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"okolona\",\n        \"state_province\": \"Mississippi\",\n        \"postal_code\": \"38860\",\n        \"country\": \"United States\",\n        \"longitude\": \"-88.750264\",\n        \"latitude\": \"34.001703\",\n        \"phone\": \"6623055907\",\n        \"website_url\": null,\n        \"state\": \"Mississippi\",\n        \"street\": \"100 B South Olive St\"\n    },\n    {\n        \"id\": \"1a1b2165-73ed-40aa-b89b-56794d140f22\",\n        \"name\": \"1840 Brewing Company\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"342 E Ward St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Milwaukee\",\n        \"state_province\": \"Wisconsin\",\n        \"postal_code\": \"53207-1348\",\n        \"country\": \"United States\",\n        \"longitude\": \"-87.90606942\",\n        \"latitude\": \"43.00436242\",\n        \"phone\": \"4142364056\",\n        \"website_url\": \"http://www.1840brewing.com\",\n        \"state\": \"Wisconsin\",\n        \"street\": \"342 E Ward St\"\n    },\n    {\n        \"id\": \"fe6b9893-b93e-43d5-a9f6-3e0c89a3f13c\",\n        \"name\": \"1850 Brewing Company\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": null,\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Mariposa\",\n        \"state_province\": \"California\",\n        \"postal_code\": \"95338\",\n        \"country\": \"United States\",\n        \"longitude\": \"-119.9036592\",\n        \"latitude\": \"37.570148\",\n        \"phone\": null,\n        \"website_url\": \"http://www.1850restaurant.com\",\n        \"state\": \"California\",\n        \"street\": null\n    },\n    {\n        \"id\": \"b51f3cdf-60ff-4ae1-94a7-76906c7d62eb\",\n        \"name\": \"18th Street Brewery\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"5725 Miller Ave\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Gary\",\n        \"state_province\": \"Indiana\",\n        \"postal_code\": \"46403-2871\",\n        \"country\": \"United States\",\n        \"longitude\": \"-87.26887786\",\n        \"latitude\": \"41.59928343\",\n        \"phone\": null,\n        \"website_url\": \"http://www.18thstreetbrewery.com\",\n        \"state\": \"Indiana\",\n        \"street\": \"5725 Miller Ave\"\n    },\n    {\n        \"id\": \"add7f978-942e-4d56-b209-c80837a51d69\",\n        \"name\": \"18th Street Brewery\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"5417 Oakley Ave\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Hammond\",\n        \"state_province\": \"Indiana\",\n        \"postal_code\": \"46320-1817\",\n        \"country\": \"United States\",\n        \"longitude\": \"-87.517422\",\n        \"latitude\": \"41.61556796\",\n        \"phone\": null,\n        \"website_url\": null,\n        \"state\": \"Indiana\",\n        \"street\": \"5417 Oakley Ave\"\n    },\n    {\n        \"id\": \"dbde8235-2b55-4d8b-8b1c-438155abe104\",\n        \"name\": \"1905 Brewing Company\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"1301 S Chestnut St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Assumption\",\n        \"state_province\": \"Illinois\",\n        \"postal_code\": \"62510-8504\",\n        \"country\": \"United States\",\n        \"longitude\": \"-89.0503635\",\n        \"latitude\": \"39.5172564\",\n        \"phone\": \"2172549374\",\n        \"website_url\": \"http://1905BrewingCompany.com\",\n        \"state\": \"Illinois\",\n        \"street\": \"1301 S Chestnut St\"\n    },\n    {\n        \"id\": \"4f4b5b34-d572-4dff-a18f-47e507c073e6\",\n        \"name\": \"1912 Brewing\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"2045 N Forbes Blvd Ste 105\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Tucson\",\n        \"state_province\": \"Arizona\",\n        \"postal_code\": \"85745-1444\",\n        \"country\": \"United States\",\n        \"longitude\": \"-110.9927505\",\n        \"latitude\": \"32.24673727\",\n        \"phone\": \"5202564851\",\n        \"website_url\": \"http://www.1912brewing.com\",\n        \"state\": \"Arizona\",\n        \"street\": \"2045 N Forbes Blvd Ste 105\"\n    },\n    {\n        \"id\": \"4ccad9b9-f9cf-4d21-b6d5-ab005ee1532d\",\n        \"name\": \"192 Brewing\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"7324 NE 175th St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Kenmore\",\n        \"state_province\": \"Washington\",\n        \"postal_code\": \"98028-2500\",\n        \"country\": \"United States\",\n        \"longitude\": \"-122.2415652\",\n        \"latitude\": \"47.75670075\",\n        \"phone\": \"4254242337\",\n        \"website_url\": \"http://www.192brewing.com\",\n        \"state\": \"Washington\",\n        \"street\": \"7324 NE 175th St\"\n    },\n    {\n        \"id\": \"4a09f017-db8f-42e1-a8ec-a0cd81c28761\",\n        \"name\": \"1940's Brewing Company\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"1337 Lincoln Ave Unit 1\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Holbrook\",\n        \"state_province\": \"New York\",\n        \"postal_code\": \"11741-2275\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": \"6315334838\",\n        \"website_url\": \"http://www.1940sbrewingcompany.com\",\n        \"state\": \"New York\",\n        \"street\": \"1337 Lincoln Ave Unit 1\"\n    },\n    {\n        \"id\": \"4dcaeaa3-d7cc-4016-9392-5bde4e3a8f4d\",\n        \"name\": \"1st Republic Brewing Co\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"39 River Rd Ste 6\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Essex Junction\",\n        \"state_province\": \"Vermont\",\n        \"postal_code\": \"05452-3879\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": \"8028575318\",\n        \"website_url\": \"http://www.1strepublic-homebrew.com\",\n        \"state\": \"Vermont\",\n        \"street\": \"39 River Rd Ste 6\"\n    },\n    {\n        \"id\": \"9046adec-ed04-4c60-8043-4a02e9e2dabc\",\n        \"name\": \"2 Basset Brewery\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"202 E Main St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"White Sulphur Springs\",\n        \"state_province\": \"Montana\",\n        \"postal_code\": \"59645-9081\",\n        \"country\": \"United States\",\n        \"longitude\": \"-110.9004865\",\n        \"latitude\": \"46.54807609\",\n        \"phone\": \"4065472337\",\n        \"website_url\": \"http://www.2bassetbrewery.com\",\n        \"state\": \"Montana\",\n        \"street\": \"202 E Main St\"\n    },\n    {\n        \"id\": \"8436b02b-9a06-474c-b5eb-8ff9aedf1f99\",\n        \"name\": \"2 Dogz and A Guy Brewing\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"228 Church St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Montrose\",\n        \"state_province\": \"Pennsylvania\",\n        \"postal_code\": \"18801-1271\",\n        \"country\": \"United States\",\n        \"longitude\": \"-75.8800318\",\n        \"latitude\": \"41.8336364\",\n        \"phone\": \"5704320069\",\n        \"website_url\": \"http://2dogzandaguybrewing.com\",\n        \"state\": \"Pennsylvania\",\n        \"street\": \"228 Church St\"\n    },\n    {\n        \"id\": \"6948c755-a504-42f9-88e8-d04d027731e5\",\n        \"name\": \"2 Row Brewing\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"6856 S 300 W\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Midvale\",\n        \"state_province\": \"Utah\",\n        \"postal_code\": \"84047-1083\",\n        \"country\": \"United States\",\n        \"longitude\": \"-111.9007652\",\n        \"latitude\": \"40.5950202\",\n        \"phone\": \"8019878663\",\n        \"website_url\": \"http://www.2rowbrewing.com\",\n        \"state\": \"Utah\",\n        \"street\": \"6856 S 300 W\"\n    },\n    {\n        \"id\": \"fb2460bb-d6bb-4690-a700-f0b5628cc7dd\",\n        \"name\": \"2 Silos Brewing Company\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"9925 Discovery Blvd\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Manassas\",\n        \"state_province\": \"Virginia\",\n        \"postal_code\": \"20109\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": \"7034202257\",\n        \"website_url\": \"http://www.2silosbrewing.com\",\n        \"state\": \"Virginia\",\n        \"street\": \"9925 Discovery Blvd\"\n    },\n    {\n        \"id\": \"836cb05e-ee8f-4798-859e-fe0bedb0186a\",\n        \"name\": \"2 Tones Brewing Co.\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"4539 E Broad St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Whitehall\",\n        \"state_province\": \"Ohio\",\n        \"postal_code\": \"43213-1308\",\n        \"country\": \"United States\",\n        \"longitude\": \"-82.9118174\",\n        \"latitude\": \"40.0030689\",\n        \"phone\": null,\n        \"website_url\": \"http://www.2tonesbrewingco.com\",\n        \"state\": \"Ohio\",\n        \"street\": \"4539 E Broad St\"\n    },\n    {\n        \"id\": \"5cda93ce-6b16-4374-9d43-bb4383be0187\",\n        \"name\": \"2 Witches Winery and Brewing Company\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"209 Trade St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Danville\",\n        \"state_province\": \"Virginia\",\n        \"postal_code\": \"24541-3545\",\n        \"country\": \"United States\",\n        \"longitude\": \"-79.42125553\",\n        \"latitude\": \"36.58590349\",\n        \"phone\": \"4345492739\",\n        \"website_url\": \"http://www.2witcheswinebrew.com\",\n        \"state\": \"Virginia\",\n        \"street\": \"209 Trade St\"\n    },\n    {\n        \"id\": \"46a8ed58-5d1a-413e-871e-d2d29d6d43f0\",\n        \"name\": \"217 Brew Works\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"217 South St S\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Wilson\",\n        \"state_province\": \"North Carolina\",\n        \"postal_code\": \"27893-4911\",\n        \"country\": \"United States\",\n        \"longitude\": \"-77.9120318\",\n        \"latitude\": \"35.7227625\",\n        \"phone\": \"2529916959\",\n        \"website_url\": null,\n        \"state\": \"North Carolina\",\n        \"street\": \"217 South St S\"\n    },\n    {\n        \"id\": \"6751228c-5373-4a54-8d68-72df6849a437\",\n        \"name\": \"26 Degree Brewing Company\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"2600 E Atlantic Blvd\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Pompano Beach\",\n        \"state_province\": \"Florida\",\n        \"postal_code\": \"33062-4940\",\n        \"country\": \"United States\",\n        \"longitude\": \"-80.1224169\",\n        \"latitude\": \"26.2316338\",\n        \"phone\": \"9545326964\",\n        \"website_url\": null,\n        \"state\": \"Florida\",\n        \"street\": \"2600 E Atlantic Blvd\"\n    },\n    {\n        \"id\": \"7d13ee75-e7e3-4623-862a-43a18dd6a1ae\",\n        \"name\": \"2C Family Brewing Co.\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"1215 1st St S\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Nampa\",\n        \"state_province\": \"Idaho\",\n        \"postal_code\": \"83651-3957\",\n        \"country\": \"United States\",\n        \"longitude\": \"-116.559282\",\n        \"latitude\": \"43.578989\",\n        \"phone\": \"2084753981\",\n        \"website_url\": null,\n        \"state\": \"Idaho\",\n        \"street\": \"1215 1st St S\"\n    },\n    {\n        \"id\": \"5fdcc498-f9df-4fa5-b35d-487a59f0fecc\",\n        \"name\": \"2Kids Brewing Company\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"8680 Miralani Dr Ste 123\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"San Diego\",\n        \"state_province\": \"California\",\n        \"postal_code\": \"92126-6391\",\n        \"country\": \"United States\",\n        \"longitude\": \"-117.137429\",\n        \"latitude\": \"32.896584\",\n        \"phone\": \"8584805437\",\n        \"website_url\": \"http://www.2kidsBrewing.com\",\n        \"state\": \"California\",\n        \"street\": \"8680 Miralani Dr Ste 123\"\n    },\n    {\n        \"id\": \"3cf2698f-4193-4591-aab3-a8ef0fbedcab\",\n        \"name\": \"2SP Brewing Company\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"120 Concord Rd\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Aston\",\n        \"state_province\": \"Pennsylvania\",\n        \"postal_code\": \"19014-2909\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": \"4844837860\",\n        \"website_url\": \"http://www.2spbrewing.com\",\n        \"state\": \"Pennsylvania\",\n        \"street\": \"120 Concord Rd\"\n    },\n    {\n        \"id\": \"065200ec-51cf-4612-b1b9-61f7db489c3c\",\n        \"name\": \"3 Daughters Brewing\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"222 22nd St S\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Saint Petersburg\",\n        \"state_province\": \"Florida\",\n        \"postal_code\": \"33712-1240\",\n        \"country\": \"United States\",\n        \"longitude\": \"-82.6629721\",\n        \"latitude\": \"27.76899022\",\n        \"phone\": \"7274956002\",\n        \"website_url\": \"http://www.3dbrewing.com\",\n        \"state\": \"Florida\",\n        \"street\": \"222 22nd St S\"\n    },\n    {\n        \"id\": \"60c00c0b-b797-4f6a-b442-3bfbaec156ca\",\n        \"name\": \"3 Disciples Brewing\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": null,\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Sebastopol\",\n        \"state_province\": \"California\",\n        \"postal_code\": \"95472-5937\",\n        \"country\": \"United States\",\n        \"longitude\": \"-122.8332502\",\n        \"latitude\": \"38.3845125\",\n        \"phone\": \"7072287309\",\n        \"website_url\": \"http://www.3disciplesbrewing.com/home\",\n        \"state\": \"California\",\n        \"street\": null\n    },\n    {\n        \"id\": \"a1887b5a-0c21-43cf-9547-527b7c11dcf4\",\n        \"name\": \"3 Freaks Brewing Co\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"7140 E County Line Rd\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Highlands Ranch\",\n        \"state_province\": \"Colorado\",\n        \"postal_code\": \"80126-3926\",\n        \"country\": \"United States\",\n        \"longitude\": \"-104.9426656\",\n        \"latitude\": \"39.5659575\",\n        \"phone\": \"7202990994\",\n        \"website_url\": \"http://www.3freaksbrewery.com\",\n        \"state\": \"Colorado\",\n        \"street\": \"7140 E County Line Rd\"\n    },\n    {\n        \"id\": \"a74744eb-ca98-43c5-9199-09df39f8b400\",\n        \"name\": \"3 Iron Brewing Company\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"898 Via Lata Ste A\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Colton\",\n        \"state_province\": \"California\",\n        \"postal_code\": \"92324-3920\",\n        \"country\": \"United States\",\n        \"longitude\": \"-117.3066993\",\n        \"latitude\": \"34.05616889\",\n        \"phone\": \"9095334892\",\n        \"website_url\": \"http://www.3ironbrewingco.com\",\n        \"state\": \"California\",\n        \"street\": \"898 Via Lata Ste A\"\n    },\n    {\n        \"id\": \"ed387340-ea78-4f65-9de0-15e2da50371e\",\n        \"name\": \"3 Nations Brewing\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"2405 Squire Pl Ste 200\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Farmers Branch\",\n        \"state_province\": \"Texas\",\n        \"postal_code\": \"75234-4714\",\n        \"country\": \"United States\",\n        \"longitude\": \"-96.89883128\",\n        \"latitude\": \"32.93044336\",\n        \"phone\": \"4696607184\",\n        \"website_url\": \"http://www.threenationsbrewing.com\",\n        \"state\": \"Texas\",\n        \"street\": \"2405 Squire Pl Ste 200\"\n    },\n    {\n        \"id\": \"a8fda9a9-026b-4b15-86b9-62b4ccb126c1\",\n        \"name\": \"3 Sheeps Brewing Co\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"1837 North Ave\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Sheboygan\",\n        \"state_province\": \"Wisconsin\",\n        \"postal_code\": \"53083-4620\",\n        \"country\": \"United States\",\n        \"longitude\": \"-87.73006524\",\n        \"latitude\": \"43.77384561\",\n        \"phone\": \"9209469715\",\n        \"website_url\": \"http://www.3sheepsbrewing.com\",\n        \"state\": \"Wisconsin\",\n        \"street\": \"1837 North Ave\"\n    }\n]"
+				},
+				{
+					"name": "Type not provided - 400",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.openbrewerydb.org/breweries?by_type",
+							"protocol": "https",
+							"host": [
+								"api",
+								"openbrewerydb",
+								"org"
+							],
+							"path": [
+								"breweries"
+							],
+							"query": [
+								{
+									"key": "by_type",
+									"value": null
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 15 Mar 2024 09:47:36 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"group\":\"heroku-nel\",\"max_age\":3600,\"endpoints\":[{\"url\":\"https://nel.heroku.com/reports?ts=1710496056&sid=67ff5de4-ad2b-4112-9289-cf96be89efed&s=U7mzBYXyG4od%2FpYc0v2QzHB4swgzHbm2HTr2fs7FBN0%3D\"}]}"
+						},
+						{
+							"key": "Reporting-Endpoints",
+							"value": "heroku-nel=https://nel.heroku.com/reports?ts=1710496056&sid=67ff5de4-ad2b-4112-9289-cf96be89efed&s=U7mzBYXyG4od%2FpYc0v2QzHB4swgzHbm2HTr2fs7FBN0%3D"
+						},
+						{
+							"key": "Nel",
+							"value": "{\"report_to\":\"heroku-nel\",\"max_age\":3600,\"success_fraction\":0.005,\"failure_fraction\":0.05,\"response_headers\":[\"Via\"]}"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Xss-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "strict-origin-when-cross-origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin, Accept-Encoding"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "max-age=86400"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "8710e558-883a-4f30-90a7-d251ffe26100"
+						},
+						{
+							"key": "X-Runtime",
+							"value": "0.002080"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=63072000; includeSubDomains"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "MISS"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "864b95417ccd3494-WAW"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"errors\": [\n        \"Brewery type must include one of these types: [\\\"micro\\\", \\\"nano\\\", \\\"regional\\\", \\\"brewpub\\\", \\\"large\\\", \\\"planning\\\", \\\"bar\\\", \\\"contract\\\", \\\"proprietor\\\", \\\"closed\\\"]\"\n    ]\n}"
+				},
+				{
+					"name": "Bad type - 400",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.openbrewerydb.org/breweries?by_type=tedafd",
+							"protocol": "https",
+							"host": [
+								"api",
+								"openbrewerydb",
+								"org"
+							],
+							"path": [
+								"breweries"
+							],
+							"query": [
+								{
+									"key": "by_type",
+									"value": "tedafd"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 15 Mar 2024 09:48:06 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"group\":\"heroku-nel\",\"max_age\":3600,\"endpoints\":[{\"url\":\"https://nel.heroku.com/reports?ts=1710496086&sid=67ff5de4-ad2b-4112-9289-cf96be89efed&s=FDqu6h9CO3nZ6o3w0tHcqXpp%2BFbe4O0D%2FrvbyH%2FqWOE%3D\"}]}"
+						},
+						{
+							"key": "Reporting-Endpoints",
+							"value": "heroku-nel=https://nel.heroku.com/reports?ts=1710496086&sid=67ff5de4-ad2b-4112-9289-cf96be89efed&s=FDqu6h9CO3nZ6o3w0tHcqXpp%2BFbe4O0D%2FrvbyH%2FqWOE%3D"
+						},
+						{
+							"key": "Nel",
+							"value": "{\"report_to\":\"heroku-nel\",\"max_age\":3600,\"success_fraction\":0.005,\"failure_fraction\":0.05,\"response_headers\":[\"Via\"]}"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Xss-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "strict-origin-when-cross-origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin, Accept-Encoding"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "max-age=86400"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "5627cb72-fb9a-481e-8cf5-99571c22a931"
+						},
+						{
+							"key": "X-Runtime",
+							"value": "0.002625"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=63072000; includeSubDomains"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "MISS"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "864b95f96ded3494-WAW"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"errors\": [\n        \"Brewery type must include one of these types: [\\\"micro\\\", \\\"nano\\\", \\\"regional\\\", \\\"brewpub\\\", \\\"large\\\", \\\"planning\\\", \\\"bar\\\", \\\"contract\\\", \\\"proprietor\\\", \\\"closed\\\"]\"\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "by name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.openbrewerydb.org/breweries?by_name=Brew",
+					"protocol": "https",
+					"host": [
+						"api",
+						"openbrewerydb",
+						"org"
+					],
+					"path": [
+						"breweries"
+					],
+					"query": [
+						{
+							"key": "by_name",
+							"value": "Brew"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.openbrewerydb.org/breweries?by_name=Brew",
+							"protocol": "https",
+							"host": [
+								"api",
+								"openbrewerydb",
+								"org"
+							],
+							"path": [
+								"breweries"
+							],
+							"query": [
+								{
+									"key": "by_name",
+									"value": "Brew"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 15 Mar 2024 09:50:07 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"group\":\"heroku-nel\",\"max_age\":3600,\"endpoints\":[{\"url\":\"https://nel.heroku.com/reports?ts=1710496207&sid=67ff5de4-ad2b-4112-9289-cf96be89efed&s=xxQnaOE8%2FoBvUpd%2F1xeTp45zzYr2ntfs55dI5G7W0vI%3D\"}]}"
+						},
+						{
+							"key": "Reporting-Endpoints",
+							"value": "heroku-nel=https://nel.heroku.com/reports?ts=1710496207&sid=67ff5de4-ad2b-4112-9289-cf96be89efed&s=xxQnaOE8%2FoBvUpd%2F1xeTp45zzYr2ntfs55dI5G7W0vI%3D"
+						},
+						{
+							"key": "Nel",
+							"value": "{\"report_to\":\"heroku-nel\",\"max_age\":3600,\"success_fraction\":0.005,\"failure_fraction\":0.05,\"response_headers\":[\"Via\"]}"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Xss-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "strict-origin-when-cross-origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin, Accept-Encoding"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "public, max-age=86400"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"ec3d1b854af3ad2877d1c4eaf483df15\""
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "f549e275-5ebd-4347-b534-2740bedef439"
+						},
+						{
+							"key": "X-Runtime",
+							"value": "0.015764"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=63072000; includeSubDomains"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "MISS"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "864b98edae523494-WAW"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"5128df48-79fc-4f0f-8b52-d06be54d0cec\",\n        \"name\": \"(405) Brewing Co\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"1716 Topeka St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Norman\",\n        \"state_province\": \"Oklahoma\",\n        \"postal_code\": \"73069-8224\",\n        \"country\": \"United States\",\n        \"longitude\": \"-97.46818222\",\n        \"latitude\": \"35.25738891\",\n        \"phone\": \"4058160490\",\n        \"website_url\": \"http://www.405brewing.com\",\n        \"state\": \"Oklahoma\",\n        \"street\": \"1716 Topeka St\"\n    },\n    {\n        \"id\": \"9c5a66c8-cc13-416f-a5d9-0a769c87d318\",\n        \"name\": \"(512) Brewing Co\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"407 Radam Ln Ste F200\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Austin\",\n        \"state_province\": \"Texas\",\n        \"postal_code\": \"78745-1197\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": \"5129211545\",\n        \"website_url\": \"http://www.512brewing.com\",\n        \"state\": \"Texas\",\n        \"street\": \"407 Radam Ln Ste F200\"\n    },\n    {\n        \"id\": \"34e8c68b-6146-453f-a4b9-1f6cd99a5ada\",\n        \"name\": \"1 of Us Brewing Company\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"8100 Washington Ave\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Mount Pleasant\",\n        \"state_province\": \"Wisconsin\",\n        \"postal_code\": \"53406-3920\",\n        \"country\": \"United States\",\n        \"longitude\": \"-87.88336350209435\",\n        \"latitude\": \"42.72010826899558\",\n        \"phone\": \"2624847553\",\n        \"website_url\": \"https://www.1ofusbrewing.com\",\n        \"state\": \"Wisconsin\",\n        \"street\": \"8100 Washington Ave\"\n    },\n    {\n        \"id\": \"ef970757-fe42-416f-931d-722451f1f59c\",\n        \"name\": \"10 Barrel Brewing Co\",\n        \"brewery_type\": \"large\",\n        \"address_1\": \"1501 E St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"San Diego\",\n        \"state_province\": \"California\",\n        \"postal_code\": \"92101-6618\",\n        \"country\": \"United States\",\n        \"longitude\": \"-117.129593\",\n        \"latitude\": \"32.714813\",\n        \"phone\": \"6195782311\",\n        \"website_url\": \"http://10barrel.com\",\n        \"state\": \"California\",\n        \"street\": \"1501 E St\"\n    },\n    {\n        \"id\": \"6d14b220-8926-4521-8d19-b98a2d6ec3db\",\n        \"name\": \"10 Barrel Brewing Co\",\n        \"brewery_type\": \"large\",\n        \"address_1\": \"62970 18th St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Bend\",\n        \"state_province\": \"Oregon\",\n        \"postal_code\": \"97701-9847\",\n        \"country\": \"United States\",\n        \"longitude\": \"-121.281706\",\n        \"latitude\": \"44.08683531\",\n        \"phone\": \"5415851007\",\n        \"website_url\": \"http://www.10barrel.com\",\n        \"state\": \"Oregon\",\n        \"street\": \"62970 18th St\"\n    },\n    {\n        \"id\": \"e2e78bd8-80ff-4a61-a65c-3bfbd9d76ce2\",\n        \"name\": \"10 Barrel Brewing Co\",\n        \"brewery_type\": \"large\",\n        \"address_1\": \"1135 NW Galveston Ave Ste B\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Bend\",\n        \"state_province\": \"Oregon\",\n        \"postal_code\": \"97703-2465\",\n        \"country\": \"United States\",\n        \"longitude\": \"-121.3288021\",\n        \"latitude\": \"44.0575649\",\n        \"phone\": \"5415851007\",\n        \"website_url\": null,\n        \"state\": \"Oregon\",\n        \"street\": \"1135 NW Galveston Ave Ste B\"\n    },\n    {\n        \"id\": \"e432899b-7f58-455f-9c7b-9a6e2130a1e0\",\n        \"name\": \"10 Barrel Brewing Co\",\n        \"brewery_type\": \"large\",\n        \"address_1\": \"1411 NW Flanders St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Portland\",\n        \"state_province\": \"Oregon\",\n        \"postal_code\": \"97209-2620\",\n        \"country\": \"United States\",\n        \"longitude\": \"-122.6855056\",\n        \"latitude\": \"45.5259786\",\n        \"phone\": \"5032241700\",\n        \"website_url\": \"http://www.10barrel.com\",\n        \"state\": \"Oregon\",\n        \"street\": \"1411 NW Flanders St\"\n    },\n    {\n        \"id\": \"9f1852da-c312-42da-9a31-097bac81c4c0\",\n        \"name\": \"10 Barrel Brewing Co - Bend Pub\",\n        \"brewery_type\": \"large\",\n        \"address_1\": \"62950 NE 18th St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Bend\",\n        \"state_province\": \"Oregon\",\n        \"postal_code\": \"97701\",\n        \"country\": \"United States\",\n        \"longitude\": \"-121.2809536\",\n        \"latitude\": \"44.0912109\",\n        \"phone\": \"5415851007\",\n        \"website_url\": null,\n        \"state\": \"Oregon\",\n        \"street\": \"62950 NE 18th St\"\n    },\n    {\n        \"id\": \"ea4f30c0-bce6-416b-8904-fab4055a7362\",\n        \"name\": \"10 Barrel Brewing Co - Boise\",\n        \"brewery_type\": \"large\",\n        \"address_1\": \"826 W Bannock St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Boise\",\n        \"state_province\": \"Idaho\",\n        \"postal_code\": \"83702-5857\",\n        \"country\": \"United States\",\n        \"longitude\": \"-116.202929\",\n        \"latitude\": \"43.618516\",\n        \"phone\": \"2083445870\",\n        \"website_url\": \"http://www.10barrel.com\",\n        \"state\": \"Idaho\",\n        \"street\": \"826 W Bannock St\"\n    },\n    {\n        \"id\": \"1988eb86-f0a2-4674-ba04-02454efa0d31\",\n        \"name\": \"10 Barrel Brewing Co - Denver\",\n        \"brewery_type\": \"large\",\n        \"address_1\": \"2620 Walnut St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Denver\",\n        \"state_province\": \"Colorado\",\n        \"postal_code\": \"80205-2231\",\n        \"country\": \"United States\",\n        \"longitude\": \"-104.9853655\",\n        \"latitude\": \"39.7592508\",\n        \"phone\": \"7205738992\",\n        \"website_url\": null,\n        \"state\": \"Colorado\",\n        \"street\": \"2620 Walnut St\"\n    },\n    {\n        \"id\": \"1ecc330f-6275-42a5-b14e-00adbed62752\",\n        \"name\": \"10 Torr Distilling and Brewing\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"490 Mill St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Reno\",\n        \"state_province\": \"Nevada\",\n        \"postal_code\": \"89502\",\n        \"country\": \"United States\",\n        \"longitude\": \"-119.7732015\",\n        \"latitude\": \"39.5171702\",\n        \"phone\": \"7755307014\",\n        \"website_url\": \"http://www.10torr.com\",\n        \"state\": \"Nevada\",\n        \"street\": \"490 Mill St\"\n    },\n    {\n        \"id\": \"7531dbd8-afc9-4b5b-95bc-7ece7f2c0bf3\",\n        \"name\": \"10-56 Brewing Company\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"400 Brown Cir\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Knox\",\n        \"state_province\": \"Indiana\",\n        \"postal_code\": \"46534\",\n        \"country\": \"United States\",\n        \"longitude\": \"-86.627954\",\n        \"latitude\": \"41.289715\",\n        \"phone\": \"6308165790\",\n        \"website_url\": null,\n        \"state\": \"Indiana\",\n        \"street\": \"400 Brown Cir\"\n    },\n    {\n        \"id\": \"03118499-a3d0-4c22-860d-4529509ae095\",\n        \"name\": \"101 Brewery\",\n        \"brewery_type\": \"brewpub\",\n        \"address_1\": \"294793 US Highway 101\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Quilcene\",\n        \"state_province\": \"Washington\",\n        \"postal_code\": \"98376-9000\",\n        \"country\": \"United States\",\n        \"longitude\": \"-122.8755823\",\n        \"latitude\": \"47.82347577\",\n        \"phone\": \"3607656485\",\n        \"website_url\": \"http://www.101brewery.com\",\n        \"state\": \"Washington\",\n        \"street\": \"294793 US Highway 101\"\n    },\n    {\n        \"id\": \"5ae467af-66dc-4d7f-8839-44228f89b596\",\n        \"name\": \"101 North Brewing Company\",\n        \"brewery_type\": \"closed\",\n        \"address_1\": \"1304 Scott St Ste D\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Petaluma\",\n        \"state_province\": \"California\",\n        \"postal_code\": \"94954-7100\",\n        \"country\": \"United States\",\n        \"longitude\": \"-122.665055\",\n        \"latitude\": \"38.27029381\",\n        \"phone\": \"7077534934\",\n        \"website_url\": \"http://www.101northbeer.com\",\n        \"state\": \"California\",\n        \"street\": \"1304 Scott St Ste D\"\n    },\n    {\n        \"id\": \"4ffda196-dd59-44a5-9eeb-5f7fd4b58f5a\",\n        \"name\": \"105 West Brewing Co\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"1043 Park St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Castle Rock\",\n        \"state_province\": \"Colorado\",\n        \"postal_code\": \"80109-1585\",\n        \"country\": \"United States\",\n        \"longitude\": \"-104.8667206\",\n        \"latitude\": \"39.38269495\",\n        \"phone\": \"3033257321\",\n        \"website_url\": \"http://www.105westbrewing.com\",\n        \"state\": \"Colorado\",\n        \"street\": \"1043 Park St\"\n    },\n    {\n        \"id\": \"42aa37d5-8384-4ffe-8c81-7c982eff0384\",\n        \"name\": \"10K Brewing\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"2005 2nd Ave\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Anoka\",\n        \"state_province\": \"Minnesota\",\n        \"postal_code\": \"55303-2243\",\n        \"country\": \"United States\",\n        \"longitude\": \"-93.38952559\",\n        \"latitude\": \"45.19812039\",\n        \"phone\": \"7633924753\",\n        \"website_url\": \"http://10KBrew.com\",\n        \"state\": \"Minnesota\",\n        \"street\": \"2005 2nd Ave\"\n    },\n    {\n        \"id\": \"232e8f62-9afc-45f5-b4bc-582c26b5c43b\",\n        \"name\": \"10th District Brewing Company\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"491 Washington St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Abington\",\n        \"state_province\": \"Massachusetts\",\n        \"postal_code\": \"02351-2419\",\n        \"country\": \"United States\",\n        \"longitude\": \"-70.94594149\",\n        \"latitude\": \"42.10591754\",\n        \"phone\": \"7813071554\",\n        \"website_url\": \"http://www.10thdistrictbrewing.com\",\n        \"state\": \"Massachusetts\",\n        \"street\": \"491 Washington St\"\n    },\n    {\n        \"id\": \"08f78223-24f8-4b71-b381-ea19a5bd82df\",\n        \"name\": \"11 Below Brewing Company\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"6820 Bourgeois Rd\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Houston\",\n        \"state_province\": \"Texas\",\n        \"postal_code\": \"77066-3107\",\n        \"country\": \"United States\",\n        \"longitude\": \"-95.5186591\",\n        \"latitude\": \"29.9515464\",\n        \"phone\": \"2814442337\",\n        \"website_url\": \"http://www.11belowbrewing.com\",\n        \"state\": \"Texas\",\n        \"street\": \"6820 Bourgeois Rd\"\n    },\n    {\n        \"id\": \"58293321-14ae-49d7-9a7b-08436c9e63a6\",\n        \"name\": \"1188 Brewing Co\",\n        \"brewery_type\": \"brewpub\",\n        \"address_1\": \"141 E Main St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"John Day\",\n        \"state_province\": \"Oregon\",\n        \"postal_code\": \"97845-1210\",\n        \"country\": \"United States\",\n        \"longitude\": \"-118.9218754\",\n        \"latitude\": \"44.4146563\",\n        \"phone\": \"5415751188\",\n        \"website_url\": \"http://www.1188brewing.com\",\n        \"state\": \"Oregon\",\n        \"street\": \"141 E Main St\"\n    },\n    {\n        \"id\": \"e5f3e72a-fee2-4813-82cf-f2e53b439ae6\",\n        \"name\": \"12 Acres Brewing Company\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"Unnamed Street\",\n        \"address_2\": \"Clonmore\",\n        \"address_3\": null,\n        \"city\": \"Killeshin\",\n        \"state_province\": \"Laois\",\n        \"postal_code\": \"R93 X3X8\",\n        \"country\": \"Ireland\",\n        \"longitude\": \"-6.979343891\",\n        \"latitude\": \"52.84930763\",\n        \"phone\": \"353599107299\",\n        \"website_url\": \"https://12acresbrewing.ie/\",\n        \"state\": \"Laois\",\n        \"street\": \"Unnamed Street\"\n    },\n    {\n        \"id\": \"d81ff708-b5d2-478f-af6a-6d40f5beb9ac\",\n        \"name\": \"12 Gates Brewing Company\",\n        \"brewery_type\": \"brewpub\",\n        \"address_1\": \"80 Earhart Dr Ste 20\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Williamsville\",\n        \"state_province\": \"New York\",\n        \"postal_code\": \"14221-7804\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": \"7169066600\",\n        \"website_url\": \"http://www.12gatesbrewing.com\",\n        \"state\": \"New York\",\n        \"street\": \"80 Earhart Dr Ste 20\"\n    },\n    {\n        \"id\": \"fb94830f-6196-4f59-9189-c9060b778085\",\n        \"name\": \"12 West Brewing Company\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"3000 E Ray Rd Bldg 6\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Gilbert\",\n        \"state_province\": \"Arizona\",\n        \"postal_code\": \"85296-7832\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": \"6023395014\",\n        \"website_url\": \"http://www.12westbrewing.com\",\n        \"state\": \"Arizona\",\n        \"street\": \"3000 E Ray Rd Bldg 6\"\n    },\n    {\n        \"id\": \"0faa0fb2-fffa-416d-9eab-46f67477c8ef\",\n        \"name\": \"12 West Brewing Company - Production Facility\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": null,\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Mesa\",\n        \"state_province\": \"Arizona\",\n        \"postal_code\": \"85207\",\n        \"country\": \"United States\",\n        \"longitude\": \"-111.5860662\",\n        \"latitude\": \"33.436188\",\n        \"phone\": null,\n        \"website_url\": null,\n        \"state\": \"Arizona\",\n        \"street\": null\n    },\n    {\n        \"id\": \"e54c2f02-acd6-4172-861d-fcfa54c8701a\",\n        \"name\": \"122 West Brewing Co\",\n        \"brewery_type\": \"closed\",\n        \"address_1\": \"2416 Meridian St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Bellingham\",\n        \"state_province\": \"Washington\",\n        \"postal_code\": \"98225-2405\",\n        \"country\": \"United States\",\n        \"longitude\": \"-122.485982\",\n        \"latitude\": \"48.7621709\",\n        \"phone\": \"3603063285\",\n        \"website_url\": \"https://www.122westbrew.com/\",\n        \"state\": \"Washington\",\n        \"street\": \"2416 Meridian St\"\n    },\n    {\n        \"id\": \"d5cb896d-3e99-4e19-9693-5e06ce987e53\",\n        \"name\": \"127 Brewing\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"3090 Shirley Dr\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Jackson\",\n        \"state_province\": \"Michigan\",\n        \"postal_code\": \"49201-7010\",\n        \"country\": \"United States\",\n        \"longitude\": \"-84.43116792\",\n        \"latitude\": \"42.28667212\",\n        \"phone\": \"5172581346\",\n        \"website_url\": null,\n        \"state\": \"Michigan\",\n        \"street\": \"3090 Shirley Dr\"\n    },\n    {\n        \"id\": \"06e9fffb-e820-45c9-b107-b52b51013e8f\",\n        \"name\": \"12Degree Brewing\",\n        \"brewery_type\": \"brewpub\",\n        \"address_1\": \"820 Main St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Louisville\",\n        \"state_province\": \"Colorado\",\n        \"postal_code\": \"80027-1865\",\n        \"country\": \"United States\",\n        \"longitude\": \"-105.1319826\",\n        \"latitude\": \"39.9782443\",\n        \"phone\": \"3035791004\",\n        \"website_url\": \"http://www.12degree.com\",\n        \"state\": \"Colorado\",\n        \"street\": \"820 Main St\"\n    },\n    {\n        \"id\": \"50521ef7-f543-4c5d-98b1-0d0ee1a2be01\",\n        \"name\": \"12welve Eyes Brewing\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"141 E 4th St Ste LL2\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Saint Paul\",\n        \"state_province\": \"Minnesota\",\n        \"postal_code\": \"55101-1639\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": \"6514938106\",\n        \"website_url\": \"http://www.12welveEyes.com\",\n        \"state\": \"Minnesota\",\n        \"street\": \"141 E 4th St Ste LL2\"\n    },\n    {\n        \"id\": \"950180bd-29c9-46b3-ad0c-e6f09799ec7f\",\n        \"name\": \"13 Below Brewery\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"7391 Forbes Rd\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Cincinnati\",\n        \"state_province\": \"Ohio\",\n        \"postal_code\": \"45233-1013\",\n        \"country\": \"United States\",\n        \"longitude\": \"-84.70634815\",\n        \"latitude\": \"39.12639764\",\n        \"phone\": \"5139750613\",\n        \"website_url\": \"http://www.13belowbrewery.com\",\n        \"state\": \"Ohio\",\n        \"street\": \"7391 Forbes Rd\"\n    },\n    {\n        \"id\": \"45119c56-345b-4adc-b481-c5cf7bfe98c4\",\n        \"name\": \"13 Stripes Brewery\",\n        \"brewery_type\": \"brewpub\",\n        \"address_1\": \"250 Mill St, Suite PW3101\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Taylors\",\n        \"state_province\": \"South Carolina\",\n        \"postal_code\": \"29687\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": \"8643491430\",\n        \"website_url\": \"http://www.13StripesBrewery.com\",\n        \"state\": \"South Carolina\",\n        \"street\": \"250 Mill St, Suite PW3101\"\n    },\n    {\n        \"id\": \"936c3d7e-5d54-4459-b72c-117cdda059b4\",\n        \"name\": \"13 Virtues Brewing Co\",\n        \"brewery_type\": \"brewpub\",\n        \"address_1\": \"6410 SE Milwaukie Ave\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Portland\",\n        \"state_province\": \"Oregon\",\n        \"postal_code\": \"97202-5518\",\n        \"country\": \"United States\",\n        \"longitude\": \"-122.6487531\",\n        \"latitude\": \"45.4762536\",\n        \"phone\": \"5032393831\",\n        \"website_url\": \"http://www.13virtuesbrewing.com\",\n        \"state\": \"Oregon\",\n        \"street\": \"6410 SE Milwaukie Ave\"\n    },\n    {\n        \"id\": \"4788221a-a03b-458c-9084-4cadd69ade6d\",\n        \"name\": \"14 Cannons Brewing Company\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"31125 Via Colinas Ste 907\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Westlake Village\",\n        \"state_province\": \"California\",\n        \"postal_code\": \"91362-3974\",\n        \"country\": \"United States\",\n        \"longitude\": \"-118.802397\",\n        \"latitude\": \"34.15334\",\n        \"phone\": \"8186996165\",\n        \"website_url\": \"http://14cannons.com\",\n        \"state\": \"California\",\n        \"street\": \"31125 Via Colinas Ste 907\"\n    },\n    {\n        \"id\": \"b7b68d22-5045-4501-b9bf-ec94946eaffc\",\n        \"name\": \"14 Lakes Brewery\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": null,\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Crosslake\",\n        \"state_province\": \"Minnesota\",\n        \"postal_code\": \"56442\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": \"2186924129\",\n        \"website_url\": null,\n        \"state\": \"Minnesota\",\n        \"street\": null\n    },\n    {\n        \"id\": \"4b677b60-fef1-42e2-90ef-dadc1bd7fb06\",\n        \"name\": \"14er Brewing Company\",\n        \"brewery_type\": \"proprietor\",\n        \"address_1\": \"2801 Walnut St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Denver\",\n        \"state_province\": \"Colorado\",\n        \"postal_code\": \"80205-2235\",\n        \"country\": \"United States\",\n        \"longitude\": \"-104.9839636\",\n        \"latitude\": \"39.7614112\",\n        \"phone\": \"7207731437\",\n        \"website_url\": \"http://www.14erBrewing.com\",\n        \"state\": \"Colorado\",\n        \"street\": \"2801 Walnut St\"\n    },\n    {\n        \"id\": \"6c53984f-fac1-4ea7-9c44-44e25897c71a\",\n        \"name\": \"14th Star Brewing\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"133 N Main St Ste 7\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Saint Albans\",\n        \"state_province\": \"Vermont\",\n        \"postal_code\": \"05478-1735\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": \"8025285988\",\n        \"website_url\": \"http://www.14thstarbrewing.com\",\n        \"state\": \"Vermont\",\n        \"street\": \"133 N Main St Ste 7\"\n    },\n    {\n        \"id\": \"85192a9c-58a4-48c3-bd9d-496d09d22aa3\",\n        \"name\": \"16 Lots Brewing\",\n        \"brewery_type\": \"brewpub\",\n        \"address_1\": \"753 Reading Rd\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Mason\",\n        \"state_province\": \"Ohio\",\n        \"postal_code\": \"45040-1303\",\n        \"country\": \"United States\",\n        \"longitude\": \"-84.3183801\",\n        \"latitude\": \"39.3545967\",\n        \"phone\": \"5134863672\",\n        \"website_url\": \"http://www.16lots.com\",\n        \"state\": \"Ohio\",\n        \"street\": \"753 Reading Rd\"\n    },\n    {\n        \"id\": \"284b44f8-6ccb-4cd6-8d06-f2ad882a47c3\",\n        \"name\": \"16 Mile Brewing Co\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"413 S Bedford St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Georgetown\",\n        \"state_province\": \"Delaware\",\n        \"postal_code\": \"19947-1849\",\n        \"country\": \"United States\",\n        \"longitude\": \"-75.37816436\",\n        \"latitude\": \"38.6788938\",\n        \"phone\": \"3022538816\",\n        \"website_url\": \"http://www.16milebrewery.com\",\n        \"state\": \"Delaware\",\n        \"street\": \"413 S Bedford St\"\n    },\n    {\n        \"id\": \"ee6d39c6-092f-4623-8099-5b8643f70dbe\",\n        \"name\": \"16 Stone Brewpub\",\n        \"brewery_type\": \"brewpub\",\n        \"address_1\": \"9542 Main St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Holland Patent\",\n        \"state_province\": \"New York\",\n        \"postal_code\": \"13354\",\n        \"country\": \"United States\",\n        \"longitude\": \"-75.2565195\",\n        \"latitude\": \"43.24211175\",\n        \"phone\": \"3158658500\",\n        \"website_url\": \"http://www.16stonebrewpub.com\",\n        \"state\": \"New York\",\n        \"street\": \"9542 Main St\"\n    },\n    {\n        \"id\": \"d35b40b0-a3ff-4878-a6ee-9caa2149b521\",\n        \"name\": \"1623 Brewing CO, llc\",\n        \"brewery_type\": \"contract\",\n        \"address_1\": \"1146 colonel Joshua Ct\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Westminister\",\n        \"state_province\": \"Maryland\",\n        \"postal_code\": \"21157\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": null,\n        \"website_url\": null,\n        \"state\": \"Maryland\",\n        \"street\": \"1146 colonel Joshua Ct\"\n    },\n    {\n        \"id\": \"84bd3b3c-bd2d-4e07-bc31-b43a8c8ebf4c\",\n        \"name\": \"1717 Brewing Co\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"322 E Court Ave\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Des Moines\",\n        \"state_province\": \"Iowa\",\n        \"postal_code\": \"50309-2015\",\n        \"country\": \"United States\",\n        \"longitude\": \"-93.6120353\",\n        \"latitude\": \"41.5872267\",\n        \"phone\": \"5152437868\",\n        \"website_url\": \"http://1717brewing.com\",\n        \"state\": \"Iowa\",\n        \"street\": \"322 E Court Ave\"\n    },\n    {\n        \"id\": \"f41a0c47-ba9b-4547-bfed-fcbefe0fc74b\",\n        \"name\": \"1718 Ocracoke Brewing\",\n        \"brewery_type\": \"brewpub\",\n        \"address_1\": \"1129 Irvin Garrish Hwy\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Ocracoke\",\n        \"state_province\": \"North Carolina\",\n        \"postal_code\": \"27960\",\n        \"country\": \"United States\",\n        \"longitude\": \"-75.97176063\",\n        \"latitude\": \"35.10715368\",\n        \"phone\": \"2529282337\",\n        \"website_url\": \"http://www.ocracokebrewing.com\",\n        \"state\": \"North Carolina\",\n        \"street\": \"1129 Irvin Garrish Hwy\"\n    },\n    {\n        \"id\": \"84d621c4-81a5-44e6-aca7-1566c2e67cc0\",\n        \"name\": \"1781 Brewing Company\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"11109 Plank Rd\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Spotsylvania\",\n        \"state_province\": \"Virginia\",\n        \"postal_code\": \"22553-4258\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": \"5408412598\",\n        \"website_url\": null,\n        \"state\": \"Virginia\",\n        \"street\": \"11109 Plank Rd\"\n    },\n    {\n        \"id\": \"46839a79-b7bf-4733-b91b-ce116d062a57\",\n        \"name\": \"1817 Brewery\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"100 B South Olive St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"okolona\",\n        \"state_province\": \"Mississippi\",\n        \"postal_code\": \"38860\",\n        \"country\": \"United States\",\n        \"longitude\": \"-88.750264\",\n        \"latitude\": \"34.001703\",\n        \"phone\": \"6623055907\",\n        \"website_url\": null,\n        \"state\": \"Mississippi\",\n        \"street\": \"100 B South Olive St\"\n    },\n    {\n        \"id\": \"1a1b2165-73ed-40aa-b89b-56794d140f22\",\n        \"name\": \"1840 Brewing Company\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"342 E Ward St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Milwaukee\",\n        \"state_province\": \"Wisconsin\",\n        \"postal_code\": \"53207-1348\",\n        \"country\": \"United States\",\n        \"longitude\": \"-87.90606942\",\n        \"latitude\": \"43.00436242\",\n        \"phone\": \"4142364056\",\n        \"website_url\": \"http://www.1840brewing.com\",\n        \"state\": \"Wisconsin\",\n        \"street\": \"342 E Ward St\"\n    },\n    {\n        \"id\": \"fe6b9893-b93e-43d5-a9f6-3e0c89a3f13c\",\n        \"name\": \"1850 Brewing Company\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": null,\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Mariposa\",\n        \"state_province\": \"California\",\n        \"postal_code\": \"95338\",\n        \"country\": \"United States\",\n        \"longitude\": \"-119.9036592\",\n        \"latitude\": \"37.570148\",\n        \"phone\": null,\n        \"website_url\": \"http://www.1850restaurant.com\",\n        \"state\": \"California\",\n        \"street\": null\n    },\n    {\n        \"id\": \"b51f3cdf-60ff-4ae1-94a7-76906c7d62eb\",\n        \"name\": \"18th Street Brewery\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"5725 Miller Ave\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Gary\",\n        \"state_province\": \"Indiana\",\n        \"postal_code\": \"46403-2871\",\n        \"country\": \"United States\",\n        \"longitude\": \"-87.26887786\",\n        \"latitude\": \"41.59928343\",\n        \"phone\": null,\n        \"website_url\": \"http://www.18thstreetbrewery.com\",\n        \"state\": \"Indiana\",\n        \"street\": \"5725 Miller Ave\"\n    },\n    {\n        \"id\": \"add7f978-942e-4d56-b209-c80837a51d69\",\n        \"name\": \"18th Street Brewery\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"5417 Oakley Ave\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Hammond\",\n        \"state_province\": \"Indiana\",\n        \"postal_code\": \"46320-1817\",\n        \"country\": \"United States\",\n        \"longitude\": \"-87.517422\",\n        \"latitude\": \"41.61556796\",\n        \"phone\": null,\n        \"website_url\": null,\n        \"state\": \"Indiana\",\n        \"street\": \"5417 Oakley Ave\"\n    },\n    {\n        \"id\": \"dbde8235-2b55-4d8b-8b1c-438155abe104\",\n        \"name\": \"1905 Brewing Company\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"1301 S Chestnut St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Assumption\",\n        \"state_province\": \"Illinois\",\n        \"postal_code\": \"62510-8504\",\n        \"country\": \"United States\",\n        \"longitude\": \"-89.0503635\",\n        \"latitude\": \"39.5172564\",\n        \"phone\": \"2172549374\",\n        \"website_url\": \"http://1905BrewingCompany.com\",\n        \"state\": \"Illinois\",\n        \"street\": \"1301 S Chestnut St\"\n    },\n    {\n        \"id\": \"4f4b5b34-d572-4dff-a18f-47e507c073e6\",\n        \"name\": \"1912 Brewing\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"2045 N Forbes Blvd Ste 105\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Tucson\",\n        \"state_province\": \"Arizona\",\n        \"postal_code\": \"85745-1444\",\n        \"country\": \"United States\",\n        \"longitude\": \"-110.9927505\",\n        \"latitude\": \"32.24673727\",\n        \"phone\": \"5202564851\",\n        \"website_url\": \"http://www.1912brewing.com\",\n        \"state\": \"Arizona\",\n        \"street\": \"2045 N Forbes Blvd Ste 105\"\n    },\n    {\n        \"id\": \"4ccad9b9-f9cf-4d21-b6d5-ab005ee1532d\",\n        \"name\": \"192 Brewing\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"7324 NE 175th St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Kenmore\",\n        \"state_province\": \"Washington\",\n        \"postal_code\": \"98028-2500\",\n        \"country\": \"United States\",\n        \"longitude\": \"-122.2415652\",\n        \"latitude\": \"47.75670075\",\n        \"phone\": \"4254242337\",\n        \"website_url\": \"http://www.192brewing.com\",\n        \"state\": \"Washington\",\n        \"street\": \"7324 NE 175th St\"\n    },\n    {\n        \"id\": \"4a09f017-db8f-42e1-a8ec-a0cd81c28761\",\n        \"name\": \"1940's Brewing Company\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"1337 Lincoln Ave Unit 1\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Holbrook\",\n        \"state_province\": \"New York\",\n        \"postal_code\": \"11741-2275\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": \"6315334838\",\n        \"website_url\": \"http://www.1940sbrewingcompany.com\",\n        \"state\": \"New York\",\n        \"street\": \"1337 Lincoln Ave Unit 1\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "by state",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.openbrewerydb.org/breweries?by_state=Małopolska",
+					"protocol": "https",
+					"host": [
+						"api",
+						"openbrewerydb",
+						"org"
+					],
+					"path": [
+						"breweries"
+					],
+					"query": [
+						{
+							"key": "by_state",
+							"value": "Małopolska"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.openbrewerydb.org/breweries?by_state=Carolina",
+							"protocol": "https",
+							"host": [
+								"api",
+								"openbrewerydb",
+								"org"
+							],
+							"path": [
+								"breweries"
+							],
+							"query": [
+								{
+									"key": "by_state",
+									"value": "Carolina"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 15 Mar 2024 09:50:48 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"group\":\"heroku-nel\",\"max_age\":3600,\"endpoints\":[{\"url\":\"https://nel.heroku.com/reports?ts=1710496242&sid=67ff5de4-ad2b-4112-9289-cf96be89efed&s=sJ8lq2qLvo3zkCA4UBAPZPgRNii8hgzQYbZ%2BH9xCrhE%3D\"}]}"
+						},
+						{
+							"key": "Reporting-Endpoints",
+							"value": "heroku-nel=https://nel.heroku.com/reports?ts=1710496242&sid=67ff5de4-ad2b-4112-9289-cf96be89efed&s=sJ8lq2qLvo3zkCA4UBAPZPgRNii8hgzQYbZ%2BH9xCrhE%3D"
+						},
+						{
+							"key": "Nel",
+							"value": "{\"report_to\":\"heroku-nel\",\"max_age\":3600,\"success_fraction\":0.005,\"failure_fraction\":0.05,\"response_headers\":[\"Via\"]}"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Xss-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "strict-origin-when-cross-origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin, Accept-Encoding"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "public, max-age=86400"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"ddbe7c31f27350b517d7036d12810c8c\""
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "603bdc2b-2089-4b8f-89be-26384e52c2ea"
+						},
+						{
+							"key": "X-Runtime",
+							"value": "0.014936"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=63072000; includeSubDomains"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "HIT"
+						},
+						{
+							"key": "Age",
+							"value": "6"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "864b99f368b53494-WAW"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"45119c56-345b-4adc-b481-c5cf7bfe98c4\",\n        \"name\": \"13 Stripes Brewery\",\n        \"brewery_type\": \"brewpub\",\n        \"address_1\": \"250 Mill St, Suite PW3101\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Taylors\",\n        \"state_province\": \"South Carolina\",\n        \"postal_code\": \"29687\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": \"8643491430\",\n        \"website_url\": \"http://www.13StripesBrewery.com\",\n        \"state\": \"South Carolina\",\n        \"street\": \"250 Mill St, Suite PW3101\"\n    },\n    {\n        \"id\": \"5c53b314-ebab-4e3e-89be-e4139d9318ae\",\n        \"name\": \"1323 R & D\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"1323 Capital Blvd 1323 R and D\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Raleigh\",\n        \"state_province\": \"North Carolina\",\n        \"postal_code\": \"27603-1117\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": \"9199775654\",\n        \"website_url\": \"http://www.1323rnd.com\",\n        \"state\": \"North Carolina\",\n        \"street\": \"1323 Capital Blvd 1323 R and D\"\n    },\n    {\n        \"id\": \"f41a0c47-ba9b-4547-bfed-fcbefe0fc74b\",\n        \"name\": \"1718 Ocracoke Brewing\",\n        \"brewery_type\": \"brewpub\",\n        \"address_1\": \"1129 Irvin Garrish Hwy\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Ocracoke\",\n        \"state_province\": \"North Carolina\",\n        \"postal_code\": \"27960\",\n        \"country\": \"United States\",\n        \"longitude\": \"-75.97176063\",\n        \"latitude\": \"35.10715368\",\n        \"phone\": \"2529282337\",\n        \"website_url\": \"http://www.ocracokebrewing.com\",\n        \"state\": \"North Carolina\",\n        \"street\": \"1129 Irvin Garrish Hwy\"\n    },\n    {\n        \"id\": \"46a8ed58-5d1a-413e-871e-d2d29d6d43f0\",\n        \"name\": \"217 Brew Works\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"217 South St S\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Wilson\",\n        \"state_province\": \"North Carolina\",\n        \"postal_code\": \"27893-4911\",\n        \"country\": \"United States\",\n        \"longitude\": \"-77.9120318\",\n        \"latitude\": \"35.7227625\",\n        \"phone\": \"2529916959\",\n        \"website_url\": null,\n        \"state\": \"North Carolina\",\n        \"street\": \"217 South St S\"\n    },\n    {\n        \"id\": \"a964a343-e4f1-40d8-9353-09ef9b74f513\",\n        \"name\": \"34 Degree North Experiment Station\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"4802 Main St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Shallotte\",\n        \"state_province\": \"North Carolina\",\n        \"postal_code\": \"28470\",\n        \"country\": \"United States\",\n        \"longitude\": \"-78.38636517\",\n        \"latitude\": \"33.97270364\",\n        \"phone\": null,\n        \"website_url\": null,\n        \"state\": \"North Carolina\",\n        \"street\": \"4802 Main St\"\n    },\n    {\n        \"id\": \"694547f5-28fd-4363-bad6-03b6eaf0f1dd\",\n        \"name\": \"3rd Degree Brewhouse\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"1625 N Main St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Fuquay Varina\",\n        \"state_province\": \"North Carolina\",\n        \"postal_code\": \"27526\",\n        \"country\": \"United States\",\n        \"longitude\": \"-78.794223\",\n        \"latitude\": \"35.5914556\",\n        \"phone\": \"9192015457\",\n        \"website_url\": \"http://www.facebook.com/3rddegreebrewhouse/\",\n        \"state\": \"North Carolina\",\n        \"street\": \"1625 N Main St\"\n    },\n    {\n        \"id\": \"3c9354c5-4d21-40a8-8e53-8f2f9b5e043b\",\n        \"name\": \"3rd Rock Brewing Company\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"134 Industrial Park Dr\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Trenton\",\n        \"state_province\": \"North Carolina\",\n        \"postal_code\": \"28585-9593\",\n        \"country\": \"United States\",\n        \"longitude\": \"-77.36749285\",\n        \"latitude\": \"35.06939877\",\n        \"phone\": \"2526319213\",\n        \"website_url\": \"http://www.3rockbrew.com\",\n        \"state\": \"North Carolina\",\n        \"street\": \"134 Industrial Park Dr\"\n    },\n    {\n        \"id\": \"dfec4bba-cfbc-4562-b6be-f0563f51821a\",\n        \"name\": \"Aiken Brewing Co\",\n        \"brewery_type\": \"brewpub\",\n        \"address_1\": \"140 Laurens St SW\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Aiken\",\n        \"state_province\": \"South Carolina\",\n        \"postal_code\": \"29801-3848\",\n        \"country\": \"United States\",\n        \"longitude\": \"-81.7228141\",\n        \"latitude\": \"33.5603084\",\n        \"phone\": \"8035020707\",\n        \"website_url\": \"http://www.aikenbrewingcompany.com\",\n        \"state\": \"South Carolina\",\n        \"street\": \"140 Laurens St SW\"\n    },\n    {\n        \"id\": \"bd12815b-aceb-485f-9070-e37b03bbcbb4\",\n        \"name\": \"Andrews Brewing Co At Calaboose Cellars\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"575 Aquone Rd\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Andrews\",\n        \"state_province\": \"North Carolina\",\n        \"postal_code\": \"28901-7004\",\n        \"country\": \"United States\",\n        \"longitude\": \"-83.81487799\",\n        \"latitude\": \"35.19958164\",\n        \"phone\": \"8283212006\",\n        \"website_url\": \"http://www.calaboosecellars.com\",\n        \"state\": \"North Carolina\",\n        \"street\": \"575 Aquone Rd\"\n    },\n    {\n        \"id\": \"8dc5e687-be97-44c3-ae27-9b0818d48471\",\n        \"name\": \"Angry Fish Brewing Company\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"106 Fabrister Ln Ste C\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Lexington\",\n        \"state_province\": \"South Carolina\",\n        \"postal_code\": \"29072\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": \"8035707470\",\n        \"website_url\": \"http://angryfishbewingco.com\",\n        \"state\": \"South Carolina\",\n        \"street\": \"106 Fabrister Ln Ste C\"\n    },\n    {\n        \"id\": \"fa4da286-e9a3-4d00-ab49-8e5f027f76d5\",\n        \"name\": \"Angry Troll Brewing / 222 Public House\",\n        \"brewery_type\": \"brewpub\",\n        \"address_1\": \"222 E Main St Ste U2\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Elkin\",\n        \"state_province\": \"North Carolina\",\n        \"postal_code\": \"28621-3493\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": \"3362582251\",\n        \"website_url\": \"http://www.angrytrollbrewing.com\",\n        \"state\": \"North Carolina\",\n        \"street\": \"222 E Main St Ste U2\"\n    },\n    {\n        \"id\": \"5b127f6a-3364-4588-b5ad-f7953fc6ee54\",\n        \"name\": \"Appalachian Mountain Brewery - Boone\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"163 Boone Creek Dr\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Boone\",\n        \"state_province\": \"North Carolina\",\n        \"postal_code\": \"28607-7911\",\n        \"country\": \"United States\",\n        \"longitude\": \"-81.668461\",\n        \"latitude\": \"36.2033414\",\n        \"phone\": \"8282631111\",\n        \"website_url\": \"http://www.appalachianmountainbrewery.com\",\n        \"state\": \"North Carolina\",\n        \"street\": \"163 Boone Creek Dr\"\n    },\n    {\n        \"id\": \"d86d40e0-1a3f-4c34-9b07-002191bc0952\",\n        \"name\": \"Archetype Brewing\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"265 Haywood Rd\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Asheville\",\n        \"state_province\": \"North Carolina\",\n        \"postal_code\": \"28806-4545\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": \"8285054177\",\n        \"website_url\": \"http://www.archetypebrewing.com\",\n        \"state\": \"North Carolina\",\n        \"street\": \"265 Haywood Rd\"\n    },\n    {\n        \"id\": \"b5671147-4dec-4e19-b256-79a2f03b94e9\",\n        \"name\": \"Asheville Brewing Co\",\n        \"brewery_type\": \"brewpub\",\n        \"address_1\": \"77 Coxe Ave\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Asheville\",\n        \"state_province\": \"North Carolina\",\n        \"postal_code\": \"28801-3621\",\n        \"country\": \"United States\",\n        \"longitude\": \"-82.55530545\",\n        \"latitude\": \"35.5917763\",\n        \"phone\": \"8282554077\",\n        \"website_url\": \"http://www.ashevillepizza.com\",\n        \"state\": \"North Carolina\",\n        \"street\": \"77 Coxe Ave\"\n    },\n    {\n        \"id\": \"eafb7a5f-83c9-427b-b894-8ea1d0751c31\",\n        \"name\": \"Ass Clown Brewing Co\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"10620 Bailey Rd Ste E\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Cornelius\",\n        \"state_province\": \"North Carolina\",\n        \"postal_code\": \"28031-9364\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": \"9805050399\",\n        \"website_url\": \"http://www.assclownbrewery.com\",\n        \"state\": \"North Carolina\",\n        \"street\": \"10620 Bailey Rd Ste E\"\n    },\n    {\n        \"id\": \"7006a17a-74da-497a-ba35-2338c7efbb25\",\n        \"name\": \"Aviator Brewing Company\",\n        \"brewery_type\": \"regional\",\n        \"address_1\": \"209 Technology Park Ln\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Fuquay Varina\",\n        \"state_province\": \"North Carolina\",\n        \"postal_code\": \"27526-9311\",\n        \"country\": \"United States\",\n        \"longitude\": \"-78.8073896\",\n        \"latitude\": \"35.61695983\",\n        \"phone\": \"9195672337\",\n        \"website_url\": \"http://www.aviatorbrew.com\",\n        \"state\": \"North Carolina\",\n        \"street\": \"209 Technology Park Ln\"\n    },\n    {\n        \"id\": \"cb8d7ce9-114c-44b6-91de-45ad0cd2285f\",\n        \"name\": \"Balsam Falls Brewing\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"506 W Main St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Sylva\",\n        \"state_province\": \"North Carolina\",\n        \"postal_code\": \"28779-5544\",\n        \"country\": \"United States\",\n        \"longitude\": \"-83.2218237\",\n        \"latitude\": \"35.3737065\",\n        \"phone\": \"8286311987\",\n        \"website_url\": null,\n        \"state\": \"North Carolina\",\n        \"street\": \"506 W Main St\"\n    },\n    {\n        \"id\": \"de70c697-36e2-4f30-9c08-f15fbca43bc8\",\n        \"name\": \"Bark Brewing Company\",\n        \"brewery_type\": \"brewpub\",\n        \"address_1\": \"3021 Spring Garden St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Greensboro\",\n        \"state_province\": \"North Carolina\",\n        \"postal_code\": \"27403-1968\",\n        \"country\": \"United States\",\n        \"longitude\": \"-79.84360434\",\n        \"latitude\": \"36.06201036\",\n        \"phone\": \"3368561406\",\n        \"website_url\": \"http://barkbrewingcompany.com\",\n        \"state\": \"North Carolina\",\n        \"street\": \"3021 Spring Garden St\"\n    },\n    {\n        \"id\": \"4e51c656-001a-4f64-9fcd-0edc5b8e6669\",\n        \"name\": \"Barking Duck Brewing Company\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"4400 Morris Park Dr Ste R\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Mint Hill\",\n        \"state_province\": \"North Carolina\",\n        \"postal_code\": \"28227-9269\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": \"9809386300\",\n        \"website_url\": \"http://www.barkingduckbrew.com\",\n        \"state\": \"North Carolina\",\n        \"street\": \"4400 Morris Park Dr Ste R\"\n    },\n    {\n        \"id\": \"0a857a91-0b76-4850-9594-08938b756d99\",\n        \"name\": \"Barrel Culture Brewing And Blending\",\n        \"brewery_type\": \"proprietor\",\n        \"address_1\": \"4913 S Alston Ave\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Durham\",\n        \"state_province\": \"North Carolina\",\n        \"postal_code\": \"27713-4424\",\n        \"country\": \"United States\",\n        \"longitude\": \"-78.88891655\",\n        \"latitude\": \"35.89445737\",\n        \"phone\": null,\n        \"website_url\": null,\n        \"state\": \"North Carolina\",\n        \"street\": \"4913 S Alston Ave\"\n    },\n    {\n        \"id\": \"a30cdbff-d7d7-48b2-8aa1-90a25758ad02\",\n        \"name\": \"BDD Brewing Company\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"1147 Falls Rd Ste 107\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Rocky Mount\",\n        \"state_province\": \"North Carolina\",\n        \"postal_code\": \"27804\",\n        \"country\": \"United States\",\n        \"longitude\": \"-77.80208267\",\n        \"latitude\": \"35.958026\",\n        \"phone\": \"9196327551\",\n        \"website_url\": null,\n        \"state\": \"North Carolina\",\n        \"street\": \"1147 Falls Rd Ste 107\"\n    },\n    {\n        \"id\": \"c682b36a-29b9-429f-b109-e75251bb6cd8\",\n        \"name\": \"Bear Creek Brews\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"10538 Nc 902 Hwy\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Bear Creek\",\n        \"state_province\": \"North Carolina\",\n        \"postal_code\": \"27207-9269\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": \"9192003930\",\n        \"website_url\": \"http://www.bearcreekbrews.com\",\n        \"state\": \"North Carolina\",\n        \"street\": \"10538 Nc 902 Hwy\"\n    },\n    {\n        \"id\": \"a2a4f05a-7e2d-4b7c-a22f-45f90db7d334\",\n        \"name\": \"BearWaters Brewing Co\",\n        \"brewery_type\": \"brewpub\",\n        \"address_1\": \"101 Park St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Canton\",\n        \"state_province\": \"North Carolina\",\n        \"postal_code\": \"28716-4319\",\n        \"country\": \"United States\",\n        \"longitude\": \"-82.843001\",\n        \"latitude\": \"35.53137\",\n        \"phone\": \"8282734200\",\n        \"website_url\": \"http://www.bwbrewing.com\",\n        \"state\": \"North Carolina\",\n        \"street\": \"101 Park St\"\n    },\n    {\n        \"id\": \"4e43ccbc-bc47-405d-a48b-1d928c5ca462\",\n        \"name\": \"Beech Mountain Brewing Company\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"1007 Beech Mountain Pkwy\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Beech Mountain\",\n        \"state_province\": \"North Carolina\",\n        \"postal_code\": \"28604-8018\",\n        \"country\": \"United States\",\n        \"longitude\": \"-81.873356\",\n        \"latitude\": \"36.16819584\",\n        \"phone\": \"8283872011\",\n        \"website_url\": \"http://www.beechmountainresort.com\",\n        \"state\": \"North Carolina\",\n        \"street\": \"1007 Beech Mountain Pkwy\"\n    },\n    {\n        \"id\": \"98b4c7f1-cdf7-465b-a41c-ab456bfd6a61\",\n        \"name\": \"Beer Army\",\n        \"brewery_type\": \"brewpub\",\n        \"address_1\": null,\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"New Bern\",\n        \"state_province\": \"North Carolina\",\n        \"postal_code\": \"28564-3051\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": \"2522885814\",\n        \"website_url\": null,\n        \"state\": \"North Carolina\",\n        \"street\": null\n    },\n    {\n        \"id\": \"db8a8a89-3084-4632-8215-36c9446426b5\",\n        \"name\": \"Ben's Tune-Up / Ben's Beer\",\n        \"brewery_type\": \"brewpub\",\n        \"address_1\": \"195 Hilliard Ave\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Asheville\",\n        \"state_province\": \"North Carolina\",\n        \"postal_code\": \"28801-3616\",\n        \"country\": \"United States\",\n        \"longitude\": \"-82.5557931\",\n        \"latitude\": \"35.5912756\",\n        \"phone\": \"8284247580\",\n        \"website_url\": \"http://www.benstuneup.com\",\n        \"state\": \"North Carolina\",\n        \"street\": \"195 Hilliard Ave\"\n    },\n    {\n        \"id\": \"2740427b-cb76-4b45-bb8d-364e82541041\",\n        \"name\": \"Benford Brewing Co.\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"2271 Boxcar Rd\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Lancaster\",\n        \"state_province\": \"South Carolina\",\n        \"postal_code\": \"29720-9443\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": null,\n        \"website_url\": null,\n        \"state\": \"South Carolina\",\n        \"street\": \"2271 Boxcar Rd\"\n    },\n    {\n        \"id\": \"e5fc6a44-a2f0-4c19-82a7-cb160e3a7a86\",\n        \"name\": \"Bhramari Brewhouse\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"101 S Lexington Ave\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Asheville\",\n        \"state_province\": \"North Carolina\",\n        \"postal_code\": \"28801-3309\",\n        \"country\": \"United States\",\n        \"longitude\": \"-82.55191879\",\n        \"latitude\": \"35.59166763\",\n        \"phone\": \"8282147981\",\n        \"website_url\": \"http://www.bhramaribrewing.com\",\n        \"state\": \"North Carolina\",\n        \"street\": \"101 S Lexington Ave\"\n    },\n    {\n        \"id\": \"b1813df6-ffad-4604-b909-874bfb56e41b\",\n        \"name\": \"Big Boss Brewing Co\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"1249 Wicker Dr Ste A\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Raleigh\",\n        \"state_province\": \"North Carolina\",\n        \"postal_code\": \"27604-1683\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": \"9198340045\",\n        \"website_url\": \"http://www.bigbossbrewing.com\",\n        \"state\": \"North Carolina\",\n        \"street\": \"1249 Wicker Dr Ste A\"\n    },\n    {\n        \"id\": \"2e6d6446-a752-4ed5-85dc-164d7bb799ba\",\n        \"name\": \"Bill's Brewing Co.\",\n        \"brewery_type\": \"brewpub\",\n        \"address_1\": \"4238 Market St.\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Wilmington\",\n        \"state_province\": \"North Carolina\",\n        \"postal_code\": \"28403\",\n        \"country\": \"United States\",\n        \"longitude\": \"-77.892361\",\n        \"latitude\": \"34.242224\",\n        \"phone\": \"9107626333\",\n        \"website_url\": \"http://www.billsfrontporch.com\",\n        \"state\": \"North Carolina\",\n        \"street\": \"4238 Market St.\"\n    },\n    {\n        \"id\": \"76f46964-b68a-4156-8a61-dbd2e6acaacf\",\n        \"name\": \"Bill's Front Porch Pub and Brewery\",\n        \"brewery_type\": \"brewpub\",\n        \"address_1\": \"4238 Market St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Wilmington\",\n        \"state_province\": \"North Carolina\",\n        \"postal_code\": \"28403-1409\",\n        \"country\": \"United States\",\n        \"longitude\": \"-77.892361\",\n        \"latitude\": \"34.242224\",\n        \"phone\": \"9107626333\",\n        \"website_url\": \"http://www.billsfrontporch.com\",\n        \"state\": \"North Carolina\",\n        \"street\": \"4238 Market St\"\n    },\n    {\n        \"id\": \"6ccd6e8a-5d6c-4a5e-a285-57067d8b3a41\",\n        \"name\": \"Biltmore Brewing Company\",\n        \"brewery_type\": \"proprietor\",\n        \"address_1\": \"1 N Pack Sq C/O Biltmore Winery Estates\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Asheville\",\n        \"state_province\": \"North Carolina\",\n        \"postal_code\": \"28801-3462\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": \"8004113812\",\n        \"website_url\": \"http://www.biltmore.com\",\n        \"state\": \"North Carolina\",\n        \"street\": \"1 N Pack Sq C/O Biltmore Winery Estates\"\n    },\n    {\n        \"id\": \"b47dbcd6-1beb-434c-a9fb-3f8d88772800\",\n        \"name\": \"Birds Fly South Ale Project\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"1320 Hampton Avenue Ext\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Greenville\",\n        \"state_province\": \"South Carolina\",\n        \"postal_code\": \"29601-1012\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": \"8644128825\",\n        \"website_url\": null,\n        \"state\": \"South Carolina\",\n        \"street\": \"1320 Hampton Avenue Ext\"\n    },\n    {\n        \"id\": \"2f8dee5a-fc6e-49f3-84de-20ca5580acd4\",\n        \"name\": \"Birdsong Brewing Co.\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"1016 N Davidson St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Charlotte\",\n        \"state_province\": \"North Carolina\",\n        \"postal_code\": \"28206-3371\",\n        \"country\": \"United States\",\n        \"longitude\": \"-80.82704272\",\n        \"latitude\": \"35.23060753\",\n        \"phone\": \"7043321810\",\n        \"website_url\": \"http://www.birdsongbrewing.com\",\n        \"state\": \"North Carolina\",\n        \"street\": \"1016 N Davidson St\"\n    },\n    {\n        \"id\": \"68534594-0610-4e38-93fa-b8a9e76941c6\",\n        \"name\": \"Black Creek Brewery\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"111 Depot St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Roxboro\",\n        \"state_province\": \"North Carolina\",\n        \"postal_code\": \"27573-5503\",\n        \"country\": \"United States\",\n        \"longitude\": \"-78.98146367\",\n        \"latitude\": \"36.39362085\",\n        \"phone\": \"9195244319\",\n        \"website_url\": null,\n        \"state\": \"North Carolina\",\n        \"street\": \"111 Depot St\"\n    },\n    {\n        \"id\": \"f2972e73-5167-41ea-ab23-08c16ec14221\",\n        \"name\": \"Blind Squirrel Brewery\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"4716 South US Highway 19 E Suite B\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Plumtree\",\n        \"state_province\": \"North Carolina\",\n        \"postal_code\": \"28664-0173\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": \"8287652739\",\n        \"website_url\": \"http://www.blindsquirrelbrewery.com\",\n        \"state\": \"North Carolina\",\n        \"street\": \"4716 South US Highway 19 E Suite B\"\n    },\n    {\n        \"id\": \"22ef447a-0379-4be5-ab93-72d95e4a778a\",\n        \"name\": \"Blowing Rock Brewing Company\",\n        \"brewery_type\": \"brewpub\",\n        \"address_1\": \"152 Sunset Dr\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Blowing Rock\",\n        \"state_province\": \"North Carolina\",\n        \"postal_code\": \"28605-7205\",\n        \"country\": \"United States\",\n        \"longitude\": \"-81.677229\",\n        \"latitude\": \"36.1327196\",\n        \"phone\": \"8284149600\",\n        \"website_url\": \"http://www.blowingrockbrewing.com\",\n        \"state\": \"North Carolina\",\n        \"street\": \"152 Sunset Dr\"\n    },\n    {\n        \"id\": \"68f388b7-f7ed-4ece-8968-879d2846b189\",\n        \"name\": \"Blue Blaze Brewing\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"528 S Turner Ave\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Charlotte\",\n        \"state_province\": \"North Carolina\",\n        \"postal_code\": \"28208-4259\",\n        \"country\": \"United States\",\n        \"longitude\": \"-80.86710843\",\n        \"latitude\": \"35.24138809\",\n        \"phone\": \"9808592586\",\n        \"website_url\": \"http://www.blueblazebrewing.com\",\n        \"state\": \"North Carolina\",\n        \"street\": \"528 S Turner Ave\"\n    },\n    {\n        \"id\": \"2e73516c-cb09-4946-a500-e6bc12149b97\",\n        \"name\": \"Blue Ghost Brewing Company\",\n        \"brewery_type\": \"brewpub\",\n        \"address_1\": \"125 Underwood Rd\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Fletcher\",\n        \"state_province\": \"North Carolina\",\n        \"postal_code\": \"28732-\",\n        \"country\": \"United States\",\n        \"longitude\": \"-82.5305803\",\n        \"latitude\": \"35.4368388\",\n        \"phone\": \"8283760159\",\n        \"website_url\": \"http://www.blueghostbrewing.com\",\n        \"state\": \"North Carolina\",\n        \"street\": \"125 Underwood Rd\"\n    },\n    {\n        \"id\": \"23799b52-1cb9-423e-abd5-35c913bf68e9\",\n        \"name\": \"Blue Mountain Pizza and Brew Pub\",\n        \"brewery_type\": \"brewpub\",\n        \"address_1\": \"55 N Main St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Weaverville\",\n        \"state_province\": \"North Carolina\",\n        \"postal_code\": \"28787-6634\",\n        \"country\": \"United States\",\n        \"longitude\": \"-82.55934457\",\n        \"latitude\": \"35.70849553\",\n        \"phone\": \"8286588777\",\n        \"website_url\": \"http://www.bluemountainpizza.com\",\n        \"state\": \"North Carolina\",\n        \"street\": \"55 N Main St\"\n    },\n    {\n        \"id\": \"05a8d9a8-670a-4e5d-86c3-fddd352cfe43\",\n        \"name\": \"Blue Ridge Brewing Co/Foothills Brewing\",\n        \"brewery_type\": \"brewpub\",\n        \"address_1\": \"308 Trade St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Greer\",\n        \"state_province\": \"South Carolina\",\n        \"postal_code\": \"29651-3432\",\n        \"country\": \"United States\",\n        \"longitude\": \"-82.2262648\",\n        \"latitude\": \"34.9361559\",\n        \"phone\": \"8642324677\",\n        \"website_url\": \"http://www.blueridgebrewing.com\",\n        \"state\": \"South Carolina\",\n        \"street\": \"308 Trade St\"\n    },\n    {\n        \"id\": \"e1312a12-35d9-4636-a80a-9f9a95463964\",\n        \"name\": \"Blue Ridge Community College\",\n        \"brewery_type\": \"planning\",\n        \"address_1\": null,\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Flat Rock\",\n        \"state_province\": \"North Carolina\",\n        \"postal_code\": \"28731-4774\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": \"8286941674\",\n        \"website_url\": \"http://www.blueridge.edu\",\n        \"state\": \"North Carolina\",\n        \"street\": null\n    },\n    {\n        \"id\": \"bcaa1166-a27a-447f-b057-3bf43d21ed68\",\n        \"name\": \"Bold Missy Brewery\",\n        \"brewery_type\": \"brewpub\",\n        \"address_1\": \"610 Anderson St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Charlotte\",\n        \"state_province\": \"North Carolina\",\n        \"postal_code\": \"28205-1208\",\n        \"country\": \"United States\",\n        \"longitude\": \"-80.796429\",\n        \"latitude\": \"35.24960852\",\n        \"phone\": \"9802994184\",\n        \"website_url\": \"http://www.boldmissybrewery.com\",\n        \"state\": \"North Carolina\",\n        \"street\": \"610 Anderson St\"\n    },\n    {\n        \"id\": \"5ae387ac-2a8a-4710-81e8-5df49d0c01c5\",\n        \"name\": \"Bomb Plant Brewing Company\",\n        \"brewery_type\": \"planning\",\n        \"address_1\": null,\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"North Augusta\",\n        \"state_province\": \"South Carolina\",\n        \"postal_code\": \"29860-7462\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": \"7068042722\",\n        \"website_url\": \"http://www.bombplantbrewing.com\",\n        \"state\": \"South Carolina\",\n        \"street\": null\n    },\n    {\n        \"id\": \"43a54dba-6adf-4248-bffd-50e0cf422b93\",\n        \"name\": \"Bombshell Beer Company\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"120 Quantum Dr\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Holly Springs\",\n        \"state_province\": \"North Carolina\",\n        \"postal_code\": \"27540-8861\",\n        \"country\": \"United States\",\n        \"longitude\": \"-78.83588932\",\n        \"latitude\": \"35.65841825\",\n        \"phone\": \"9198231933\",\n        \"website_url\": \"http://www.bombshellbeer.com\",\n        \"state\": \"North Carolina\",\n        \"street\": \"120 Quantum Dr\"\n    },\n    {\n        \"id\": \"1186065b-e2c7-4d71-8bc2-30bcdd0e6150\",\n        \"name\": \"Bond Brothers Beer Company\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"202 E Cedar St\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Cary\",\n        \"state_province\": \"North Carolina\",\n        \"postal_code\": \"27511-3440\",\n        \"country\": \"United States\",\n        \"longitude\": \"-78.77797444\",\n        \"latitude\": \"35.78798475\",\n        \"phone\": \"9194592670\",\n        \"website_url\": \"http://www.bondbrothersbeer.com\",\n        \"state\": \"North Carolina\",\n        \"street\": \"202 E Cedar St\"\n    },\n    {\n        \"id\": \"1e9d4558-c7eb-44a6-b943-1f7c2f39f9c5\",\n        \"name\": \"Boojum Brewing Company\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"357 Dayton Dr\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Waynesville\",\n        \"state_province\": \"North Carolina\",\n        \"postal_code\": \"28786-6931\",\n        \"country\": \"United States\",\n        \"longitude\": \"-82.99383657\",\n        \"latitude\": \"35.52574804\",\n        \"phone\": \"8289440888\",\n        \"website_url\": \"http://www.BoojumBrewing.com\",\n        \"state\": \"North Carolina\",\n        \"street\": \"357 Dayton Dr\"\n    },\n    {\n        \"id\": \"01f95ff4-9f8a-4626-8b01-75efb27f8673\",\n        \"name\": \"Boondocks Brewing\",\n        \"brewery_type\": \"brewpub\",\n        \"address_1\": \"302 S Jefferson Ave\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"West Jefferson\",\n        \"state_province\": \"North Carolina\",\n        \"postal_code\": \"28694-\",\n        \"country\": \"United States\",\n        \"longitude\": \"-81.49133567\",\n        \"latitude\": \"36.39941459\",\n        \"phone\": \"3362465222\",\n        \"website_url\": \"http://www.boondocksbrew.com\",\n        \"state\": \"North Carolina\",\n        \"street\": \"302 S Jefferson Ave\"\n    },\n    {\n        \"id\": \"bcdb6b87-37af-4168-ae08-976e89498a10\",\n        \"name\": \"Booneshine Brewing Company\",\n        \"brewery_type\": \"micro\",\n        \"address_1\": \"465 Industrial Park Dr.\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Boone\",\n        \"state_province\": \"North Carolina\",\n        \"postal_code\": \"28607\",\n        \"country\": \"United States\",\n        \"longitude\": \"-81.645208\",\n        \"latitude\": \"36.222104\",\n        \"phone\": \"8282634305\",\n        \"website_url\": \"http://www.booneshine.beer\",\n        \"state\": \"North Carolina\",\n        \"street\": \"465 Industrial Park Dr.\"\n    },\n    {\n        \"id\": \"e23c476c-0f42-4d31-9a59-0fe5a809c76f\",\n        \"name\": \"Bottle Tree Beer Co\",\n        \"brewery_type\": \"contract\",\n        \"address_1\": \"10 N Trade St Apt A\",\n        \"address_2\": null,\n        \"address_3\": null,\n        \"city\": \"Tryon\",\n        \"state_province\": \"North Carolina\",\n        \"postal_code\": \"28782-3476\",\n        \"country\": \"United States\",\n        \"longitude\": null,\n        \"latitude\": null,\n        \"phone\": \"8642660133\",\n        \"website_url\": \"http://www.bottletree.net\",\n        \"state\": \"North Carolina\",\n        \"street\": \"10 N Trade St Apt A\"\n    }\n]"
+				},
+				{
+					"name": "Empty list",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.openbrewerydb.org/breweries?by_state=Małopolska",
+							"protocol": "https",
+							"host": [
+								"api",
+								"openbrewerydb",
+								"org"
+							],
+							"path": [
+								"breweries"
+							],
+							"query": [
+								{
+									"key": "by_state",
+									"value": "Małopolska"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 15 Mar 2024 09:51:02 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"group\":\"heroku-nel\",\"max_age\":3600,\"endpoints\":[{\"url\":\"https://nel.heroku.com/reports?ts=1710496262&sid=67ff5de4-ad2b-4112-9289-cf96be89efed&s=NBsOuqnod%2FGWIGTrTl8dSOzJG%2FHY2d3u3HfM1jW8SS0%3D\"}]}"
+						},
+						{
+							"key": "Reporting-Endpoints",
+							"value": "heroku-nel=https://nel.heroku.com/reports?ts=1710496262&sid=67ff5de4-ad2b-4112-9289-cf96be89efed&s=NBsOuqnod%2FGWIGTrTl8dSOzJG%2FHY2d3u3HfM1jW8SS0%3D"
+						},
+						{
+							"key": "Nel",
+							"value": "{\"report_to\":\"heroku-nel\",\"max_age\":3600,\"success_fraction\":0.005,\"failure_fraction\":0.05,\"response_headers\":[\"Via\"]}"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Xss-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "strict-origin-when-cross-origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin, Accept-Encoding"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "public, max-age=86400"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"4f53cda18c2baa0c0354bb5f9a3ecbe5\""
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "3bc5a933-571c-40b4-852f-8f1866af287c"
+						},
+						{
+							"key": "X-Runtime",
+							"value": "0.011275"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=63072000; includeSubDomains"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "MISS"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "864b9a47bf013494-WAW"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "[]"
+				}
+			]
+		}
+	]
+}

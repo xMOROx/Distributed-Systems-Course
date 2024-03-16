@@ -1,0 +1,430 @@
+{
+	"info": {
+		"_postman_id": "b6d36f1d-62e4-4987-9643-1d7039f7f9fa",
+		"name": "Bored api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26698392",
+		"_collection_link": "https://lunar-water-149580.postman.co/workspace/Restapi~42aaaad9-f7f8-4f48-97b4-7b49c049c02d/collection/26698392-b6d36f1d-62e4-4987-9643-1d7039f7f9fa?action=share&source=collection_link&creator=26698392"
+	},
+	"item": [
+		{
+			"name": "Get random activity",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var template = `\r",
+							"<style type=\"text/css\">\r",
+							"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}\r",
+							"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}\r",
+							"    .tftable tr {background-color:#ffffff;}\r",
+							"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}\r",
+							"    .tftable tr:hover {background-color:#e0ffff;}\r",
+							"</style>\r",
+							"\r",
+							"<table class=\"tftable\" border=\"1\">\r",
+							"    <tr>\r",
+							"        <th>Activity</th>\r",
+							"        <th>Type</th>\r",
+							"        <th>Participants</th>\r",
+							"        <th>Price</th>\r",
+							"        <th>Link</th>\r",
+							"        <th>Key</th>\r",
+							"        <th>Accessibility</th>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>{{response.activity}}</td>\r",
+							"        <td>{{response.type}}</td>\r",
+							"        <td>{{response.participants}}</td>\r",
+							"        <td>{{response.price}}</td>\r",
+							"        <td>{{response.link}}</td>\r",
+							"        <td>{{response.key}}</td>\r",
+							"        <td>{{response.accessibility}}</td>\r",
+							"    </tr>\r",
+							"</table>\r",
+							"`;\r",
+							"\r",
+							"function constructVisualizerPayload() {\r",
+							"    return {response: pm.response.json()};\r",
+							"}\r",
+							"\r",
+							"pm.visualizer.set(template, constructVisualizerPayload());"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "www.boredapi.com/api/activity",
+					"host": [
+						"www",
+						"boredapi",
+						"com"
+					],
+					"path": [
+						"api",
+						"activity"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get random activity",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "www.boredapi.com/api/activity",
+							"host": [
+								"www",
+								"boredapi",
+								"com"
+							],
+							"path": [
+								"api",
+								"activity"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"group\":\"heroku-nel\",\"max_age\":3600,\"endpoints\":[{\"url\":\"https://nel.heroku.com/reports?ts=1710491187&sid=67ff5de4-ad2b-4112-9289-cf96be89efed&s=Pup9wU0vCE0XA3bQDLMjPdvVxD093bT%2FqQhq6SVHtjw%3D\"}]}"
+						},
+						{
+							"key": "Reporting-Endpoints",
+							"value": "heroku-nel=https://nel.heroku.com/reports?ts=1710491187&sid=67ff5de4-ad2b-4112-9289-cf96be89efed&s=Pup9wU0vCE0XA3bQDLMjPdvVxD093bT%2FqQhq6SVHtjw%3D"
+						},
+						{
+							"key": "Nel",
+							"value": "{\"report_to\":\"heroku-nel\",\"max_age\":3600,\"success_fraction\":0.005,\"failure_fraction\":0.05,\"response_headers\":[\"Via\"]}"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Origin, X-Requested-With, Content-Type, Accept"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "137"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"89-yLc8noxnzyUjcCCud6J8pMVhu3c\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Mar 2024 08:26:27 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"activity\": \"Take a hike at a local park\",\n    \"type\": \"recreational\",\n    \"participants\": 1,\n    \"price\": 0,\n    \"link\": \"\",\n    \"key\": \"8724324\",\n    \"accessibility\": 0.1\n}"
+				},
+				{
+					"name": "Get random activity",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "www.boredapi.com/api/activity",
+							"host": [
+								"www",
+								"boredapi",
+								"com"
+							],
+							"path": [
+								"api",
+								"activity"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"group\":\"heroku-nel\",\"max_age\":3600,\"endpoints\":[{\"url\":\"https://nel.heroku.com/reports?ts=1710491207&sid=67ff5de4-ad2b-4112-9289-cf96be89efed&s=zlQwjd8q056GGBGvVnPufdJFk5IxiSYtXOCvGuLTr3I%3D\"}]}"
+						},
+						{
+							"key": "Reporting-Endpoints",
+							"value": "heroku-nel=https://nel.heroku.com/reports?ts=1710491207&sid=67ff5de4-ad2b-4112-9289-cf96be89efed&s=zlQwjd8q056GGBGvVnPufdJFk5IxiSYtXOCvGuLTr3I%3D"
+						},
+						{
+							"key": "Nel",
+							"value": "{\"report_to\":\"heroku-nel\",\"max_age\":3600,\"success_fraction\":0.005,\"failure_fraction\":0.05,\"response_headers\":[\"Via\"]}"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Origin, X-Requested-With, Content-Type, Accept"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "179"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"b3-ya2fMde+wSJptO9blaPtCoAGT1Y\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Mar 2024 08:26:47 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"activity\": \"Draft your living will\",\n    \"type\": \"busywork\",\n    \"participants\": 1,\n    \"price\": 0,\n    \"link\": \"https://www.investopedia.com/terms/l/livingwill.asp\",\n    \"key\": \"2360432\",\n    \"accessibility\": 0.5\n}"
+				}
+			]
+		},
+		{
+			"name": "Get activity by type",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "www.boredapi.com/api/activity?type=:type",
+					"host": [
+						"www",
+						"boredapi",
+						"com"
+					],
+					"path": [
+						"api",
+						"activity"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": ":type"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "www.boredapi.com/api/activity?type=diy",
+							"host": [
+								"www",
+								"boredapi",
+								"com"
+							],
+							"path": [
+								"api",
+								"activity"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "diy"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"group\":\"heroku-nel\",\"max_age\":3600,\"endpoints\":[{\"url\":\"https://nel.heroku.com/reports?ts=1710491314&sid=67ff5de4-ad2b-4112-9289-cf96be89efed&s=3f7c7Rj4BaQG37Hd1nKqWXMB1L3I4VrueWdyczkNP9w%3D\"}]}"
+						},
+						{
+							"key": "Reporting-Endpoints",
+							"value": "heroku-nel=https://nel.heroku.com/reports?ts=1710491314&sid=67ff5de4-ad2b-4112-9289-cf96be89efed&s=3f7c7Rj4BaQG37Hd1nKqWXMB1L3I4VrueWdyczkNP9w%3D"
+						},
+						{
+							"key": "Nel",
+							"value": "{\"report_to\":\"heroku-nel\",\"max_age\":3600,\"success_fraction\":0.005,\"failure_fraction\":0.05,\"response_headers\":[\"Via\"]}"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Origin, X-Requested-With, Content-Type, Accept"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "123"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"7b-1aUextmK4/fqvKR2V8ivcsI717Q\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Mar 2024 08:28:34 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"activity\": \"Create a compost pile\",\n    \"type\": \"diy\",\n    \"participants\": 1,\n    \"price\": 0,\n    \"link\": \"\",\n    \"key\": \"8631548\",\n    \"accessibility\": 0.15\n}"
+				},
+				{
+					"name": "error",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "www.boredapi.com/api/activity?type=d",
+							"host": [
+								"www",
+								"boredapi",
+								"com"
+							],
+							"path": [
+								"api",
+								"activity"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "d"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"group\":\"heroku-nel\",\"max_age\":3600,\"endpoints\":[{\"url\":\"https://nel.heroku.com/reports?ts=1710491332&sid=67ff5de4-ad2b-4112-9289-cf96be89efed&s=5sR%2Fh3nKEIWgPQe9pw08jFvyVp8vcmoZA8tNVrUb1ZI%3D\"}]}"
+						},
+						{
+							"key": "Reporting-Endpoints",
+							"value": "heroku-nel=https://nel.heroku.com/reports?ts=1710491332&sid=67ff5de4-ad2b-4112-9289-cf96be89efed&s=5sR%2Fh3nKEIWgPQe9pw08jFvyVp8vcmoZA8tNVrUb1ZI%3D"
+						},
+						{
+							"key": "Nel",
+							"value": "{\"report_to\":\"heroku-nel\",\"max_age\":3600,\"success_fraction\":0.005,\"failure_fraction\":0.05,\"response_headers\":[\"Via\"]}"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Origin, X-Requested-With, Content-Type, Accept"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "59"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"3b-y5404MDquWW4EUq86W47VXZZOEU\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Mar 2024 08:28:52 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"No activity found with the specified parameters\"\n}"
+				}
+			]
+		}
+	]
+}

@@ -74,7 +74,6 @@ public class WebController {
             uriBuilder.append("&");
         }
 
-
         if (name != null && !name.isEmpty()) {
             uriBuilder.append("by_name=");
             uriBuilder.append(name.replace(' ', '_'));
