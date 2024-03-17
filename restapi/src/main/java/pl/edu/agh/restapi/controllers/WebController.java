@@ -3,39 +3,49 @@ package pl.edu.agh.restapi.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 import pl.edu.agh.restapi.DAO.ActivityDAO;
 import pl.edu.agh.restapi.DAO.BreweryDAO;
 import pl.edu.agh.restapi.DTO.StatsDTO;
 import pl.edu.agh.restapi.exceptions.ActivityNotProvidedException;
+import pl.edu.agh.restapi.exceptions.UnauthorizedException;
+import pl.edu.agh.restapi.services.ClientAuthenticationHelper;
 
 
 @Controller
 @RequestMapping("/api/v1")
 public class WebController {
 
+    private final ClientAuthenticationHelper clientAuthenticationHelper;
 
-    @RequestMapping(value = "")
-    public String defaultPage() {
+    public WebController(ClientAuthenticationHelper clientAuthenticationHelper) {
+        this.clientAuthenticationHelper = clientAuthenticationHelper;
+    }
+
+    @GetMapping(value = "")
+    public String defaultPage() throws UnauthorizedException {
+
         return "index";
     }
 
 
-    @RequestMapping(value = "/index")
-    public String homePage() {
+    @GetMapping(value = "/index")
+    public String homePage() throws UnauthorizedException {
+
         return "index";
     }
 
-    @RequestMapping(value = "/request", method = RequestMethod.POST)
+    @PostMapping(value = "/request")
     public String resultPage(@RequestParam(value = "city") String city,
                              @RequestParam(value = "type") String type,
                              @RequestParam(value = "state") String state,
                              @RequestParam(value = "name") String name,
                              @RequestParam(value = "activity") String activityType,
+                             @RequestParam(value = "api_key") String apiKey,
                              Model model) {
+
+        validateApiKey(apiKey);
 
         city = city.trim();
         type = type.trim();
@@ -107,5 +117,10 @@ public class WebController {
         return activity;
     }
 
+    private void validateApiKey(String apiKey) {
+        if (!clientAuthenticationHelper.validateApiKey(apiKey)) {
+            throw new UnauthorizedException("Invalid API key");
+        }
+    }
 }
 

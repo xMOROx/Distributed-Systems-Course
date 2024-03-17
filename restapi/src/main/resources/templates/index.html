@@ -12,6 +12,7 @@
             margin: 0;
             padding: 0;
         }
+
         header {
             background-color: #343a40;
             color: #fff;
@@ -19,18 +20,22 @@
             text-align: center;
             margin-bottom: 30px;
         }
+
         form {
             background-color: #fff;
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
         }
+
         .form-group {
             margin-bottom: 30px;
         }
+
         label {
             font-weight: bold;
         }
+
         select,
         input[type="text"] {
             width: 100%;
@@ -40,6 +45,7 @@
             box-sizing: border-box;
             font-size: 16px;
         }
+
         button[type="submit"] {
             background-color: #007bff;
             color: #fff;
@@ -50,6 +56,7 @@
             transition: background-color 0.3s;
             font-size: 16px;
         }
+
         button[type="submit"]:hover {
             background-color: #0056b3;
         }
@@ -104,6 +111,11 @@
                 <option value="busywork">Busywork</option>
             </select>
         </div>
+        <div class="form-group">
+            <label for="api_key">API Key:</label>
+            <input type="text" class="form-control" id="api_key" name="api_key" placeholder="Enter API Key">
+        </div>
+
         <div class="text-center">
             <button type="submit" class="btn btn-primary">Search</button>
         </div>

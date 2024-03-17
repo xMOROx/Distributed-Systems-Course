@@ -79,4 +79,15 @@ public class CustomErrorHandling {
                 errorDetails,
                 HttpStatus.BAD_REQUEST);
     }
+
+    @ExceptionHandler(UnauthorizedException.class)
+    public final ResponseEntity<ErrorDetails> handleUnauthorizedException(UnauthorizedException ex, WebRequest request) {
+        ErrorDetails errorDetails = new ErrorDetails(
+                ex.getMessage(),
+                request.getDescription(false),
+                LocalDateTime.now());
+        return new ResponseEntity<>(
+                errorDetails,
+                HttpStatus.UNAUTHORIZED);
+    }
 }
