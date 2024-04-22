@@ -1,0 +1,98 @@
+// SmartHome.proto
+
+syntax = "proto3";
+import "google/protobuf/empty.proto";
+
+package SmartHome;
+
+option java_package = "pl.zajdel.patryk.gen.SmartHome";
+option java_multiple_files = true;
+
+
+// Enums
+enum Mode {
+  ON = 0; // Permitted: all actions
+  STANDBY = 1; // Permitted: setting, getting device's parameters. Not permitted: performing device's activities
+}
+
+
+// ShoppingListRecord as used in FridgeWithShoppingList
+message ShoppingListRecord {
+  string name = 1;
+  int32 quantity = 2;
+
+  enum Unit {
+    UNSPECIFIED = 0;
+    GRAM = 1;
+    MILLILITRE = 2;
+  }
+
+
+  Unit unit = 3;
+}
+
+message ShoppingListRecordWithId {
+  int32 id = 1;
+  ShoppingListRecord shoppingListRecord = 2;
+}
+
+message OrderedShoppingListRecord {
+  repeated ShoppingListRecordWithId shoppingListRecord = 2;
+}
+
+message ModeMessage {
+  Mode mode = 1;
+}
+
+
+message CO2Level {
+  int32 ppm = 1;
+}
+
+message C02LevelSafe {
+  bool safe = 1;
+}
+
+message Temperature {
+  float temperature = 1;
+}
+
+message IceCubesMaker {
+  int32 iceCubes = 1;
+}
+
+message FridgeRemoveShopping {
+  int32 id = 1;
+}
+
+
+// Interface definitions as Services
+service SmartDevice {
+  rpc SetMode(ModeMessage) returns (ModeMessage) {}
+  rpc GetMode(google.protobuf.Empty) returns (ModeMessage) {}
+  rpc NotifyIfInStandbyMode(google.protobuf.Empty) returns (google.protobuf.Empty) {}
+}
+
+service CO2LevelSensor {
+  rpc GetCO2LevelInPPM(google.protobuf.Empty) returns (CO2Level) {}
+  rpc IsCO2LevelSafe(google.protobuf.Empty) returns (C02LevelSafe) {}
+}
+
+service Fridge {
+  rpc SetTargetTemperature(Temperature) returns (Temperature) {}
+  rpc GetTargetTemperature(google.protobuf.Empty) returns (Temperature) {}
+  rpc GetCurrentTemperature(google.protobuf.Empty) returns (Temperature) {}
+
+}
+
+service FridgeWithIceCubeMaker {
+  rpc GetIceCubesMakerCapacity(google.protobuf.Empty) returns (IceCubesMaker) {}
+  rpc GetIceCubes(IceCubesMaker) returns (IceCubesMaker) {}
+  rpc GetIceCubesCount(google.protobuf.Empty) returns (IceCubesMaker) {}
+}
+
+service FridgeWithShoppingList {
+  rpc GetShoppingList(google.protobuf.Empty) returns (OrderedShoppingListRecord) {}
+  rpc AddShoppingListRecord(ShoppingListRecord) returns (ShoppingListRecord) {}
+  rpc RemoveShoppingListRecord(FridgeRemoveShopping) returns (ShoppingListRecord) {}
+}
