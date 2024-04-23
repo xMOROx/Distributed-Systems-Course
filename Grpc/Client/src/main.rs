@@ -1,6 +1,6 @@
 
 mod proto {
-    tonic::include_proto!("SmartHome");
+    tonic::include_proto!("smart_home");
 }
 
 
