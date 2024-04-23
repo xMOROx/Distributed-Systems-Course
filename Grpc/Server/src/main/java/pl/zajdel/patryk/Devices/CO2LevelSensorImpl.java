@@ -7,11 +7,12 @@ import pl.zajdel.patryk.gen.SmartHome.CO2Level;
 import pl.zajdel.patryk.gen.SmartHome.CO2LevelSensorGrpc;
 import pl.zajdel.patryk.utils.OperationHelper;
 
-public class CO2LevelSensorImpl extends CO2LevelSensorGrpc.CO2LevelSensorImplBase {
+public class CO2LevelSensorImpl extends SmartDeviceImpl implements CO2LevelSensorGrpc.AsyncService {
     private static final int SAFE_LEVEL_THRESHOLD = 5000;
     private static final int CHANGE_LEVEL_MIN_VALUE = -5;
     private static final int CHANGE_LEVEL_MAX_VALUE = 5;
     private static final double CHANGE_LEVEL_PROBABILITY = 0.8;
+
     private int co2Level;
 
     public CO2LevelSensorImpl(int co2Level) {
@@ -21,6 +22,7 @@ public class CO2LevelSensorImpl extends CO2LevelSensorGrpc.CO2LevelSensorImplBas
 
     @Override
     public void getCO2LevelInPPM(Empty request, StreamObserver<CO2Level> responseObserver) {
+
         int co2LevelDelta = Math.random() <= CHANGE_LEVEL_PROBABILITY ?
                 OperationHelper.getRandomIntFromRange(CHANGE_LEVEL_MIN_VALUE, CHANGE_LEVEL_MAX_VALUE) : 0;
         int newCO2Level = co2Level + co2LevelDelta;

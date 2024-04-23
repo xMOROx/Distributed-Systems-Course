@@ -25,6 +25,11 @@ public final class Smarthome {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_SmartHome_ErrorResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_SmartHome_ErrorResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_SmartHome_ShoppingListRecord_descriptor;
   static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -79,107 +84,119 @@ public final class Smarthome {
   static {
     java.lang.String[] descriptorData = {
       "\n\017smarthome.proto\022\tSmartHome\032\033google/pro" +
-      "tobuf/empty.proto\"\231\001\n\022ShoppingListRecord" +
-      "\022\014\n\004name\030\001 \001(\t\022\020\n\010quantity\030\002 \001(\005\0220\n\004unit" +
-      "\030\003 \001(\0162\".SmartHome.ShoppingListRecord.Un" +
-      "it\"1\n\004Unit\022\017\n\013UNSPECIFIED\020\000\022\010\n\004GRAM\020\001\022\016\n" +
-      "\nMILLILITRE\020\002\"a\n\030ShoppingListRecordWithI" +
-      "d\022\n\n\002id\030\001 \001(\005\0229\n\022shoppingListRecord\030\002 \001(" +
-      "\0132\035.SmartHome.ShoppingListRecord\"\\\n\031Orde" +
-      "redShoppingListRecord\022?\n\022shoppingListRec" +
-      "ord\030\002 \003(\0132#.SmartHome.ShoppingListRecord" +
-      "WithId\",\n\013ModeMessage\022\035\n\004mode\030\001 \001(\0162\017.Sm" +
-      "artHome.Mode\"\027\n\010CO2Level\022\013\n\003ppm\030\001 \001(\005\"\034\n" +
-      "\014C02LevelSafe\022\014\n\004safe\030\001 \001(\010\"\"\n\013Temperatu" +
-      "re\022\023\n\013temperature\030\001 \001(\002\"!\n\rIceCubesMaker" +
-      "\022\020\n\010iceCubes\030\001 \001(\005\"\"\n\024FridgeRemoveShoppi" +
-      "ng\022\n\n\002id\030\001 \001(\005*\033\n\004Mode\022\006\n\002ON\020\000\022\013\n\007STANDB" +
-      "Y\020\0012\322\001\n\013SmartDevice\022;\n\007SetMode\022\026.SmartHo" +
-      "me.ModeMessage\032\026.SmartHome.ModeMessage\"\000" +
-      "\022;\n\007GetMode\022\026.google.protobuf.Empty\032\026.Sm" +
-      "artHome.ModeMessage\"\000\022I\n\025NotifyIfInStand" +
-      "byMode\022\026.google.protobuf.Empty\032\026.google." +
-      "protobuf.Empty\"\0002\230\001\n\016CO2LevelSensor\022A\n\020G" +
-      "etCO2LevelInPPM\022\026.google.protobuf.Empty\032" +
-      "\023.SmartHome.CO2Level\"\000\022C\n\016IsCO2LevelSafe" +
-      "\022\026.google.protobuf.Empty\032\027.SmartHome.C02" +
-      "LevelSafe\"\0002\347\001\n\006Fridge\022H\n\024SetTargetTempe" +
-      "rature\022\026.SmartHome.Temperature\032\026.SmartHo" +
-      "me.Temperature\"\000\022H\n\024GetTargetTemperature" +
-      "\022\026.google.protobuf.Empty\032\026.SmartHome.Tem" +
-      "perature\"\000\022I\n\025GetCurrentTemperature\022\026.go" +
-      "ogle.protobuf.Empty\032\026.SmartHome.Temperat" +
-      "ure\"\0002\365\001\n\026FridgeWithIceCubeMaker\022N\n\030GetI" +
-      "ceCubesMakerCapacity\022\026.google.protobuf.E" +
-      "mpty\032\030.SmartHome.IceCubesMaker\"\000\022C\n\013GetI" +
-      "ceCubes\022\030.SmartHome.IceCubesMaker\032\030.Smar" +
-      "tHome.IceCubesMaker\"\000\022F\n\020GetIceCubesCoun" +
-      "t\022\026.google.protobuf.Empty\032\030.SmartHome.Ic" +
-      "eCubesMaker\"\0002\242\002\n\026FridgeWithShoppingList" +
-      "\022Q\n\017GetShoppingList\022\026.google.protobuf.Em" +
-      "pty\032$.SmartHome.OrderedShoppingListRecor" +
-      "d\"\000\022W\n\025AddShoppingListRecord\022\035.SmartHome" +
-      ".ShoppingListRecord\032\035.SmartHome.Shopping" +
-      "ListRecord\"\000\022\\\n\030RemoveShoppingListRecord" +
-      "\022\037.SmartHome.FridgeRemoveShopping\032\035.Smar" +
-      "tHome.ShoppingListRecord\"\000B\"\n\036pl.zajdel." +
-      "patryk.gen.SmartHomeP\001b\006proto3"
+      "tobuf/empty.proto\"A\n\rErrorResponse\022\037\n\005er" +
+      "ror\030\001 \001(\0162\020.SmartHome.Error\022\017\n\007message\030\002" +
+      " \001(\t\"\231\001\n\022ShoppingListRecord\022\014\n\004name\030\001 \001(" +
+      "\t\022\020\n\010quantity\030\002 \001(\005\0220\n\004unit\030\003 \001(\0162\".Smar" +
+      "tHome.ShoppingListRecord.Unit\"1\n\004Unit\022\017\n" +
+      "\013UNSPECIFIED\020\000\022\010\n\004GRAM\020\001\022\016\n\nMILLILITRE\020\002" +
+      "\"a\n\030ShoppingListRecordWithId\022\n\n\002id\030\001 \001(\005" +
+      "\0229\n\022shoppingListRecord\030\002 \001(\0132\035.SmartHome" +
+      ".ShoppingListRecord\"\\\n\031OrderedShoppingLi" +
+      "stRecord\022?\n\022shoppingListRecord\030\002 \003(\0132#.S" +
+      "martHome.ShoppingListRecordWithId\",\n\013Mod" +
+      "eMessage\022\035\n\004mode\030\001 \001(\0162\017.SmartHome.Mode\"" +
+      "\027\n\010CO2Level\022\013\n\003ppm\030\001 \001(\005\"\034\n\014C02LevelSafe" +
+      "\022\014\n\004safe\030\001 \001(\010\"\"\n\013Temperature\022\023\n\013tempera" +
+      "ture\030\001 \001(\002\"!\n\rIceCubesMaker\022\020\n\010iceCubes\030" +
+      "\001 \001(\005\"\"\n\024FridgeRemoveShopping\022\n\n\002id\030\001 \001(" +
+      "\005*\033\n\004Mode\022\006\n\002ON\020\000\022\013\n\007STANDBY\020\001*\221\001\n\005Error" +
+      "\022\024\n\020MODE_NOT_CHANGED\020\000\022\023\n\017IN_STANDBY_MOD" +
+      "E\020\001\022&\n\"TEMPERATURE_OUT_OF_SUPPORTED_RANG" +
+      "E\020\002\022\030\n\024NOT_ENOUGH_ICE_CUBES\020\003\022\033\n\027INDEX_O" +
+      "UT_OF_LIST_RANGE\020\0042\322\001\n\013SmartDevice\022;\n\007Se" +
+      "tMode\022\026.SmartHome.ModeMessage\032\026.SmartHom" +
+      "e.ModeMessage\"\000\022;\n\007GetMode\022\026.google.prot" +
+      "obuf.Empty\032\026.SmartHome.ModeMessage\"\000\022I\n\025" +
+      "NotifyIfInStandbyMode\022\026.google.protobuf." +
+      "Empty\032\026.google.protobuf.Empty\"\0002\230\001\n\016CO2L" +
+      "evelSensor\022A\n\020GetCO2LevelInPPM\022\026.google." +
+      "protobuf.Empty\032\023.SmartHome.CO2Level\"\000\022C\n" +
+      "\016IsCO2LevelSafe\022\026.google.protobuf.Empty\032" +
+      "\027.SmartHome.C02LevelSafe\"\0002\347\001\n\006Fridge\022H\n" +
+      "\024SetTargetTemperature\022\026.SmartHome.Temper" +
+      "ature\032\026.SmartHome.Temperature\"\000\022H\n\024GetTa" +
+      "rgetTemperature\022\026.google.protobuf.Empty\032" +
+      "\026.SmartHome.Temperature\"\000\022I\n\025GetCurrentT" +
+      "emperature\022\026.google.protobuf.Empty\032\026.Sma" +
+      "rtHome.Temperature\"\0002\365\001\n\026FridgeWithIceCu" +
+      "beMaker\022N\n\030GetIceCubesMakerCapacity\022\026.go" +
+      "ogle.protobuf.Empty\032\030.SmartHome.IceCubes" +
+      "Maker\"\000\022C\n\013GetIceCubes\022\030.SmartHome.IceCu" +
+      "besMaker\032\030.SmartHome.IceCubesMaker\"\000\022F\n\020" +
+      "GetIceCubesCount\022\026.google.protobuf.Empty" +
+      "\032\030.SmartHome.IceCubesMaker\"\0002\242\002\n\026FridgeW" +
+      "ithShoppingList\022Q\n\017GetShoppingList\022\026.goo" +
+      "gle.protobuf.Empty\032$.SmartHome.OrderedSh" +
+      "oppingListRecord\"\000\022W\n\025AddShoppingListRec" +
+      "ord\022\035.SmartHome.ShoppingListRecord\032\035.Sma" +
+      "rtHome.ShoppingListRecord\"\000\022\\\n\030RemoveSho" +
+      "ppingListRecord\022\037.SmartHome.FridgeRemove" +
+      "Shopping\032\035.SmartHome.ShoppingListRecord\"" +
+      "\000B\"\n\036pl.zajdel.patryk.gen.SmartHomeP\001b\006p" +
+      "roto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.protobuf.EmptyProto.getDescriptor(),
         });
-    internal_static_SmartHome_ShoppingListRecord_descriptor =
+    internal_static_SmartHome_ErrorResponse_descriptor =
       getDescriptor().getMessageTypes().get(0);
+    internal_static_SmartHome_ErrorResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_SmartHome_ErrorResponse_descriptor,
+        new java.lang.String[] { "Error", "Message", });
+    internal_static_SmartHome_ShoppingListRecord_descriptor =
+      getDescriptor().getMessageTypes().get(1);
     internal_static_SmartHome_ShoppingListRecord_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_SmartHome_ShoppingListRecord_descriptor,
         new java.lang.String[] { "Name", "Quantity", "Unit", });
     internal_static_SmartHome_ShoppingListRecordWithId_descriptor =
-      getDescriptor().getMessageTypes().get(1);
+      getDescriptor().getMessageTypes().get(2);
     internal_static_SmartHome_ShoppingListRecordWithId_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_SmartHome_ShoppingListRecordWithId_descriptor,
         new java.lang.String[] { "Id", "ShoppingListRecord", });
     internal_static_SmartHome_OrderedShoppingListRecord_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_SmartHome_OrderedShoppingListRecord_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_SmartHome_OrderedShoppingListRecord_descriptor,
         new java.lang.String[] { "ShoppingListRecord", });
     internal_static_SmartHome_ModeMessage_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_SmartHome_ModeMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_SmartHome_ModeMessage_descriptor,
         new java.lang.String[] { "Mode", });
     internal_static_SmartHome_CO2Level_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_SmartHome_CO2Level_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_SmartHome_CO2Level_descriptor,
         new java.lang.String[] { "Ppm", });
     internal_static_SmartHome_C02LevelSafe_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_SmartHome_C02LevelSafe_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_SmartHome_C02LevelSafe_descriptor,
         new java.lang.String[] { "Safe", });
     internal_static_SmartHome_Temperature_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_SmartHome_Temperature_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_SmartHome_Temperature_descriptor,
         new java.lang.String[] { "Temperature", });
     internal_static_SmartHome_IceCubesMaker_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_SmartHome_IceCubesMaker_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_SmartHome_IceCubesMaker_descriptor,
         new java.lang.String[] { "IceCubes", });
     internal_static_SmartHome_FridgeRemoveShopping_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_SmartHome_FridgeRemoveShopping_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_SmartHome_FridgeRemoveShopping_descriptor,

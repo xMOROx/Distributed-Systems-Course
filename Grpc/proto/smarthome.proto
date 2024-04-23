@@ -15,6 +15,20 @@ enum Mode {
   STANDBY = 1; // Permitted: setting, getting device's parameters. Not permitted: performing device's activities
 }
 
+enum Error {
+  MODE_NOT_CHANGED = 0;
+  IN_STANDBY_MODE = 1;
+  TEMPERATURE_OUT_OF_SUPPORTED_RANGE = 2;
+  NOT_ENOUGH_ICE_CUBES = 3;
+  INDEX_OUT_OF_LIST_RANGE = 4;
+}
+
+// Messages
+
+message ErrorResponse {
+  Error error = 1;
+  string message = 2;
+}
 
 // ShoppingListRecord as used in FridgeWithShoppingList
 message ShoppingListRecord {
@@ -74,7 +88,7 @@ service SmartDevice {
 }
 
 service CO2LevelSensor {
-  rpc GetCO2LevelInPPM(google.protobuf.Empty) returns (CO2Level) {}
+  rpc GetCO2LevelInPPM(google.protobuf.Empty) returns (CO2Level) {} // parts per million
   rpc IsCO2LevelSafe(google.protobuf.Empty) returns (C02LevelSafe) {}
 }
 
@@ -82,7 +96,6 @@ service Fridge {
   rpc SetTargetTemperature(Temperature) returns (Temperature) {}
   rpc GetTargetTemperature(google.protobuf.Empty) returns (Temperature) {}
   rpc GetCurrentTemperature(google.protobuf.Empty) returns (Temperature) {}
-
 }
 
 service FridgeWithIceCubeMaker {

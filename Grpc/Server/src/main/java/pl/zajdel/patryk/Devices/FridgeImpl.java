@@ -1,18 +1,20 @@
 package pl.zajdel.patryk.Devices;
 
 import com.google.protobuf.Empty;
+import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
+import pl.zajdel.patryk.gen.SmartHome.Error;
 import pl.zajdel.patryk.gen.SmartHome.FridgeGrpc;
 import pl.zajdel.patryk.gen.SmartHome.Temperature;
 import pl.zajdel.patryk.utils.OperationHelper;
 
-public class FridgeImpl extends FridgeGrpc.FridgeImplBase {
+public class FridgeImpl extends SmartDeviceImpl implements FridgeGrpc.AsyncService {
 
-    private static double MIN_SUPPORTED_TEMPERATURE = -20;
-    private static double MAX_SUPPORTED_TEMPERATURE = 20;
     private static final double CHANGE_TEMPERATURE_MIN_VALUE = 0.1;
     private static final double CHANGE_TEMPERATURE_MAX_VALUE = 1.0;
     private static final double CHANGE_TEMPERATURE_PROBABILITY = 0.3;
+    private static double MIN_SUPPORTED_TEMPERATURE = -20;
+    private static double MAX_SUPPORTED_TEMPERATURE = 20;
     private float targetTemperature;
     private float currentTemperature;
 
@@ -24,9 +26,13 @@ public class FridgeImpl extends FridgeGrpc.FridgeImplBase {
     @Override
     public void setTargetTemperature(Temperature request, StreamObserver<Temperature> responseObserver) {
         if (!checkIfTemperatureInSupportedRange(request.getTemperature())) {
-            throw new TemperatureOutOfSupportedRangeError();
+            responseObserver.onError(
+                    Status.INVALID_ARGUMENT
+                            .withDescription("Temperature out of range")
+                            .asRuntimeException(OperationHelper.composeErrorResponse(Error.TEMPERATURE_OUT_OF_SUPPORTED_RANGE, "Temperature out of range")));
+            return;
         }
-        targetTemperature = temperature;
+        targetTemperature = request.getTemperature();
         responseObserver.onNext(Temperature.newBuilder().setTemperature(targetTemperature).build());
     }
 

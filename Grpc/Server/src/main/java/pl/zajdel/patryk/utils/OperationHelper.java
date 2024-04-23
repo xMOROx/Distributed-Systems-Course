@@ -1,5 +1,10 @@
 package pl.zajdel.patryk.utils;
 
+import io.grpc.Metadata;
+import io.grpc.protobuf.ProtoUtils;
+import pl.zajdel.patryk.gen.SmartHome.Error;
+import pl.zajdel.patryk.gen.SmartHome.ErrorResponse;
+
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -18,5 +23,19 @@ public class OperationHelper {
 
     public static boolean checkIfValueInRange(double value, double min, double max) {
         return min <= value && value <= max;
+    }
+
+    public static Metadata composeErrorResponse(Error error, String message) {
+        Metadata.Key<ErrorResponse> errorResponseKey = ProtoUtils.keyForProto(ErrorResponse.getDefaultInstance());
+
+        ErrorResponse errorResponse = ErrorResponse.newBuilder()
+                .setError(error)
+                .setMessage(message)
+                .build();
+
+        Metadata metadata = new Metadata();
+        metadata.put(errorResponseKey, errorResponse);
+
+        return metadata;
     }
 }
