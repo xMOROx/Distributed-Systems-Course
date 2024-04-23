@@ -2,6 +2,12 @@ package pl.zajdel.patryk;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        try {
+            SmartHomeServer smartHomeServer = SmartHomeServer.createSmartHomeServer();
+            smartHomeServer.start();
+            smartHomeServer.blockUntilShutdown();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

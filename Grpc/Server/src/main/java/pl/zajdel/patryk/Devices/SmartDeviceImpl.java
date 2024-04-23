@@ -1,6 +1,7 @@
 package pl.zajdel.patryk.Devices;
 
 import com.google.protobuf.Empty;
+import io.grpc.BindableService;
 import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
 import pl.zajdel.patryk.gen.SmartHome.Error;
@@ -9,7 +10,7 @@ import pl.zajdel.patryk.gen.SmartHome.ModeMessage;
 import pl.zajdel.patryk.gen.SmartHome.SmartDeviceGrpc;
 import pl.zajdel.patryk.utils.OperationHelper;
 
-public abstract class SmartDeviceImpl implements SmartDeviceGrpc.AsyncService {
+public abstract class SmartDeviceImpl implements SmartDeviceGrpc.AsyncService, BindableService {
     private Mode mode = Mode.ON;
 
     @Override
@@ -34,8 +35,7 @@ public abstract class SmartDeviceImpl implements SmartDeviceGrpc.AsyncService {
         responseObserver.onCompleted();
     }
 
-    @Override
-    public void notifyIfInStandbyMode(Empty request, StreamObserver<Empty> responseObserver) {
+    public void  notifyIfInStandbyMode(StreamObserver<?> responseObserver) {
         if (mode == Mode.STANDBY) {
             responseObserver.onError(
                     Status.FAILED_PRECONDITION

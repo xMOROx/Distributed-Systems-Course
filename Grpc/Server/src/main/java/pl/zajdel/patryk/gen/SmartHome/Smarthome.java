@@ -104,37 +104,35 @@ public final class Smarthome {
       "\022\024\n\020MODE_NOT_CHANGED\020\000\022\023\n\017IN_STANDBY_MOD" +
       "E\020\001\022&\n\"TEMPERATURE_OUT_OF_SUPPORTED_RANG" +
       "E\020\002\022\030\n\024NOT_ENOUGH_ICE_CUBES\020\003\022\033\n\027INDEX_O" +
-      "UT_OF_LIST_RANGE\020\0042\322\001\n\013SmartDevice\022;\n\007Se" +
+      "UT_OF_LIST_RANGE\020\0042\207\001\n\013SmartDevice\022;\n\007Se" +
       "tMode\022\026.SmartHome.ModeMessage\032\026.SmartHom" +
       "e.ModeMessage\"\000\022;\n\007GetMode\022\026.google.prot" +
-      "obuf.Empty\032\026.SmartHome.ModeMessage\"\000\022I\n\025" +
-      "NotifyIfInStandbyMode\022\026.google.protobuf." +
-      "Empty\032\026.google.protobuf.Empty\"\0002\230\001\n\016CO2L" +
-      "evelSensor\022A\n\020GetCO2LevelInPPM\022\026.google." +
-      "protobuf.Empty\032\023.SmartHome.CO2Level\"\000\022C\n" +
-      "\016IsCO2LevelSafe\022\026.google.protobuf.Empty\032" +
-      "\027.SmartHome.C02LevelSafe\"\0002\347\001\n\006Fridge\022H\n" +
-      "\024SetTargetTemperature\022\026.SmartHome.Temper" +
-      "ature\032\026.SmartHome.Temperature\"\000\022H\n\024GetTa" +
-      "rgetTemperature\022\026.google.protobuf.Empty\032" +
-      "\026.SmartHome.Temperature\"\000\022I\n\025GetCurrentT" +
-      "emperature\022\026.google.protobuf.Empty\032\026.Sma" +
-      "rtHome.Temperature\"\0002\365\001\n\026FridgeWithIceCu" +
-      "beMaker\022N\n\030GetIceCubesMakerCapacity\022\026.go" +
-      "ogle.protobuf.Empty\032\030.SmartHome.IceCubes" +
-      "Maker\"\000\022C\n\013GetIceCubes\022\030.SmartHome.IceCu" +
-      "besMaker\032\030.SmartHome.IceCubesMaker\"\000\022F\n\020" +
-      "GetIceCubesCount\022\026.google.protobuf.Empty" +
-      "\032\030.SmartHome.IceCubesMaker\"\0002\242\002\n\026FridgeW" +
-      "ithShoppingList\022Q\n\017GetShoppingList\022\026.goo" +
-      "gle.protobuf.Empty\032$.SmartHome.OrderedSh" +
-      "oppingListRecord\"\000\022W\n\025AddShoppingListRec" +
-      "ord\022\035.SmartHome.ShoppingListRecord\032\035.Sma" +
-      "rtHome.ShoppingListRecord\"\000\022\\\n\030RemoveSho" +
-      "ppingListRecord\022\037.SmartHome.FridgeRemove" +
-      "Shopping\032\035.SmartHome.ShoppingListRecord\"" +
-      "\000B\"\n\036pl.zajdel.patryk.gen.SmartHomeP\001b\006p" +
-      "roto3"
+      "obuf.Empty\032\026.SmartHome.ModeMessage\"\0002\230\001\n" +
+      "\016CO2LevelSensor\022A\n\020GetCO2LevelInPPM\022\026.go" +
+      "ogle.protobuf.Empty\032\023.SmartHome.CO2Level" +
+      "\"\000\022C\n\016IsCO2LevelSafe\022\026.google.protobuf.E" +
+      "mpty\032\027.SmartHome.C02LevelSafe\"\0002\347\001\n\006Frid" +
+      "ge\022H\n\024SetTargetTemperature\022\026.SmartHome.T" +
+      "emperature\032\026.SmartHome.Temperature\"\000\022H\n\024" +
+      "GetTargetTemperature\022\026.google.protobuf.E" +
+      "mpty\032\026.SmartHome.Temperature\"\000\022I\n\025GetCur" +
+      "rentTemperature\022\026.google.protobuf.Empty\032" +
+      "\026.SmartHome.Temperature\"\0002\365\001\n\026FridgeWith" +
+      "IceCubeMaker\022N\n\030GetIceCubesMakerCapacity" +
+      "\022\026.google.protobuf.Empty\032\030.SmartHome.Ice" +
+      "CubesMaker\"\000\022C\n\013GetIceCubes\022\030.SmartHome." +
+      "IceCubesMaker\032\030.SmartHome.IceCubesMaker\"" +
+      "\000\022F\n\020GetIceCubesCount\022\026.google.protobuf." +
+      "Empty\032\030.SmartHome.IceCubesMaker\"\0002\242\002\n\026Fr" +
+      "idgeWithShoppingList\022Q\n\017GetShoppingList\022" +
+      "\026.google.protobuf.Empty\032$.SmartHome.Orde" +
+      "redShoppingListRecord\"\000\022W\n\025AddShoppingLi" +
+      "stRecord\022\035.SmartHome.ShoppingListRecord\032" +
+      "\035.SmartHome.ShoppingListRecord\"\000\022\\\n\030Remo" +
+      "veShoppingListRecord\022\037.SmartHome.FridgeR" +
+      "emoveShopping\032\035.SmartHome.ShoppingListRe" +
+      "cord\"\000B\"\n\036pl.zajdel.patryk.gen.SmartHome" +
+      "P\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

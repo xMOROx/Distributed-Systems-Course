@@ -1,6 +1,7 @@
 package pl.zajdel.patryk.Devices;
 
 import com.google.protobuf.Empty;
+import io.grpc.ServerServiceDefinition;
 import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
 import pl.zajdel.patryk.gen.SmartHome.Error;
@@ -20,18 +21,27 @@ public class FridgeWithShoppingListImpl extends FridgeImpl implements FridgeWith
 
     @Override
     public void getShoppingList(Empty request, StreamObserver<OrderedShoppingListRecord> responseObserver) {
+        notifyIfInStandbyMode(responseObserver);
+
+        responseObserver.onNext(getOrderedShoppingListRecords());
+        responseObserver.onCompleted();
     }
 
     @Override
     public void addShoppingListRecord(ShoppingListRecord request, StreamObserver<ShoppingListRecord> responseObserver) {
+        notifyIfInStandbyMode(responseObserver);
+
         shoppingList.add(request);
         responseObserver.onNext(request);
         responseObserver.onCompleted();
 
     }
 
+
     @Override
     public void removeShoppingListRecord(FridgeRemoveShopping request, StreamObserver<ShoppingListRecord> responseObserver) {
+        notifyIfInStandbyMode(responseObserver);
+
         if (request.getId() < 0 || request.getId() >= shoppingList.size()) {
             responseObserver.onError(
                     Status.INVALID_ARGUMENT
@@ -56,5 +66,10 @@ public class FridgeWithShoppingListImpl extends FridgeImpl implements FridgeWith
         return OrderedShoppingListRecord.newBuilder()
                 .addAllShoppingListRecord(List.of(shoppingListRecordWithId))
                 .build();
+    }
+
+    @Override
+    public ServerServiceDefinition bindService() {
+        return FridgeWithShoppingListGrpc.bindService(this);
     }
 }

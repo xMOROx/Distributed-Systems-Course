@@ -1,6 +1,7 @@
 package pl.zajdel.patryk.Devices;
 
 import com.google.protobuf.Empty;
+import io.grpc.ServerServiceDefinition;
 import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
 import pl.zajdel.patryk.gen.SmartHome.Error;
@@ -43,6 +44,8 @@ public class FridgeImpl extends SmartDeviceImpl implements FridgeGrpc.AsyncServi
 
     @Override
     public void getCurrentTemperature(Empty request, StreamObserver<Temperature> responseObserver) {
+        notifyIfInStandbyMode(responseObserver);
+
         double temperatureDelta = Math.random() <= CHANGE_TEMPERATURE_PROBABILITY ?
                 OperationHelper.getRandomDoubleFromRange(CHANGE_TEMPERATURE_MIN_VALUE, CHANGE_TEMPERATURE_MAX_VALUE) : 0;
 
@@ -64,5 +67,10 @@ public class FridgeImpl extends SmartDeviceImpl implements FridgeGrpc.AsyncServi
 
     private boolean checkIfTemperatureInSupportedRange(double temperature) {
         return OperationHelper.checkIfValueInRange(temperature, MIN_SUPPORTED_TEMPERATURE, MAX_SUPPORTED_TEMPERATURE);
+    }
+
+    @Override
+    public ServerServiceDefinition bindService() {
+        return FridgeGrpc.bindService(this);
     }
 }

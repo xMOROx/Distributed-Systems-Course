@@ -84,7 +84,6 @@ message FridgeRemoveShopping {
 service SmartDevice {
   rpc SetMode(ModeMessage) returns (ModeMessage) {}
   rpc GetMode(google.protobuf.Empty) returns (ModeMessage) {}
-  rpc NotifyIfInStandbyMode(google.protobuf.Empty) returns (google.protobuf.Empty) {}
 }
 
 service CO2LevelSensor {

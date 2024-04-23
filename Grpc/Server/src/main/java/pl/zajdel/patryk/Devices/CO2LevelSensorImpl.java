@@ -1,6 +1,7 @@
 package pl.zajdel.patryk.Devices;
 
 import com.google.protobuf.Empty;
+import io.grpc.ServerServiceDefinition;
 import io.grpc.stub.StreamObserver;
 import pl.zajdel.patryk.gen.SmartHome.C02LevelSafe;
 import pl.zajdel.patryk.gen.SmartHome.CO2Level;
@@ -23,6 +24,8 @@ public class CO2LevelSensorImpl extends SmartDeviceImpl implements CO2LevelSenso
     @Override
     public void getCO2LevelInPPM(Empty request, StreamObserver<CO2Level> responseObserver) {
 
+        notifyIfInStandbyMode(responseObserver);
+
         int co2LevelDelta = Math.random() <= CHANGE_LEVEL_PROBABILITY ?
                 OperationHelper.getRandomIntFromRange(CHANGE_LEVEL_MIN_VALUE, CHANGE_LEVEL_MAX_VALUE) : 0;
         int newCO2Level = co2Level + co2LevelDelta;
@@ -42,5 +45,10 @@ public class CO2LevelSensorImpl extends SmartDeviceImpl implements CO2LevelSenso
         C02LevelSafe result = C02LevelSafe.newBuilder().setSafe(isSafe).build();
         responseObserver.onNext(result);
         responseObserver.onCompleted();
+    }
+
+    @Override
+    public ServerServiceDefinition bindService() {
+        return CO2LevelSensorGrpc.bindService(this);
     }
 }

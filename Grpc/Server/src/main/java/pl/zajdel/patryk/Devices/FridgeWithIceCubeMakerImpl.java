@@ -1,6 +1,7 @@
 package pl.zajdel.patryk.Devices;
 
 import com.google.protobuf.Empty;
+import io.grpc.ServerServiceDefinition;
 import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
 import pl.zajdel.patryk.gen.SmartHome.Error;
@@ -24,6 +25,8 @@ public class FridgeWithIceCubeMakerImpl extends FridgeImpl implements FridgeWith
 
     @Override
     public void getIceCubes(IceCubesMaker request, StreamObserver<IceCubesMaker> responseObserver) {
+        notifyIfInStandbyMode(responseObserver);
+
         int iceCubeRequestedAmount = request.getIceCubes();
 
         if (!OperationHelper.checkIfValueInRange(iceCubeRequestedAmount, 1, iceCubesCount)) {
@@ -42,11 +45,18 @@ public class FridgeWithIceCubeMakerImpl extends FridgeImpl implements FridgeWith
 
     @Override
     public void getIceCubesCount(Empty request, StreamObserver<IceCubesMaker> responseObserver) {
+        notifyIfInStandbyMode(responseObserver);
+
         responseObserver.onNext(IceCubesMaker.newBuilder().setIceCubes(iceCubesCount).build());
         responseObserver.onCompleted();
     }
 
     private boolean checkIfValidIceCubesCount(int iceCubesCount) {
         return OperationHelper.checkIfValueInRange(iceCubesCount, 0, ICE_CUBES_MAKER_CAPACITY);
+    }
+
+    @Override
+    public ServerServiceDefinition bindService() {
+        return FridgeWithIceCubeMakerGrpc.bindService(this);
     }
 }

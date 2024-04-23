@@ -80,37 +80,6 @@ public final class SmartDeviceGrpc {
     return getGetModeMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.google.protobuf.Empty,
-      com.google.protobuf.Empty> getNotifyIfInStandbyModeMethod;
-
-  @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "NotifyIfInStandbyMode",
-      requestType = com.google.protobuf.Empty.class,
-      responseType = com.google.protobuf.Empty.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.google.protobuf.Empty,
-      com.google.protobuf.Empty> getNotifyIfInStandbyModeMethod() {
-    io.grpc.MethodDescriptor<com.google.protobuf.Empty, com.google.protobuf.Empty> getNotifyIfInStandbyModeMethod;
-    if ((getNotifyIfInStandbyModeMethod = SmartDeviceGrpc.getNotifyIfInStandbyModeMethod) == null) {
-      synchronized (SmartDeviceGrpc.class) {
-        if ((getNotifyIfInStandbyModeMethod = SmartDeviceGrpc.getNotifyIfInStandbyModeMethod) == null) {
-          SmartDeviceGrpc.getNotifyIfInStandbyModeMethod = getNotifyIfInStandbyModeMethod =
-              io.grpc.MethodDescriptor.<com.google.protobuf.Empty, com.google.protobuf.Empty>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "NotifyIfInStandbyMode"))
-              .setSampledToLocalTracing(true)
-              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.google.protobuf.Empty.getDefaultInstance()))
-              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.google.protobuf.Empty.getDefaultInstance()))
-              .setSchemaDescriptor(new SmartDeviceMethodDescriptorSupplier("NotifyIfInStandbyMode"))
-              .build();
-        }
-      }
-    }
-    return getNotifyIfInStandbyModeMethod;
-  }
-
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -175,13 +144,6 @@ public final class SmartDeviceGrpc {
         io.grpc.stub.StreamObserver<pl.zajdel.patryk.gen.SmartHome.ModeMessage> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetModeMethod(), responseObserver);
     }
-
-    /**
-     */
-    default void notifyIfInStandbyMode(com.google.protobuf.Empty request,
-        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getNotifyIfInStandbyModeMethod(), responseObserver);
-    }
   }
 
   /**
@@ -232,14 +194,6 @@ public final class SmartDeviceGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getGetModeMethod(), getCallOptions()), request, responseObserver);
     }
-
-    /**
-     */
-    public void notifyIfInStandbyMode(com.google.protobuf.Empty request,
-        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
-      io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getNotifyIfInStandbyModeMethod(), getCallOptions()), request, responseObserver);
-    }
   }
 
   /**
@@ -273,13 +227,6 @@ public final class SmartDeviceGrpc {
     public pl.zajdel.patryk.gen.SmartHome.ModeMessage getMode(com.google.protobuf.Empty request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGetModeMethod(), getCallOptions(), request);
-    }
-
-    /**
-     */
-    public com.google.protobuf.Empty notifyIfInStandbyMode(com.google.protobuf.Empty request) {
-      return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getNotifyIfInStandbyModeMethod(), getCallOptions(), request);
     }
   }
 
@@ -317,19 +264,10 @@ public final class SmartDeviceGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getGetModeMethod(), getCallOptions()), request);
     }
-
-    /**
-     */
-    public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.Empty> notifyIfInStandbyMode(
-        com.google.protobuf.Empty request) {
-      return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getNotifyIfInStandbyModeMethod(), getCallOptions()), request);
-    }
   }
 
   private static final int METHODID_SET_MODE = 0;
   private static final int METHODID_GET_MODE = 1;
-  private static final int METHODID_NOTIFY_IF_IN_STANDBY_MODE = 2;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -355,10 +293,6 @@ public final class SmartDeviceGrpc {
         case METHODID_GET_MODE:
           serviceImpl.getMode((com.google.protobuf.Empty) request,
               (io.grpc.stub.StreamObserver<pl.zajdel.patryk.gen.SmartHome.ModeMessage>) responseObserver);
-          break;
-        case METHODID_NOTIFY_IF_IN_STANDBY_MODE:
-          serviceImpl.notifyIfInStandbyMode((com.google.protobuf.Empty) request,
-              (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -392,13 +326,6 @@ public final class SmartDeviceGrpc {
               com.google.protobuf.Empty,
               pl.zajdel.patryk.gen.SmartHome.ModeMessage>(
                 service, METHODID_GET_MODE)))
-        .addMethod(
-          getNotifyIfInStandbyModeMethod(),
-          io.grpc.stub.ServerCalls.asyncUnaryCall(
-            new MethodHandlers<
-              com.google.protobuf.Empty,
-              com.google.protobuf.Empty>(
-                service, METHODID_NOTIFY_IF_IN_STANDBY_MODE)))
         .build();
   }
 
@@ -449,7 +376,6 @@ public final class SmartDeviceGrpc {
               .setSchemaDescriptor(new SmartDeviceFileDescriptorSupplier())
               .addMethod(getSetModeMethod())
               .addMethod(getGetModeMethod())
-              .addMethod(getNotifyIfInStandbyModeMethod())
               .build();
         }
       }
