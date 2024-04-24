@@ -1,7 +1,6 @@
 // SmartHome.proto
 
 syntax = "proto3";
-import "google/protobuf/empty.proto";
 
 package SmartHome;
 
@@ -24,6 +23,9 @@ enum Error {
 }
 
 // Messages
+
+message Void {
+}
 
 message ErrorResponse {
   Error error = 1;
@@ -83,28 +85,28 @@ message FridgeRemoveShopping {
 // Interface definitions as Services
 service SmartDevice {
   rpc SetMode(ModeMessage) returns (ModeMessage) {}
-  rpc GetMode(google.protobuf.Empty) returns (ModeMessage) {}
+  rpc GetMode(Void) returns (ModeMessage) {}
 }
 
 service CO2LevelSensor {
-  rpc GetCO2LevelInPPM(google.protobuf.Empty) returns (CO2Level) {} // parts per million
-  rpc IsCO2LevelSafe(google.protobuf.Empty) returns (C02LevelSafe) {}
+  rpc GetCO2LevelInPPM(Void) returns (CO2Level) {} // parts per million
+  rpc IsCO2LevelSafe(Void) returns (C02LevelSafe) {}
 }
 
 service Fridge {
   rpc SetTargetTemperature(Temperature) returns (Temperature) {}
-  rpc GetTargetTemperature(google.protobuf.Empty) returns (Temperature) {}
-  rpc GetCurrentTemperature(google.protobuf.Empty) returns (Temperature) {}
+  rpc GetTargetTemperature(Void) returns (Temperature) {}
+  rpc GetCurrentTemperature(Void) returns (Temperature) {}
 }
 
 service FridgeWithIceCubeMaker {
-  rpc GetIceCubesMakerCapacity(google.protobuf.Empty) returns (IceCubesMaker) {}
+  rpc GetIceCubesMakerCapacity(Void) returns (IceCubesMaker) {}
   rpc GetIceCubes(IceCubesMaker) returns (IceCubesMaker) {}
-  rpc GetIceCubesCount(google.protobuf.Empty) returns (IceCubesMaker) {}
+  rpc GetIceCubesCount(Void) returns (IceCubesMaker) {}
 }
 
 service FridgeWithShoppingList {
-  rpc GetShoppingList(google.protobuf.Empty) returns (OrderedShoppingListRecord) {}
+  rpc GetShoppingList(Void) returns (OrderedShoppingListRecord) {}
   rpc AddShoppingListRecord(ShoppingListRecord) returns (ShoppingListRecord) {}
   rpc RemoveShoppingListRecord(FridgeRemoveShopping) returns (ShoppingListRecord) {}
 }
