@@ -1,5 +1,4 @@
 use std::collections::HashMap;
-use proto::fridge_with_ice_cube_maker_client::FridgeWithIceCubeMakerClient;
 use crate::command_handler::{CommandsHandler, local_commands::LocalCommandsHandler, remote_commands::*};
 
 mod proto {
@@ -34,7 +33,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
         println!("Command: {:?}", command);
 
-        let handler =  handlers.get(command.get_command());
+        let handler = handlers.get(command.get_command());
         if let Some(handler) = handler {
             match handler {
                 CommandsHandler::LocalCommandsHandler(handler) => {

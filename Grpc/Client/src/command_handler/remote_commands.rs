@@ -1,8 +1,6 @@
-use tonic::Request;
-use crate::command_handler::CommandsHandler;
 use crate::command_parser::Command;
 use crate::settings::{IP_ADDRESS, PORT};
-use crate::proto::{self, Void, smart_device_client::SmartDeviceClient, co2_level_sensor_client::Co2LevelSensorClient, fridge_client::FridgeClient, fridge_with_ice_cube_maker_client::FridgeWithIceCubeMakerClient, fridge_with_shopping_list_client::FridgeWithShoppingListClient, ModeMessage, Mode, Temperature};
+use crate::proto::{self, Void, smart_device_client::SmartDeviceClient, co2_level_sensor_client::Co2LevelSensorClient, fridge_client::FridgeClient, fridge_with_ice_cube_maker_client::FridgeWithIceCubeMakerClient, fridge_with_shopping_list_client::FridgeWithShoppingListClient, ModeMessage, Temperature};
 
 
 pub struct SmartDeviceCommandsHandler;
@@ -24,9 +22,9 @@ fn from_str_to_i32(mode: &str) -> Result<i32, String> {
     }
 }
 
-impl  SmartDeviceCommandsHandler {
+impl SmartDeviceCommandsHandler {
     pub(crate) async fn handle_command(&self, command: &Command) -> Result<bool, String> {
-        if(command.get_server_id().is_none()) {
+        if (command.get_server_id().is_none()) {
             return Ok(false);
         }
 
@@ -71,7 +69,7 @@ impl  SmartDeviceCommandsHandler {
 
 impl CO2LevelSensorCommandsHandler {
     pub(crate) async fn handle_command(&self, command: &Command) -> Result<bool, String> {
-        if(command.get_server_id().is_none()) {
+        if (command.get_server_id().is_none()) {
             return Ok(false);
         }
 
@@ -113,9 +111,9 @@ impl CO2LevelSensorCommandsHandler {
     }
 }
 
-impl  FridgeCommandsHandler {
+impl FridgeCommandsHandler {
     async fn handle_command(&self, command: &Command) -> Result<bool, String> {
-        if(command.get_server_id().is_none()) {
+        if (command.get_server_id().is_none()) {
             return Ok(false);
         }
 
@@ -174,9 +172,9 @@ impl  FridgeCommandsHandler {
     }
 }
 
-impl  FridgeWithIceCubeMakerCommandsHandler {
+impl FridgeWithIceCubeMakerCommandsHandler {
     pub(crate) async fn handle_command(&self, command: &Command) -> Result<bool, String> {
-        if(command.get_server_id().is_none()) {
+        if (command.get_server_id().is_none()) {
             return Ok(false);
         }
 
@@ -235,9 +233,9 @@ impl  FridgeWithIceCubeMakerCommandsHandler {
     }
 }
 
-impl  FridgeWithShoppingListCommandsHandler {
+impl FridgeWithShoppingListCommandsHandler {
     pub(crate) async fn handle_command(&self, command: &Command) -> Result<bool, String> {
-        if(command.get_server_id().is_none()) {
+        if (command.get_server_id().is_none()) {
             return Ok(false);
         }
 
