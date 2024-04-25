@@ -32,17 +32,16 @@ impl CommandParser {
                 args: None,
             }
         } else {
-                let server_id = temp_command.next();
-                let action = temp_command.next();
-                let args = temp_command.collect();
+            let server_id = temp_command.next();
+            let action = temp_command.next();
+            let args = temp_command.collect();
 
-                Command {
-                    command,
-                    server_id,
-                    action,
-                    args: Some(args),
-                }
-
+            Command {
+                command,
+                server_id,
+                action,
+                args: Some(args),
+            }
         }
     }
 }

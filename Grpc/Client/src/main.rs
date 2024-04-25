@@ -21,8 +21,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     handlers.insert("!".to_string(), CommandsHandler::LocalCommandsHandler(LocalCommandsHandler));
     handlers.insert("CO2LevelSensor".to_string(), CommandsHandler::CO2LevelSensorCommandsHandler(CO2LevelSensorCommandsHandler));
     handlers.insert("FridgeWithIceCubeMaker".to_string(), CommandsHandler::FridgeWithIceCubeMakerCommandsHandler(FridgeWithIceCubeMakerCommandsHandler));
-    handlers.insert("SmartDevice".to_string(), CommandsHandler::SmartDeviceCommandsHandler(SmartDeviceCommandsHandler));
     handlers.insert("FridgeWithShoppingList".to_string(), CommandsHandler::FridgeWithShoppingListCommandsHandler(FridgeWithShoppingListCommandsHandler));
+    handlers.insert("Fridge".to_string(), CommandsHandler::FridgeCommandsHandler(FridgeCommandsHandler));
 
     loop {
         println!("Enter command: ");
@@ -31,29 +31,27 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         let mut handled = false;
         let command = command_parser::CommandParser::parse(input);
 
-        println!("Command: {:?}", command);
-
         let handler = handlers.get(command.get_command());
         if let Some(handler) = handler {
             match handler {
                 CommandsHandler::LocalCommandsHandler(handler) => {
-                    handler.handle_command(&command).await.expect("TODO: panic message");
+                    handler.handle_command(&command).await;
                     handled = true;
                 }
                 CommandsHandler::CO2LevelSensorCommandsHandler(handler) => {
-                    handler.handle_command(&command).await.expect("TODO: panic message");
+                    handler.handle_command(&command).await;
+                    handled = true;
+                }
+                CommandsHandler::FridgeCommandsHandler(handler) => {
+                    handler.handle_command(&command).await;
                     handled = true;
                 }
                 CommandsHandler::FridgeWithIceCubeMakerCommandsHandler(handler) => {
-                    handler.handle_command(&command).await.expect("TODO: panic message");
-                    handled = true;
-                }
-                CommandsHandler::SmartDeviceCommandsHandler(handler) => {
-                    handler.handle_command(&command).await.expect("TODO: panic message");
+                    handler.handle_command(&command).await;
                     handled = true;
                 }
                 CommandsHandler::FridgeWithShoppingListCommandsHandler(handler) => {
-                    handler.handle_command(&command).await.expect("TODO: panic message");
+                    handler.handle_command(&command).await;
                     handled = true;
                 }
             }

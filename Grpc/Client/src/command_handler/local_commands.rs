@@ -3,9 +3,9 @@ use crate::command_parser;
 pub struct LocalCommandsHandler;
 
 impl LocalCommandsHandler {
-    pub(crate) async fn handle_command(&self, command: &command_parser::Command) -> Result<bool, String> {
+    pub(crate) async fn handle_command(&self, command: &command_parser::Command) -> bool{
         if command.get_command() != "!" {
-            return Ok(false);
+            return false;
         }
 
         let action = command.get_action().clone().expect("Action is required");
@@ -13,9 +13,9 @@ impl LocalCommandsHandler {
         match action.to_lowercase().as_str() {
             "quit" => {
                 println!("Quiting");
-                Ok(true)
+                true
             }
-            _ => Ok(false)
+            _ => false
         }
     }
 }
