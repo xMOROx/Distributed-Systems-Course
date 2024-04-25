@@ -1,10 +1,10 @@
 package pl.zajdel.patryk.Devices;
 
-import com.google.protobuf.Empty;
 import io.grpc.ServerServiceDefinition;
 import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
 import pl.zajdel.patryk.gen.SmartHome.Error;
+import pl.zajdel.patryk.gen.SmartHome.Void;
 import pl.zajdel.patryk.gen.SmartHome.*;
 import pl.zajdel.patryk.utils.OperationHelper;
 
@@ -20,8 +20,8 @@ public class FridgeWithShoppingListImpl extends FridgeImpl implements FridgeWith
     }
 
     @Override
-    public void getShoppingList(Empty request, StreamObserver<OrderedShoppingListRecord> responseObserver) {
-        notifyIfInStandbyMode(responseObserver);
+    public void getShoppingList(Void request, StreamObserver<OrderedShoppingListRecord> responseObserver) {
+        if(notifyIfInStandbyMode(responseObserver)) return;
 
         responseObserver.onNext(getOrderedShoppingListRecords());
         responseObserver.onCompleted();
@@ -29,7 +29,7 @@ public class FridgeWithShoppingListImpl extends FridgeImpl implements FridgeWith
 
     @Override
     public void addShoppingListRecord(ShoppingListRecord request, StreamObserver<ShoppingListRecord> responseObserver) {
-        notifyIfInStandbyMode(responseObserver);
+        if(notifyIfInStandbyMode(responseObserver)) return;
 
         shoppingList.add(request);
         responseObserver.onNext(request);
@@ -40,7 +40,7 @@ public class FridgeWithShoppingListImpl extends FridgeImpl implements FridgeWith
 
     @Override
     public void removeShoppingListRecord(FridgeRemoveShopping request, StreamObserver<ShoppingListRecord> responseObserver) {
-        notifyIfInStandbyMode(responseObserver);
+        if(notifyIfInStandbyMode(responseObserver)) return;
 
         if (request.getId() < 0 || request.getId() >= shoppingList.size()) {
             responseObserver.onError(

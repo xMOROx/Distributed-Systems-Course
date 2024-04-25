@@ -1,23 +1,25 @@
 package pl.zajdel.patryk.Devices;
 
-import com.google.protobuf.Empty;
+import io.grpc.BindableService;
 import io.grpc.ServerServiceDefinition;
 import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
 import pl.zajdel.patryk.gen.SmartHome.Error;
-import pl.zajdel.patryk.gen.SmartHome.FridgeGrpc;
-import pl.zajdel.patryk.gen.SmartHome.Temperature;
+import pl.zajdel.patryk.gen.SmartHome.Void;
+import pl.zajdel.patryk.gen.SmartHome.*;
 import pl.zajdel.patryk.utils.OperationHelper;
 
-public class FridgeImpl extends SmartDeviceImpl implements FridgeGrpc.AsyncService {
+public class FridgeImpl extends SmartDeviceImpl implements FridgeGrpc.AsyncService, BindableService {
 
     private static final double CHANGE_TEMPERATURE_MIN_VALUE = 0.1;
     private static final double CHANGE_TEMPERATURE_MAX_VALUE = 1.0;
     private static final double CHANGE_TEMPERATURE_PROBABILITY = 0.3;
     private static double MIN_SUPPORTED_TEMPERATURE = -20;
     private static double MAX_SUPPORTED_TEMPERATURE = 20;
+    protected Mode mode = Mode.ON;
     private float targetTemperature;
     private float currentTemperature;
+
 
     public FridgeImpl(float targetTemperature, float currentTemperature) {
         this.targetTemperature = targetTemperature;
@@ -35,16 +37,18 @@ public class FridgeImpl extends SmartDeviceImpl implements FridgeGrpc.AsyncServi
         }
         targetTemperature = request.getTemperature();
         responseObserver.onNext(Temperature.newBuilder().setTemperature(targetTemperature).build());
+        responseObserver.onCompleted();
     }
 
     @Override
-    public void getTargetTemperature(Empty request, StreamObserver<Temperature> responseObserver) {
+    public void getTargetTemperature(Void request, StreamObserver<Temperature> responseObserver) {
         responseObserver.onNext(Temperature.newBuilder().setTemperature(targetTemperature).build());
+        responseObserver.onCompleted();
     }
 
     @Override
-    public void getCurrentTemperature(Empty request, StreamObserver<Temperature> responseObserver) {
-        notifyIfInStandbyMode(responseObserver);
+    public void getCurrentTemperature(Void request, StreamObserver<Temperature> responseObserver) {
+        if(notifyIfInStandbyMode(responseObserver)) return;
 
         double temperatureDelta = Math.random() <= CHANGE_TEMPERATURE_PROBABILITY ?
                 OperationHelper.getRandomDoubleFromRange(CHANGE_TEMPERATURE_MIN_VALUE, CHANGE_TEMPERATURE_MAX_VALUE) : 0;
@@ -63,6 +67,7 @@ public class FridgeImpl extends SmartDeviceImpl implements FridgeGrpc.AsyncServi
         }
 
         responseObserver.onNext(Temperature.newBuilder().setTemperature(currentTemperature).build());
+        responseObserver.onCompleted();
     }
 
     private boolean checkIfTemperatureInSupportedRange(double temperature) {

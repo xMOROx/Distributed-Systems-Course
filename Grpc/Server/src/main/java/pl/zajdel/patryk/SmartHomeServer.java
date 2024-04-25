@@ -2,10 +2,7 @@ package pl.zajdel.patryk;
 
 import io.grpc.Server;
 import io.grpc.netty.shaded.io.grpc.netty.NettyServerBuilder;
-import pl.zajdel.patryk.Devices.CO2LevelSensorImpl;
-import pl.zajdel.patryk.Devices.FridgeImpl;
-import pl.zajdel.patryk.Devices.FridgeWithIceCubeMakerImpl;
-import pl.zajdel.patryk.Devices.FridgeWithShoppingListImpl;
+import pl.zajdel.patryk.Devices.*;
 
 import java.io.IOException;
 import java.net.InetAddress;
@@ -28,6 +25,7 @@ public class SmartHomeServer {
         this.socket = new InetSocketAddress(InetAddress.getByName(address), port);
 
         this.server = NettyServerBuilder.forAddress(socket).executor(Executors.newFixedThreadPool(16))
+                .addService(new SmartDeviceImpl())
                 .addService(new CO2LevelSensorImpl(237))
                 .addService(new FridgeImpl(5, 8))
                 .addService(new FridgeWithIceCubeMakerImpl(5, 8, 42))

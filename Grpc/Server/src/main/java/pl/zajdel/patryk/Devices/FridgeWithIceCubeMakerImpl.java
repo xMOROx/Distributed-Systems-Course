@@ -1,12 +1,11 @@
 package pl.zajdel.patryk.Devices;
 
-import com.google.protobuf.Empty;
 import io.grpc.ServerServiceDefinition;
 import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
 import pl.zajdel.patryk.gen.SmartHome.Error;
-import pl.zajdel.patryk.gen.SmartHome.FridgeWithIceCubeMakerGrpc;
-import pl.zajdel.patryk.gen.SmartHome.IceCubesMaker;
+import pl.zajdel.patryk.gen.SmartHome.Void;
+import pl.zajdel.patryk.gen.SmartHome.*;
 import pl.zajdel.patryk.utils.OperationHelper;
 
 public class FridgeWithIceCubeMakerImpl extends FridgeImpl implements FridgeWithIceCubeMakerGrpc.AsyncService {
@@ -19,13 +18,20 @@ public class FridgeWithIceCubeMakerImpl extends FridgeImpl implements FridgeWith
     }
 
     @Override
-    public void getIceCubesMakerCapacity(Empty request, StreamObserver<IceCubesMaker> responseObserver) {
-        responseObserver.onNext(IceCubesMaker.newBuilder().setIceCubes(iceCubesCount).build());
+    public void setMode(ModeMessage request,
+                        StreamObserver<ModeMessage> responseObserver) {
+        super.setMode(request, responseObserver);
+    }
+
+    @Override
+    public void getIceCubesMakerCapacity(Void request, StreamObserver<IceCubesMaker> responseObserver) {
+        responseObserver.onNext(IceCubesMaker.newBuilder().setIceCubes(ICE_CUBES_MAKER_CAPACITY).build());
+        responseObserver.onCompleted();
     }
 
     @Override
     public void getIceCubes(IceCubesMaker request, StreamObserver<IceCubesMaker> responseObserver) {
-        notifyIfInStandbyMode(responseObserver);
+        if(notifyIfInStandbyMode(responseObserver)) return;
 
         int iceCubeRequestedAmount = request.getIceCubes();
 
@@ -44,8 +50,8 @@ public class FridgeWithIceCubeMakerImpl extends FridgeImpl implements FridgeWith
     }
 
     @Override
-    public void getIceCubesCount(Empty request, StreamObserver<IceCubesMaker> responseObserver) {
-        notifyIfInStandbyMode(responseObserver);
+    public void getIceCubesCount(Void request, StreamObserver<IceCubesMaker> responseObserver) {
+        if(notifyIfInStandbyMode(responseObserver)) return;
 
         responseObserver.onNext(IceCubesMaker.newBuilder().setIceCubes(iceCubesCount).build());
         responseObserver.onCompleted();
