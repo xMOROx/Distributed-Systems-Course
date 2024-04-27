@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "2/mbnboTx0TUlAXBVGc1UEwkKXxQOuU6obzT5O6M4B7zONIhjGg7egx6FcytAc0gnPWvRSX+AjcB+kvkTY4mrA==",
+  "success": true,
+  "projectFilePath": "D:\\Studia\\Six-Term\\SR\\Distributed-Systems-Course\\Ice\\Client\\Client\\Client.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Patryk\\.nuget\\packages\\zeroc.ice.net\\3.7.10\\zeroc.ice.net.3.7.10.nupkg.sha512",
+    "C:\\Users\\Patryk\\.nuget\\packages\\zeroc.icebuilder.msbuild\\5.0.9\\zeroc.icebuilder.msbuild.5.0.9.nupkg.sha512"
+  ],
+  "logs": []
+}
