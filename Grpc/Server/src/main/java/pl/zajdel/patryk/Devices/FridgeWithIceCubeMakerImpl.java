@@ -12,8 +12,8 @@ public class FridgeWithIceCubeMakerImpl extends FridgeImpl implements FridgeWith
     private static final int ICE_CUBES_MAKER_CAPACITY = 100;
     private int iceCubesCount;
 
-    public FridgeWithIceCubeMakerImpl(float targetTemperature, float currentTemperature, int iceCubesCount) {
-        super(targetTemperature, currentTemperature);
+    public FridgeWithIceCubeMakerImpl(float targetTemperature, float currentTemperature, int iceCubesCount, String serverSocket) {
+        super(targetTemperature, currentTemperature, serverSocket);
         this.iceCubesCount = checkIfValidIceCubesCount(iceCubesCount) ? iceCubesCount : 0;
     }
 
@@ -25,17 +25,19 @@ public class FridgeWithIceCubeMakerImpl extends FridgeImpl implements FridgeWith
 
     @Override
     public void getIceCubesMakerCapacity(Void request, StreamObserver<IceCubesMaker> responseObserver) {
+        logger.info("Getting ice cubes maker capacity for fridge with server socket: " + serverSocket);
         responseObserver.onNext(IceCubesMaker.newBuilder().setIceCubes(ICE_CUBES_MAKER_CAPACITY).build());
         responseObserver.onCompleted();
     }
 
     @Override
     public void getIceCubes(IceCubesMaker request, StreamObserver<IceCubesMaker> responseObserver) {
-        if(notifyIfInStandbyMode(responseObserver)) return;
+        if (notifyIfInStandbyMode(responseObserver)) return;
 
         int iceCubeRequestedAmount = request.getIceCubes();
 
         if (!OperationHelper.checkIfValueInRange(iceCubeRequestedAmount, 1, iceCubesCount)) {
+            logger.warning("Requested ice cubes count out of range because there left" + iceCubesCount + "  for fridge with server socket: " + serverSocket);
             responseObserver.onError(
                     Status.INVALID_ARGUMENT
                             .withDescription("Requested ice cubes count out of range")
@@ -45,19 +47,24 @@ public class FridgeWithIceCubeMakerImpl extends FridgeImpl implements FridgeWith
         }
 
         iceCubesCount -= iceCubeRequestedAmount;
+        logger.info("Ice cubes with amount " + iceCubeRequestedAmount + " taken from ice cubes maker for fridge with server socket: " + serverSocket);
         responseObserver.onNext(IceCubesMaker.newBuilder().setIceCubes(iceCubeRequestedAmount).build());
         responseObserver.onCompleted();
     }
 
     @Override
     public void getIceCubesCount(Void request, StreamObserver<IceCubesMaker> responseObserver) {
-        if(notifyIfInStandbyMode(responseObserver)) return;
+        if (notifyIfInStandbyMode(responseObserver)) return;
+
+        logger.info("Getting ice cubes count for fridge with server socket: " + serverSocket);
 
         responseObserver.onNext(IceCubesMaker.newBuilder().setIceCubes(iceCubesCount).build());
         responseObserver.onCompleted();
     }
 
     private boolean checkIfValidIceCubesCount(int iceCubesCount) {
+        logger.info("Checking if ice cubes count is in range for fridge with server socket: " + serverSocket);
+
         return OperationHelper.checkIfValueInRange(iceCubesCount, 0, ICE_CUBES_MAKER_CAPACITY);
     }
 
