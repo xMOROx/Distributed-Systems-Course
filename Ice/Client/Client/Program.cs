@@ -67,7 +67,6 @@ public class Client
                                     Ice.OutputStream outStream = new Ice.OutputStream(ic);
                                     outStream.startEncapsulation();
                                     PersonListHelper.write(outStream, persons);
-                                    Console.WriteLine(outStream);
                                     outStream.endEncapsulation();
                                     byte[] inParams = outStream.finished();
                                     byte[] outParams;

@@ -6,7 +6,6 @@ import pl.zajdel.patryk.generated.Operations.DivisionByZero;
 import pl.zajdel.patryk.generated.Operations.Person;
 import pl.zajdel.patryk.generated.Operations.PersonListHelper;
 
-import java.util.Arrays;
 import java.util.concurrent.CompletionStage;
 import java.util.function.Consumer;
 
