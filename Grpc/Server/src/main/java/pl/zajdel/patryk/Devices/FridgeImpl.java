@@ -21,34 +21,41 @@ public class FridgeImpl extends SmartDeviceImpl implements FridgeGrpc.AsyncServi
     private float currentTemperature;
 
 
-    public FridgeImpl(float targetTemperature, float currentTemperature) {
+    public FridgeImpl(float targetTemperature, float currentTemperature, String serverSocket) {
+        super(serverSocket);
         this.targetTemperature = targetTemperature;
         this.currentTemperature = currentTemperature;
+        this.serverSocket = serverSocket;
     }
 
     @Override
     public void setTargetTemperature(Temperature request, StreamObserver<Temperature> responseObserver) {
         if (!checkIfTemperatureInSupportedRange(request.getTemperature())) {
+            logger.warning("Temperature out of range for fridge with server socket: " + serverSocket);
             responseObserver.onError(
                     Status.INVALID_ARGUMENT
                             .withDescription("Temperature out of range")
                             .asRuntimeException(OperationHelper.composeErrorResponse(Error.TEMPERATURE_OUT_OF_SUPPORTED_RANGE, "Temperature out of range")));
             return;
         }
+
         targetTemperature = request.getTemperature();
+        logger.info("Temperature set to: " + targetTemperature + " for fridge with server socket: " + serverSocket);
+
         responseObserver.onNext(Temperature.newBuilder().setTemperature(targetTemperature).build());
         responseObserver.onCompleted();
     }
 
     @Override
     public void getTargetTemperature(Void request, StreamObserver<Temperature> responseObserver) {
+        logger.info("Getting target temperature for fridge with server socket: " + serverSocket);
         responseObserver.onNext(Temperature.newBuilder().setTemperature(targetTemperature).build());
         responseObserver.onCompleted();
     }
 
     @Override
     public void getCurrentTemperature(Void request, StreamObserver<Temperature> responseObserver) {
-        if(notifyIfInStandbyMode(responseObserver)) return;
+        if (notifyIfInStandbyMode(responseObserver)) return;
 
         double temperatureDelta = Math.random() <= CHANGE_TEMPERATURE_PROBABILITY ?
                 OperationHelper.getRandomDoubleFromRange(CHANGE_TEMPERATURE_MIN_VALUE, CHANGE_TEMPERATURE_MAX_VALUE) : 0;
@@ -62,15 +69,20 @@ public class FridgeImpl extends SmartDeviceImpl implements FridgeGrpc.AsyncServi
             temperatureDelta *= -1;
         }
         double newTemperature = currentTemperature + temperatureDelta;
+
+        logger.info("Current temperature changed from: " + currentTemperature + " to: " + newTemperature + " for fridge with server socket: " + serverSocket);
+
         if (checkIfTemperatureInSupportedRange(newTemperature)) {
             currentTemperature = (float) newTemperature;
         }
+
 
         responseObserver.onNext(Temperature.newBuilder().setTemperature(currentTemperature).build());
         responseObserver.onCompleted();
     }
 
     private boolean checkIfTemperatureInSupportedRange(double temperature) {
+        logger.info("Checking if temperature is in supported range for fridge with server socket: " + serverSocket);
         return OperationHelper.checkIfValueInRange(temperature, MIN_SUPPORTED_TEMPERATURE, MAX_SUPPORTED_TEMPERATURE);
     }
 

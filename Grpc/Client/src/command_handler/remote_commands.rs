@@ -26,6 +26,14 @@ fn from_str_to_i32(mode: &str) -> Result<i32, String> {
     }
 }
 
+fn from_i32_to_str(mode: i32) -> String {
+    match mode {
+        0 => "on".to_string(),
+        1 => "standby".to_string(),
+        _ => "unspecified".to_string(),
+    }
+}
+
 fn get_url(server_id: &str) -> String
 
 {
@@ -81,7 +89,7 @@ impl SmartDeviceCommandsHandler {
 
 
                 let mode = response.get_ref().mode;
-                println!("The device is currently in the: {:?} mode", mode);
+                println!("The device is currently in the: {:?} mode", from_i32_to_str(mode));
                 true
             }
             "setMode" => {
@@ -162,7 +170,7 @@ impl CO2LevelSensorCommandsHandler {
 
 
                 let mode = response.get_ref().mode;
-                println!("The device is currently in the: {:?} mode", mode);
+                println!("The device is currently in the: {:?} mode", from_i32_to_str(mode));
                 true
             }
             "setMode" => {
@@ -272,7 +280,7 @@ impl FridgeCommandsHandler {
 
 
                 let mode = response.get_ref().mode;
-                println!("The device is currently in the: {:?} mode", mode);
+                println!("The device is currently in the: {:?} mode", from_i32_to_str(mode));
                 true
             }
             "setMode" => {
@@ -421,7 +429,7 @@ impl FridgeWithIceCubeMakerCommandsHandler {
 
 
                 let mode = response.get_ref().mode;
-                println!("The device is currently in the: {:?} mode", mode);
+                println!("The device is currently in the: {:?} mode", from_i32_to_str(mode));
                 true
             }
             "setMode" => {
@@ -639,7 +647,7 @@ impl FridgeWithShoppingListCommandsHandler {
 
 
                 let mode = response.get_ref().mode;
-                println!("The device is currently in the: {:?} mode", mode);
+                println!("The device is currently in the: {:?} mode", from_i32_to_str(mode));
                 true
             }
             "setMode" => {
