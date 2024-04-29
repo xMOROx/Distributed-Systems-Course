@@ -1,9 +1,11 @@
+use std::alloc::System;
 use crate::command_parser;
+use std::process;
 
 pub struct LocalCommandsHandler;
 
 impl LocalCommandsHandler {
-    pub(crate) async fn handle_command(&self, command: &command_parser::Command) -> bool{
+    pub(crate) async fn handle_command(&self, command: &command_parser::Command) -> bool {
         if command.get_command() != "!" {
             return false;
         }
@@ -13,7 +15,7 @@ impl LocalCommandsHandler {
         match action.to_lowercase().as_str() {
             "quit" => {
                 println!("Quiting");
-                true
+                process::exit(0);
             }
             _ => false
         }

@@ -1,13 +1,21 @@
 package pl.zajdel.patryk;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
-    public static void main(String[] args) {
-        try {
-            SmartHomeServer smartHomeServer = SmartHomeServer.createSmartHomeServer();
-            smartHomeServer.start();
-            smartHomeServer.blockUntilShutdown();
-        } catch (Exception e) {
-            e.printStackTrace();
+    private final static List<Thread> servers = new ArrayList<>();
+
+    public static void main(String[] args) throws IOException {
+        for (int i = 0; i < 5; i++) {
+            servers.add(
+                    new Thread(SmartHomeServer.createSmartHomeServer(i + 1))
+            );
+        }
+
+        for (int i = 0; i < 5; i++) {
+            servers.get(i).start();
         }
     }
 }
