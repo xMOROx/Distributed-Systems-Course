@@ -1,0 +1,24 @@
+CO2LevelSensor 1 getCO2LevelInPPM
+CO2LevelSensor 1 isCO2LevelSafe
+CO2LevelSensor 1 setMode Standby
+CO2LevelSensor 1 setMode On
+
+Fridge 1 setTargetTemperature 12
+Fridge 1 getTargetTemperature
+Fridge 1 getCurrentTemperature
+
+FridgeWithIceCubeMaker 1 getIceCubesMakerCapacity
+FridgeWithIceCubeMaker 1 getIceCubesCount
+FridgeWithIceCubeMaker 1 getIceCubes 12
+FridgeWithIceCubeMaker 1 getTargetTemperature
+FridgeWithIceCubeMaker 1 setMode Standby
+
+FridgeWithShoppingList 1 getShoppingList
+FridgeWithShoppingList 1 addShoppingListRecord eggs 2 Unspecified
+FridgeWithShoppingList 1 setTargetTemperature 12
+FridgeWithShoppingList 1 removeShoppingListRecord 0
+
+
+CO2LevelSensor 2 getCO2LevelInPPM
+
+FridgeWithIceCubeMaker2 getIceCubesCount
