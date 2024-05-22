@@ -1,0 +1,9 @@
+[package]
+name = "technician"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+common = { path = "../common" }
+amqprs = "1.6.1"
+tokio = "1.37.0"
