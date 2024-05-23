@@ -1,5 +1,5 @@
 use amqprs::{BasicProperties, channel, Deliver};
-use amqprs::channel::{BasicAckArguments, BasicConsumeArguments, Channel, ExchangeType, QueueBindArguments, QueueDeclareArguments};
+use amqprs::channel::{BasicAckArguments, BasicConsumeArguments, BasicPublishArguments, Channel, ExchangeType, QueueBindArguments, QueueDeclareArguments};
 use amqprs::connection::{Connection, OpenConnectionArguments};
 use amqprs::consumer::{AsyncConsumer, DefaultConsumer};
 use async_trait::async_trait;
@@ -65,7 +65,7 @@ impl AckConsumer {
 #[async_trait]
 impl AsyncConsumer for AckConsumer {
     async fn consume(&mut self, channel: &Channel, deliver: Deliver, basic_properties: BasicProperties, content: Vec<u8>) {
-        let message:String = String::from_utf8(content).unwrap();
+        let message: String = String::from_utf8(content).unwrap();
         let ack = BasicAckArguments::new(deliver.delivery_tag(), self.ack);
         channel.basic_ack(ack).await.expect("Failed to ack message");
         println!("Received message: {}", message);
@@ -179,8 +179,16 @@ impl Server {
 
             self.consumer_tags.push(random_tag.clone());
             self.channel.basic_consume(AckConsumer::new(), args).await?;
-
         }
         Ok(())
+    }
+
+    pub async fn publish(&mut self, exchange_name: &str, routing_key: &str, content: String) -> Result<(), amqprs::error::Error> {
+        let bytes = content.into_bytes();
+        let args = BasicPublishArguments::new(exchange_name, routing_key);
+
+        self.channel
+            .basic_publish(BasicProperties::default(), bytes, args)
+            .await
     }
 }
