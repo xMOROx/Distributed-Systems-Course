@@ -46,17 +46,8 @@ async fn main() {
 
     server.declare_exchange(technician_name.as_str(), ExchangeType::Direct).await.expect("TODO: panic message");
     server.bind_to_queues_exchange(technician_name.as_str(), names_of_queues.clone()).await.expect("TODO: panic message");
-    server.bind_consuming(names_of_queues.clone()).await.expect("TODO: panic message");
+    server.bind_consuming_with_reply(names_of_queues.clone()).await.expect("TODO: panic message");
 
-    // for queue in names_of_queues.iter() {
-    //     let message = format!(r#"data": "{}{}{}{:?}"#, "Hello from ", technician_name, "to queue ", queue);
-    //     println!("Sending message: {}", message);
-    //     let content = String::from(
-    //         message
-    //     );
-    //     server.publish(technician_name.as_str(), queue.as_str(), content).await.unwrap();
-    //     tokio::time::sleep(tokio::time::Duration::from_secs(1)).await;
-    // }
     loop {
         tokio::time::sleep(tokio::time::Duration::from_secs(1)).await;
     }

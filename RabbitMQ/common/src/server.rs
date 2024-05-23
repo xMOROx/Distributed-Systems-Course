@@ -1,3 +1,4 @@
+use std::collections::HashMap;
 use amqprs::{BasicProperties, channel, Deliver};
 use amqprs::channel::{BasicAckArguments, BasicConsumeArguments, BasicPublishArguments, Channel, ExchangeType, QueueBindArguments, QueueDeclareArguments};
 use amqprs::connection::{Connection, OpenConnectionArguments};
@@ -52,8 +53,18 @@ impl ConnectionBuilder {
 }
 
 
+pub struct AckConsumerWithReply {
+    ack: bool,
+}
+
 pub struct AckConsumer {
     ack: bool,
+}
+
+impl AckConsumerWithReply {
+    pub fn new() -> Self {
+        Self { ack: true }
+    }
 }
 
 impl AckConsumer {
@@ -63,10 +74,38 @@ impl AckConsumer {
 }
 
 #[async_trait]
+impl AsyncConsumer for AckConsumerWithReply {
+    async fn consume(&mut self, channel: &Channel, deliver: Deliver, basic_properties: BasicProperties, content: Vec<u8>) {
+        let message: String = String::from_utf8(content).unwrap();
+        let ack = BasicAckArguments::new(deliver.delivery_tag(), self.ack);
+        let reply_to = basic_properties.reply_to().unwrap_or(&"".to_string()).to_owned();
+
+        println!("Replying to: {}", reply_to);
+
+
+
+        channel.basic_ack(ack).await.expect("Failed to ack message");
+        println!("Received message: {}", message);
+
+
+        let received = message.split(":").collect::<Vec<&str>>();
+        let job_fields = received[1].split(",").collect::<Vec<&str>>();
+
+        channel.basic_publish(
+            BasicProperties::default()
+                .with_reply_to(reply_to.clone().as_str()).finish(),
+            format!("Name:{}, Operation:{} done", job_fields[0], job_fields[1]).into_bytes(),
+            BasicPublishArguments::new(deliver.exchange(), &reply_to),
+        ).await.expect("Failed to publish reply message");
+    }
+}
+
+#[async_trait]
 impl AsyncConsumer for AckConsumer {
     async fn consume(&mut self, channel: &Channel, deliver: Deliver, basic_properties: BasicProperties, content: Vec<u8>) {
         let message: String = String::from_utf8(content).unwrap();
         let ack = BasicAckArguments::new(deliver.delivery_tag(), self.ack);
+
         channel.basic_ack(ack).await.expect("Failed to ack message");
         println!("Received message: {}", message);
     }
@@ -76,9 +115,6 @@ pub struct Server {
     pub connection: Connection,
     pub channel: channel::Channel,
     pub exchanges: Vec<String>,
-    pub queues: Vec<String>,
-    pub consumer_tags: Vec<String>,
-
 }
 
 impl Server {
@@ -102,8 +138,6 @@ impl Server {
             connection,
             channel,
             exchanges: Vec::new(),
-            queues: Vec::new(),
-            consumer_tags: Vec::new(),
         }
     }
 
@@ -169,6 +203,19 @@ impl Server {
         Ok(())
     }
 
+    pub async fn bind_consuming_with_reply(&mut self, queue_names: Vec<String>) -> Result<(), amqprs::error::Error> {
+        for queue_name in queue_names {
+            let random_tag = format!("consumer_tag_{}", rand::random::<u32>());
+            let args = BasicConsumeArguments::new(
+                queue_name.as_str(),
+                random_tag.as_str(),
+            );
+
+            self.channel.basic_consume(AckConsumerWithReply::new(), args).await?;
+        }
+        Ok(())
+    }
+
     pub async fn bind_consuming(&mut self, queue_names: Vec<String>) -> Result<(), amqprs::error::Error> {
         for queue_name in queue_names {
             let random_tag = format!("consumer_tag_{}", rand::random::<u32>());
@@ -177,7 +224,6 @@ impl Server {
                 random_tag.as_str(),
             );
 
-            self.consumer_tags.push(random_tag.clone());
             self.channel.basic_consume(AckConsumer::new(), args).await?;
         }
         Ok(())
@@ -189,6 +235,15 @@ impl Server {
 
         self.channel
             .basic_publish(BasicProperties::default(), bytes, args)
+            .await
+    }
+
+    pub async fn publish_with_reply(&mut self, exchange_name: &str, routing_key: &str, reply_to: &str, content: String) -> Result<(), amqprs::error::Error> {
+        let bytes = content.into_bytes();
+        let args = BasicPublishArguments::new(exchange_name, routing_key);
+
+        self.channel
+            .basic_publish(BasicProperties::default().with_reply_to(reply_to).finish(), bytes, args)
             .await
     }
 }

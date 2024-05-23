@@ -15,9 +15,10 @@ async fn main() {
     let doctor_name = format!("{}{}", DOCTOR_NAME, rng.gen_range(1..1_000_000));
 
     server.declare_exchange(doctor_name.as_str(), ExchangeType::Direct).await.expect("TODO: panic message");
-    server.bind_to_queues_exchange(doctor_name.as_str(), names_of_queues.iter().map(|&v| v.into()).collect()).await.expect("TODO: panic message");
-
-
+    let mut names_of_queues:Vec<String> = names_of_queues.iter().map(|&operation| operation.into()).collect();
+    names_of_queues.push(doctor_name.clone());
+    server.bind_to_queues_exchange(doctor_name.as_str(), names_of_queues).await.expect("TODO: panic message");
+    server.bind_consuming(vec![doctor_name.clone()]).await.expect("TODO: panic message");
 
     loop {
         let mut input = String::new();
@@ -45,7 +46,7 @@ async fn main() {
 
         println!("Sending message: {}", message);
         let operation:String = operation.into();
-        server.publish(doctor_name.as_str(), operation.as_str(), message).await.expect("TODO: panic message");
+        server.publish_with_reply(doctor_name.as_str(), operation.as_str(), doctor_name.as_str(), message).await.expect("TODO: panic message");
 
         tokio::time::sleep(tokio::time::Duration::from_secs(1)).await;
     }
