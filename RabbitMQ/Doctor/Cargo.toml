@@ -7,3 +7,5 @@ edition = "2021"
 common = { path = "../common", version = "0.1.0" }
 amqprs = "1.6.1"
 tokio = "1.37.0"
+rand = "0.8.4"
+async-trait = "0.1.80"

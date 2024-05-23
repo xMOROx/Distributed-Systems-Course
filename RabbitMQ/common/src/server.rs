@@ -1,9 +1,8 @@
-use std::collections::HashMap;
-use std::fmt::format;
-use amqprs::{AmqpMessageCount, channel};
-use amqprs::channel::{ExchangeBindArguments, ExchangeType, QueueBindArguments, QueueDeclareArguments};
+use amqprs::{BasicProperties, channel, Deliver};
+use amqprs::channel::{BasicAckArguments, BasicConsumeArguments, Channel, ExchangeType, QueueBindArguments, QueueDeclareArguments};
 use amqprs::connection::{Connection, OpenConnectionArguments};
-use crate::Operations;
+use amqprs::consumer::{AsyncConsumer, DefaultConsumer};
+use async_trait::async_trait;
 
 pub const RABBITMQ_PORT: u16 = 5672;
 
@@ -53,27 +52,50 @@ impl ConnectionBuilder {
 }
 
 
+pub struct AckConsumer {
+    ack: bool,
+}
+
+impl AckConsumer {
+    pub fn new() -> Self {
+        Self { ack: true }
+    }
+}
+
+#[async_trait]
+impl AsyncConsumer for AckConsumer {
+    async fn consume(&mut self, channel: &Channel, deliver: Deliver, basic_properties: BasicProperties, content: Vec<u8>) {
+        let message:String = String::from_utf8(content).unwrap();
+        let ack = BasicAckArguments::new(deliver.delivery_tag(), self.ack);
+        channel.basic_ack(ack).await.expect("Failed to ack message");
+        println!("Received message: {}", message);
+    }
+}
+
 pub struct Server {
     pub connection: Connection,
     pub channel: channel::Channel,
     pub exchanges: Vec<String>,
     pub queues: Vec<String>,
+    pub consumer_tags: Vec<String>,
+
 }
 
 impl Server {
-    pub fn build(request: ConnectionRequest) -> Server {
+    pub async fn build(request: ConnectionRequest) -> Server {
         let connection = Connection::open(&OpenConnectionArguments::new(
             request.ip.as_str(),
             RABBITMQ_PORT,
             request.username.as_str(),
             request.password.as_str(),
         ))
-            .expect("Failed to connect to RabbitMQ");
+            .await.expect("Failed to connect to RabbitMQ");
 
         let channel = connection.open_channel(None)
-            .expect("Failed to open channel");
+            .await.expect("Failed to open channel");
 
         Self::set_qos(&channel)
+            .await
             .expect("Failed to set QoS");
 
         Server {
@@ -81,6 +103,7 @@ impl Server {
             channel,
             exchanges: Vec::new(),
             queues: Vec::new(),
+            consumer_tags: Vec::new(),
         }
     }
 
@@ -107,14 +130,18 @@ impl Server {
         }
     }
 
-    fn set_qos(channel: &channel::Channel) -> Result<(), amqprs::error::Error> {
+    async fn set_qos(channel: &channel::Channel) -> Result<(), amqprs::error::Error> {
         let args = channel::BasicQosArguments {
             prefetch_size: 0,
             prefetch_count: 1,
             global: false,
         };
 
-        channel.basic_qos(args)?
+        channel.basic_qos(args).await?;
+        Ok(())
+    }
+    pub async fn close(&mut self) -> Result<(), amqprs::error::Error> {
+        todo!("Close the connection")
     }
 
     pub async fn declare_exchange(&mut self, exchange_name: &str, exchange_type: ExchangeType) -> Result<(), amqprs::error::Error> {
@@ -139,6 +166,21 @@ impl Server {
             self.channel.queue_bind(args).await?;
         }
 
+        Ok(())
+    }
+
+    pub async fn bind_consuming(&mut self, queue_names: Vec<String>) -> Result<(), amqprs::error::Error> {
+        for queue_name in queue_names {
+            let random_tag = format!("consumer_tag_{}", rand::random::<u32>());
+            let args = BasicConsumeArguments::new(
+                queue_name.as_str(),
+                random_tag.as_str(),
+            );
+
+            self.consumer_tags.push(random_tag.clone());
+            self.channel.basic_consume(AckConsumer::new(), args).await?;
+
+        }
         Ok(())
     }
 }
