@@ -7,3 +7,5 @@ edition = "2021"
 common = { path = "../common" }
 amqprs = "1.6.1"
 tokio = "1.37.0"
+rand = "0.8.4"
+log = "0.4.21"

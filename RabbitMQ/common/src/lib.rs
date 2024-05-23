@@ -1,3 +1,5 @@
+use std::str::FromStr;
+
 pub mod server;
 
 
@@ -6,6 +8,19 @@ pub enum Operations {
     Hip,
     Knee,
     Elbow,
+}
+
+impl FromStr for Operations {
+    type Err = ();
+
+    fn from_str(s: &str) -> Result<Self, Self::Err> {
+        match s.to_lowercase().as_str() {
+            "hip" => Ok(Operations::Hip),
+            "knee" => Ok(Operations::Knee),
+            "elbow" => Ok(Operations::Elbow),
+            _ => Err(())
+        }
+    }
 }
 
 
