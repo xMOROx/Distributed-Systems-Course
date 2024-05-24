@@ -1,8 +1,7 @@
-use std::collections::HashMap;
 use amqprs::{BasicProperties, channel, Deliver};
 use amqprs::channel::{BasicAckArguments, BasicConsumeArguments, BasicPublishArguments, Channel, ExchangeType, QueueBindArguments, QueueDeclareArguments};
 use amqprs::connection::{Connection, OpenConnectionArguments};
-use amqprs::consumer::{AsyncConsumer, DefaultConsumer};
+use amqprs::consumer::{AsyncConsumer};
 use async_trait::async_trait;
 
 pub const RABBITMQ_PORT: u16 = 5672;
@@ -102,7 +101,7 @@ impl AsyncConsumer for AckConsumerWithReply {
 
 #[async_trait]
 impl AsyncConsumer for AckConsumer {
-    async fn consume(&mut self, channel: &Channel, deliver: Deliver, basic_properties: BasicProperties, content: Vec<u8>) {
+    async fn consume(&mut self, channel: &Channel, deliver: Deliver, _basic_properties: BasicProperties, content: Vec<u8>) {
         let message: String = String::from_utf8(content).unwrap();
         let ack = BasicAckArguments::new(deliver.delivery_tag(), self.ack);
 
@@ -119,16 +118,12 @@ pub struct Server {
 
 impl Server {
     pub async fn build(request: ConnectionRequest) -> Server {
-        let connection = Connection::open(&OpenConnectionArguments::new(
-            request.ip.as_str(),
-            RABBITMQ_PORT,
-            request.username.as_str(),
-            request.password.as_str(),
-        ))
-            .await.expect("Failed to connect to RabbitMQ");
+        let connection = Self::connect(request)
+            .await;
 
-        let channel = connection.open_channel(None)
-            .await.expect("Failed to open channel");
+        let channel = Self::open_channel(&connection)
+            .await
+            .expect("Failed to open channel");
 
         Self::set_qos(&channel)
             .await
