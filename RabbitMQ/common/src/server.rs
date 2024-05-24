@@ -60,6 +60,14 @@ pub struct AckConsumer {
     ack: bool,
 }
 
+pub struct LoggingConsumerWithReply {
+    ack: bool,
+}
+
+pub struct LoggingConsumer {
+    ack: bool,
+}
+
 impl AckConsumerWithReply {
     pub fn new() -> Self {
         Self { ack: true }
@@ -67,6 +75,18 @@ impl AckConsumerWithReply {
 }
 
 impl AckConsumer {
+    pub fn new() -> Self {
+        Self { ack: true }
+    }
+}
+
+impl LoggingConsumerWithReply {
+    pub fn new() -> Self {
+        Self { ack: true }
+    }
+}
+
+impl LoggingConsumer {
     pub fn new() -> Self {
         Self { ack: true }
     }
@@ -81,8 +101,6 @@ impl AsyncConsumer for AckConsumerWithReply {
 
         println!("Replying to: {}", reply_to);
 
-
-
         channel.basic_ack(ack).await.expect("Failed to ack message");
         println!("Received message: {}", message);
 
@@ -93,9 +111,69 @@ impl AsyncConsumer for AckConsumerWithReply {
         channel.basic_publish(
             BasicProperties::default()
                 .with_reply_to(reply_to.clone().as_str()).finish(),
-            format!("Name:{}, Operation:{} done", job_fields[0], job_fields[1]).into_bytes(),
+            format!("Name:{}, Operation:{} done", job_fields[1], job_fields[0]).into_bytes(),
             BasicPublishArguments::new(deliver.exchange(), &reply_to),
         ).await.expect("Failed to publish reply message");
+    }
+}
+
+#[async_trait]
+impl AsyncConsumer for LoggingConsumerWithReply {
+    async fn consume(&mut self, channel: &Channel, deliver: Deliver, basic_properties: BasicProperties, content: Vec<u8>) {
+        let message: String = String::from_utf8(content).unwrap();
+        let ack = BasicAckArguments::new(deliver.delivery_tag(), self.ack);
+        let reply_to = basic_properties.reply_to().unwrap_or(&"".to_string()).to_owned();
+
+        println!("Replying to: {}", reply_to);
+
+        channel.basic_ack(ack).await.expect("Failed to ack message");
+        println!("Received message from {}: {}", deliver.consumer_tag(), message);
+
+
+        let received = message.split(":").collect::<Vec<&str>>();
+        let job_fields = received[1].split(",").collect::<Vec<&str>>();
+        let reply = format!("Name:{}, Operation:{} done", job_fields[1], job_fields[0]);
+
+        channel.basic_publish(
+            BasicProperties::default()
+                .with_reply_to(reply_to.clone().as_str()).finish(),
+            reply.clone().into_bytes(),
+            BasicPublishArguments::new(deliver.exchange(), &reply_to),
+        ).await.expect("Failed to publish reply message");
+
+        let routing_key = "log";
+
+        let args = BasicPublishArguments::new(deliver.exchange(), routing_key);
+
+        channel
+            .basic_publish(BasicProperties::default(), reply.clone().into_bytes(), args.clone())
+            .await
+            .expect("Error while logging message");
+
+        channel
+            .basic_publish(BasicProperties::default(), format!("Sent by {}, content: {}", deliver.consumer_tag(), message).into_bytes(), args.clone())
+            .await
+            .expect("Error while logging message");
+    }
+}
+
+#[async_trait]
+impl AsyncConsumer for LoggingConsumer {
+    async fn consume(&mut self, channel: &Channel, deliver: Deliver, _basic_properties: BasicProperties, content: Vec<u8>) {
+        let message: String = String::from_utf8(content.clone()).unwrap();
+        let ack = BasicAckArguments::new(deliver.delivery_tag(), self.ack);
+
+        channel.basic_ack(ack).await.expect("Failed to ack message");
+        println!("Received message: {}", message);
+
+        let routing_key = "log";
+
+        let args = BasicPublishArguments::new(deliver.exchange(), routing_key);
+
+        channel
+            .basic_publish(BasicProperties::default(), format!("Sent by {}, content: {}", deliver.consumer_tag(), message).into_bytes(), args)
+            .await
+            .expect("Error while logging message");
     }
 }
 
@@ -109,6 +187,7 @@ impl AsyncConsumer for AckConsumer {
         println!("Received message: {}", message);
     }
 }
+
 
 pub struct Server {
     pub connection: Connection,
@@ -169,6 +248,18 @@ impl Server {
         channel.basic_qos(args).await?;
         Ok(())
     }
+
+    pub async fn disable_qos(&mut self) -> Result<(), amqprs::error::Error> {
+        let args = channel::BasicQosArguments {
+            prefetch_size: 0,
+            prefetch_count: 0,
+            global: false,
+        };
+
+        self.channel.basic_qos(args).await?;
+        Ok(())
+    }
+
     pub async fn close(&mut self) -> Result<(), amqprs::error::Error> {
         todo!("Close the connection")
     }
@@ -198,7 +289,7 @@ impl Server {
         Ok(())
     }
 
-    pub async fn bind_consuming_with_reply(&mut self, queue_names: Vec<String>) -> Result<(), amqprs::error::Error> {
+    pub async fn bind_consuming_with_reply(&mut self, queue_names: Vec<String>, logging: bool) -> Result<(), amqprs::error::Error> {
         for queue_name in queue_names {
             let random_tag = format!("consumer_tag_{}", rand::random::<u32>());
             let args = BasicConsumeArguments::new(
@@ -206,12 +297,16 @@ impl Server {
                 random_tag.as_str(),
             );
 
-            self.channel.basic_consume(AckConsumerWithReply::new(), args).await?;
+            if logging {
+                self.channel.basic_consume(LoggingConsumerWithReply::new(), args).await?;
+            } else {
+                self.channel.basic_consume(AckConsumerWithReply::new(), args).await?;
+            }
         }
         Ok(())
     }
 
-    pub async fn bind_consuming(&mut self, queue_names: Vec<String>) -> Result<(), amqprs::error::Error> {
+    pub async fn bind_consuming(&mut self, queue_names: Vec<String>, logging: bool) -> Result<(), amqprs::error::Error> {
         for queue_name in queue_names {
             let random_tag = format!("consumer_tag_{}", rand::random::<u32>());
             let args = BasicConsumeArguments::new(
@@ -219,7 +314,11 @@ impl Server {
                 random_tag.as_str(),
             );
 
-            self.channel.basic_consume(AckConsumer::new(), args).await?;
+            if logging {
+                self.channel.basic_consume(LoggingConsumer::new(), args).await?;
+            } else {
+                self.channel.basic_consume(AckConsumer::new(), args).await?;
+            }
         }
         Ok(())
     }

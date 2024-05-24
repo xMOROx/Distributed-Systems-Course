@@ -47,7 +47,8 @@ async fn program_loop(server: &mut Server, doctor_name: String) {
 
         println!("Sending message: {}", message);
         let operation: String = operation.into();
-        server.publish_with_reply(doctor_name.as_str(), operation.as_str(), doctor_name.as_str(), message).await.expect("TODO: panic message");
+        server.publish_with_reply(doctor_name.as_str(), operation.as_str(), doctor_name.as_str(), message)
+            .await.expect("Publish failed");
 
         tokio::time::sleep(tokio::time::Duration::from_secs(SLEEP_TIME)).await;
     }
@@ -67,11 +68,15 @@ async fn init() -> Init {
     let mut names_of_queues: Vec<String> = names_of_queues.iter().map(|&operation| operation.into()).collect();
 
     names_of_queues.push(doctor_name.clone());
+    names_of_queues.push("log".to_string());
 
     server.bind_to_queues_exchange(doctor_name.as_str(), names_of_queues.clone())
         .await.expect("Binding queues to exchange failed");
 
-    server.bind_consuming(vec![doctor_name.clone()])
+    server.bind_consuming(vec![doctor_name.clone()], true)
+        .await.expect("Binding consuming failed");
+
+    server.bind_consuming(vec!["info".to_string()], false)
         .await.expect("Binding consuming failed");
 
     Init {
