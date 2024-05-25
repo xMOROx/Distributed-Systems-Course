@@ -102,7 +102,7 @@ impl AsyncConsumer for AckConsumerWithReply {
         println!("Replying to: {}", reply_to);
 
         channel.basic_ack(ack).await.expect("Failed to ack message");
-        println!("Received message: {}", message);
+        println!("[=] Received message: {}", message);
 
 
         let received = message.split(":").collect::<Vec<&str>>();
@@ -127,7 +127,7 @@ impl AsyncConsumer for LoggingConsumerWithReply {
         println!("Replying to: {}", reply_to);
 
         channel.basic_ack(ack).await.expect("Failed to ack message");
-        println!("Received message from {}: {}", deliver.consumer_tag(), message);
+        println!("[+] Received message from {}: {}", deliver.consumer_tag(), message);
 
 
         let received = message.split(":").collect::<Vec<&str>>();
@@ -164,7 +164,7 @@ impl AsyncConsumer for LoggingConsumer {
         let ack = BasicAckArguments::new(deliver.delivery_tag(), self.ack);
 
         channel.basic_ack(ack).await.expect("Failed to ack message");
-        println!("Received message: {}", message);
+        println!("[*] Received message: {}", message);
 
         let routing_key = "log";
 
@@ -184,7 +184,7 @@ impl AsyncConsumer for AckConsumer {
         let ack = BasicAckArguments::new(deliver.delivery_tag(), self.ack);
 
         channel.basic_ack(ack).await.expect("Failed to ack message");
-        println!("Received message: {}", message);
+        println!("[-] Received message: {}", message);
     }
 }
 
@@ -287,6 +287,33 @@ impl Server {
         }
 
         Ok(())
+    }
+
+    pub async fn create_temporary_queue(&mut self) -> Result<String, amqprs::error::Error> {
+        let args = QueueDeclareArguments::new("")
+            .durable(false)
+            .exclusive(true)
+            .auto_delete(true)
+            .finish();
+
+        let queue_name = if let Some((queue_name, _, _)) = self.channel.queue_declare(args).await? {
+            queue_name
+        } else {
+            Err(amqprs::error::Error::ChannelUseError("Failed to declare queue".to_string()))?
+        };
+
+        Ok(queue_name)
+    }
+
+    pub async fn bind_queue(&mut self, queue_name: &str, exchange_name: &str, routing_key: &str) -> Result<(), amqprs::error::Error> {
+        let args = QueueBindArguments::new(queue_name, exchange_name, routing_key);
+        self.channel.queue_bind(args).await
+    }
+
+    pub async fn bind_consume(&mut self, queue_name: &str) {
+        let args = BasicConsumeArguments::new(queue_name, "consumer_tag");
+
+        self.channel.basic_consume(AckConsumer::new(), args).await.expect("Failed to bind consuming");
     }
 
     pub async fn bind_consuming_with_reply(&mut self, queue_names: Vec<String>, logging: bool) -> Result<(), amqprs::error::Error> {

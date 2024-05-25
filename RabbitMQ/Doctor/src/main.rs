@@ -7,6 +7,7 @@ use rand::Rng;
 const DOCTOR_NAME: &str = "DOCTOR ";
 const SLEEP_TIME: u64 = 1;
 const MAX_IDS: u64 = 1_000_000;
+const INFO_EXCHANGE: &str = "info";
 
 struct Init {
     server: Server,
@@ -76,8 +77,18 @@ async fn init() -> Init {
     server.bind_consuming(vec![doctor_name.clone()], true)
         .await.expect("Binding consuming failed");
 
-    server.bind_consuming(vec!["info".to_string()], false)
-        .await.expect("Binding consuming failed");
+    server.declare_exchange(INFO_EXCHANGE, ExchangeType::Fanout)
+        .await.expect("Failed to declare exchange");
+
+    let queue = server.create_temporary_queue()
+        .await.expect("Failed to declare queue");
+
+    server.bind_queue(queue.as_str(), INFO_EXCHANGE, "info")
+        .await.expect("Failed to bind queue to exchange");
+
+    server.bind_consume(queue.as_str())
+        .await;
+
 
     Init {
         server,

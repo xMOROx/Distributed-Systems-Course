@@ -12,6 +12,7 @@ struct Init {
 }
 
 const TECHNICIAN_NAME: &str = "TECHNICIAN ";
+const INFO_EXCHANGE: &str = "info";
 const MAX_IDS: usize = 1_000_000;
 
 fn enter_operations(expected_size_of_queues: usize) -> Vec<String> {
@@ -61,7 +62,7 @@ fn enter_operations(expected_size_of_queues: usize) -> Vec<String> {
 
 async fn init() -> Init {
     let connection_request = ConnectionBuilder::new().build();
-    let mut names_of_queues = enter_operations(2);
+    let names_of_queues = enter_operations(2);
 
     let mut server = Server::build(connection_request).await;
     let mut rng = rand::thread_rng();
@@ -75,14 +76,24 @@ async fn init() -> Init {
     server.declare_exchange(technician_name.as_str(), ExchangeType::Direct)
         .await.expect("Failed to declare exchange");
 
+    server.declare_exchange(INFO_EXCHANGE, ExchangeType::Fanout)
+        .await.expect("Failed to declare exchange");
+
+    let queue = server.create_temporary_queue()
+        .await.expect("Failed to declare queue");
+
+    server.bind_queue(queue.as_str(), INFO_EXCHANGE, "info")
+        .await.expect("Failed to bind queue to exchange");
+
+    server.bind_consume(queue.as_str())
+        .await;
+
     server.bind_to_queues_exchange(technician_name.as_str(), vec![names_of_queues[0].clone(), names_of_queues[1].clone(), "log".to_string()])
         .await.expect("Failed to bind to exchange");
 
     server.bind_consuming_with_reply(names_of_queues.clone(), true)
         .await.expect("Failed to bind consuming");
 
-    server.bind_consuming(vec![String::from("log")], false)
-        .await.expect("Failed to bind consuming");
 
     Init {
         server,
