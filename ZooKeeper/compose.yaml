@@ -1,0 +1,9 @@
+services:
+  zookeeper-server:
+    build:
+      context: ./conf
+      dockerfile: Dockerfile
+    container_name: zookeeper-server
+    restart: always
+    ports:
+      - '2181:2181'
